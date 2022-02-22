@@ -11,7 +11,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-            <title>Delta</title>
+            <title>Delta | Diario online líder de información en español</title>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
