@@ -89,6 +89,6 @@ public class beanRegister {
         } catch (Exception ex) {
             Logger.getLogger(beanRegister.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "false";
+        return "volver";
     }
 }

@@ -27,6 +27,9 @@
                 <h:commandButton action="#{beanLogin.esUsuario()}" value="Login"/>
             </h:form>
                 
+                
+                <h4><h:outputText value="#{beanLogin.error}" /></h4> 
+                
             <h:form>
                 <label>EMAIL: </label> <h:inputText required="" value="#{beanRegister.email}"/><br>
                 <label>Fecha Nacimiento: </label> <h:inputText styleClass="fecha" required="" value="#{beanRegister.fecha_naci}"/><br>
@@ -36,6 +39,10 @@
                 <label>CONTRASEÑA: </label> <h:inputSecret required="" value="#{beanRegister.passwd}"/><br>
                 <h:commandButton action="#{beanRegister.guardarUsuario()}" value="Registrar"/>
             </h:form>
+                
+                   
+                
+                
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
         </body>
     </html>
