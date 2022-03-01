@@ -6,6 +6,7 @@ import com.daw.delta.DAO.OpinionJpaController;
 import com.daw.delta.DAO.RespuestasJpaController;
 import com.daw.delta.DAO.SubcategoriasJpaController;
 import com.daw.delta.DAO.UsuarioJpaController;
+import com.daw.delta.DTO.Usuario;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -20,6 +21,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESedeKeySpec;
+import javax.faces.bean.ManagedProperty;
 import org.apache.commons.codec.binary.Base64;
 
 
@@ -42,6 +44,9 @@ public class Utilidades  {
     private final Cipher cipher;
     SecretKey key;
 
+    @ManagedProperty("#{beanLogin.email}")
+    private String mail;
+    
     public Utilidades() throws InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, UnsupportedEncodingException {
         this.arrayBytes = myEncryptionKey.getBytes(UNICODE_FORMAT);
         this.ks = new DESedeKeySpec(arrayBytes);
@@ -61,6 +66,14 @@ public class Utilidades  {
         return ctrOpinion;
     }
 
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+    
     public RespuestasJpaController getCtrRespuestas() {
         return ctrRespuestas;
     }
@@ -96,5 +109,9 @@ public class Utilidades  {
         } catch (InvalidKeyException | BadPaddingException | IllegalBlockSizeException e) {
         }
         return decryptedText;
+    }
+    
+    public Usuario cuenta() {
+        return ctrUsuario.findUsuario(mail);
     }
 }

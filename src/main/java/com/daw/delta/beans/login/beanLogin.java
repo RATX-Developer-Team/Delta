@@ -61,13 +61,11 @@ public class beanLogin {
                             return "true";
                         } else {
                             return error = "Contraseña Errónea";
-                            //return "volver";
                         }
                     }
                 }
             } else {
                 return error="Email y Contraseña Incorrectos";
-                //return "volver";
             }
         } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException | UnsupportedEncodingException ex) {
             Logger.getLogger(beanLogin.class.getName()).log(Level.SEVERE, null, ex);
