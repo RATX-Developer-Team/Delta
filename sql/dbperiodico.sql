@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Versión del servidor:         10.4.21-MariaDB - mariadb.org binary distribution
--- SO del servidor:              Win64
--- HeidiSQL Versión:             11.3.0.6295
+-- Server version:               10.4.17-MariaDB - mariadb.org binary distribution
+-- Server OS:                    Win64
+-- HeidiSQL Version:             11.0.0.5919
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -10,14 +10,13 @@
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Volcando estructura de base de datos para dbperiodico
+-- Dumping database structure for dbperiodico
 CREATE DATABASE IF NOT EXISTS `dbperiodico` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `dbperiodico`;
 
--- Volcando estructura para tabla dbperiodico.articulo
+-- Dumping structure for table dbperiodico.articulo
 CREATE TABLE IF NOT EXISTS `articulo` (
   `cod_art` int(11) NOT NULL AUTO_INCREMENT,
   `cod_usuario` int(11) NOT NULL,
@@ -35,26 +34,24 @@ CREATE TABLE IF NOT EXISTS `articulo` (
   CONSTRAINT `articulo_ibfk_3` FOREIGN KEY (`cod_art`) REFERENCES `opinion` (`cod_art`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla dbperiodico.articulo: ~1 rows (aproximadamente)
+-- Dumping data for table dbperiodico.articulo: ~0 rows (approximately)
 /*!40000 ALTER TABLE `articulo` DISABLE KEYS */;
-INSERT INTO `articulo` (`cod_art`, `cod_usuario`, `cod_categoria`, `titular`, `cuerpoNoticia`, `fecha_publi`, `n_visitas`, `prioridadBase`) VALUES
-	(1, 1, 1, 'Prueba Titular', 'Prueba cuerpo', '2022-02-01', 2, 0);
 /*!40000 ALTER TABLE `articulo` ENABLE KEYS */;
 
--- Volcando estructura para tabla dbperiodico.categorias
+-- Dumping structure for table dbperiodico.categorias
 CREATE TABLE IF NOT EXISTS `categorias` (
   `cod_categoria` int(11) NOT NULL AUTO_INCREMENT,
   `categoria` varchar(255) NOT NULL,
   PRIMARY KEY (`cod_categoria`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla dbperiodico.categorias: ~0 rows (aproximadamente)
+-- Dumping data for table dbperiodico.categorias: ~0 rows (approximately)
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
 INSERT INTO `categorias` (`cod_categoria`, `categoria`) VALUES
 	(1, 'Deportes');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 
--- Volcando estructura para tabla dbperiodico.opinion
+-- Dumping structure for table dbperiodico.opinion
 CREATE TABLE IF NOT EXISTS `opinion` (
   `cod_opinion` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
@@ -69,15 +66,11 @@ CREATE TABLE IF NOT EXISTS `opinion` (
   CONSTRAINT `opinion_ibfk_2` FOREIGN KEY (`cod_art`) REFERENCES `articulo` (`cod_art`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla dbperiodico.opinion: ~3 rows (aproximadamente)
+-- Dumping data for table dbperiodico.opinion: ~3 rows (approximately)
 /*!40000 ALTER TABLE `opinion` DISABLE KEYS */;
-INSERT INTO `opinion` (`cod_opinion`, `email`, `cod_art`, `hora`, `fecha_publi`, `contenido`) VALUES
-	(1, 'admin@admin.es', 1, '19:55:14', '2022-02-07', 'Prueba Respuesta'),
-	(2, 'admin@admin.es', 1, '19:55:28', '2022-02-07', 'Prueba Respuesta2'),
-	(3, 'admin@admin.es', 1, '19:55:28', '2022-02-07', 'Prueba Respuesta3');
 /*!40000 ALTER TABLE `opinion` ENABLE KEYS */;
 
--- Volcando estructura para tabla dbperiodico.respuestas
+-- Dumping structure for table dbperiodico.respuestas
 CREATE TABLE IF NOT EXISTS `respuestas` (
   `cod_respuesta` int(11) NOT NULL AUTO_INCREMENT,
   `cod_opinion` int(11) NOT NULL DEFAULT 0,
@@ -89,13 +82,11 @@ CREATE TABLE IF NOT EXISTS `respuestas` (
   CONSTRAINT `respuestas_ibfk_2` FOREIGN KEY (`cod_engancha`) REFERENCES `opinion` (`cod_opinion`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla dbperiodico.respuestas: ~1 rows (aproximadamente)
+-- Dumping data for table dbperiodico.respuestas: ~0 rows (approximately)
 /*!40000 ALTER TABLE `respuestas` DISABLE KEYS */;
-INSERT INTO `respuestas` (`cod_respuesta`, `cod_opinion`, `cod_engancha`) VALUES
-	(1, 3, 1);
 /*!40000 ALTER TABLE `respuestas` ENABLE KEYS */;
 
--- Volcando estructura para tabla dbperiodico.subcategorias
+-- Dumping structure for table dbperiodico.subcategorias
 CREATE TABLE IF NOT EXISTS `subcategorias` (
   `cod_subcategoria` int(11) NOT NULL AUTO_INCREMENT,
   `cod_categoria` int(11) NOT NULL DEFAULT 0,
@@ -105,14 +96,14 @@ CREATE TABLE IF NOT EXISTS `subcategorias` (
   CONSTRAINT `subcategorias_ibfk_1` FOREIGN KEY (`cod_categoria`) REFERENCES `categorias` (`cod_categoria`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla dbperiodico.subcategorias: ~2 rows (aproximadamente)
+-- Dumping data for table dbperiodico.subcategorias: ~2 rows (approximately)
 /*!40000 ALTER TABLE `subcategorias` DISABLE KEYS */;
 INSERT INTO `subcategorias` (`cod_subcategoria`, `cod_categoria`, `nombre`) VALUES
 	(1, 1, 'Baloncesto'),
 	(2, 1, 'Futbol');
 /*!40000 ALTER TABLE `subcategorias` ENABLE KEYS */;
 
--- Volcando estructura para tabla dbperiodico.usuario
+-- Dumping structure for table dbperiodico.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
   `email` varchar(255) NOT NULL DEFAULT 'admin@admin.es',
   `cod_usuario` int(11) NOT NULL AUTO_INCREMENT,
@@ -121,19 +112,18 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `nombre` varchar(255) NOT NULL,
   `apellidos` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `permiso` int(11) DEFAULT NULL,
+  `permiso` int(11) DEFAULT 0,
   PRIMARY KEY (`email`),
   UNIQUE KEY `cod_usuario` (`cod_usuario`),
   KEY `cod_usuario_2` (`cod_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla dbperiodico.usuario: ~0 rows (aproximadamente)
+-- Dumping data for table dbperiodico.usuario: ~0 rows (approximately)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` (`email`, `cod_usuario`, `fecha_nacimiento`, `pais`, `nombre`, `apellidos`, `password`, `permiso`) VALUES
-	('admin@admin.es', 1, '2000-01-07', 'España', 'Alejandro', 'Mendoza', '123', 2);
+	('prueba@gmail.com', 5, '2022-03-09', 'USA', 'Prueba', 'Admin', 'YAgIFasDMz4=', NULL);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
