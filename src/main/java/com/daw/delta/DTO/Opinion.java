@@ -16,7 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -62,8 +61,6 @@ public class Opinion implements Serializable {
     private List<Respuestas> respuestasList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codEngancha", fetch = FetchType.LAZY)
     private List<Respuestas> respuestasList1;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "opinion", fetch = FetchType.LAZY)
-    private Articulo articulo;
     @JoinColumn(name = "email", referencedColumnName = "email")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Usuario email;
@@ -133,14 +130,6 @@ public class Opinion implements Serializable {
 
     public void setRespuestasList1(List<Respuestas> respuestasList1) {
         this.respuestasList1 = respuestasList1;
-    }
-
-    public Articulo getArticulo() {
-        return articulo;
-    }
-
-    public void setArticulo(Articulo articulo) {
-        this.articulo = articulo;
     }
 
     public Usuario getEmail() {

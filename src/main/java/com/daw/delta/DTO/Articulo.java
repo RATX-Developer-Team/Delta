@@ -16,7 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,6 +23,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import com.daw.delta.utils.Utilidades;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.crypto.NoSuchPaddingException;
 
 
 @Entity
@@ -72,9 +79,6 @@ public class Articulo implements Serializable {
     @JoinColumn(name = "cod_usuario", referencedColumnName = "cod_usuario")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Usuario codUsuario;
-    @JoinColumn(name = "cod_art", referencedColumnName = "cod_art", insertable = false, updatable = false)
-    @OneToOne(optional = false, fetch = FetchType.LAZY)
-    private Opinion opinion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codArt", fetch = FetchType.LAZY)
     private List<Opinion> opinionList;
 
@@ -157,14 +161,6 @@ public class Articulo implements Serializable {
         this.codUsuario = codUsuario;
     }
 
-    public Opinion getOpinion() {
-        return opinion;
-    }
-
-    public void setOpinion(Opinion opinion) {
-        this.opinion = opinion;
-    }
-
     @XmlTransient
     public List<Opinion> getOpinionList() {
         return opinionList;
@@ -183,6 +179,7 @@ public class Articulo implements Serializable {
 
     @Override
     public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Articulo)) {
             return false;
         }
@@ -192,7 +189,22 @@ public class Articulo implements Serializable {
 
     @Override
     public String toString() {
-        return "com.daw.delta.DTO.Articulo[ codArt=" + codArt + " ]";
+        try {
+            Utilidades utils_ = new Utilidades();
+            return "{" +
+                    "codArt='" + codArt + '\'' +
+                    ", codUsuario='" + codUsuario.getCodUsuario() + '\'' +
+                    ", codCategoria='" + codCategoria.getCodCategoria() + '\'' +
+                    ", titular='" + titular + '\'' +
+                    ", cuerpoNoticia='" + cuerpoNoticia + '\'' +
+                    ", fechaPubli='" + fechaPubli.toLocaleString() + '\'' +
+                    ", nVisitas='" + nVisitas + '\'' +
+                    ", prioridad='" + utils_.calculaPrioridad(this) + '\'' +
+                    '}';
+        } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException | UnsupportedEncodingException ex) {
+            Logger.getLogger(Articulo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "null";
     }
 
 }

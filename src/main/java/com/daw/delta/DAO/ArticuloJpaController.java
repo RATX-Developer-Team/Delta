@@ -28,23 +28,9 @@ public class ArticuloJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Articulo articulo) throws IllegalOrphanException {
+    public void create(Articulo articulo) {
         if (articulo.getOpinionList() == null) {
             articulo.setOpinionList(new ArrayList<Opinion>());
-        }
-        List<String> illegalOrphanMessages = null;
-        Opinion opinionOrphanCheck = articulo.getOpinion();
-        if (opinionOrphanCheck != null) {
-            Articulo oldArticuloOfOpinion = opinionOrphanCheck.getArticulo();
-            if (oldArticuloOfOpinion != null) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("The Opinion " + opinionOrphanCheck + " already has an item of type Articulo whose opinion column cannot be null. Please make another selection for the opinion field.");
-            }
-        }
-        if (illegalOrphanMessages != null) {
-            throw new IllegalOrphanException(illegalOrphanMessages);
         }
         EntityManager em = null;
         try {
@@ -60,11 +46,6 @@ public class ArticuloJpaController implements Serializable {
                 codUsuario = em.getReference(codUsuario.getClass(), codUsuario.getEmail());
                 articulo.setCodUsuario(codUsuario);
             }
-            Opinion opinion = articulo.getOpinion();
-            if (opinion != null) {
-                opinion = em.getReference(opinion.getClass(), opinion.getCodOpinion());
-                articulo.setOpinion(opinion);
-            }
             List<Opinion> attachedOpinionList = new ArrayList<Opinion>();
             for (Opinion opinionListOpinionToAttach : articulo.getOpinionList()) {
                 opinionListOpinionToAttach = em.getReference(opinionListOpinionToAttach.getClass(), opinionListOpinionToAttach.getCodOpinion());
@@ -79,10 +60,6 @@ public class ArticuloJpaController implements Serializable {
             if (codUsuario != null) {
                 codUsuario.getArticuloList().add(articulo);
                 codUsuario = em.merge(codUsuario);
-            }
-            if (opinion != null) {
-                opinion.setArticulo(articulo);
-                opinion = em.merge(opinion);
             }
             for (Opinion opinionListOpinion : articulo.getOpinionList()) {
                 Articulo oldCodArtOfOpinionListOpinion = opinionListOpinion.getCodArt();
@@ -111,20 +88,9 @@ public class ArticuloJpaController implements Serializable {
             Categorias codCategoriaNew = articulo.getCodCategoria();
             Usuario codUsuarioOld = persistentArticulo.getCodUsuario();
             Usuario codUsuarioNew = articulo.getCodUsuario();
-            Opinion opinionOld = persistentArticulo.getOpinion();
-            Opinion opinionNew = articulo.getOpinion();
             List<Opinion> opinionListOld = persistentArticulo.getOpinionList();
             List<Opinion> opinionListNew = articulo.getOpinionList();
             List<String> illegalOrphanMessages = null;
-            if (opinionNew != null && !opinionNew.equals(opinionOld)) {
-                Articulo oldArticuloOfOpinion = opinionNew.getArticulo();
-                if (oldArticuloOfOpinion != null) {
-                    if (illegalOrphanMessages == null) {
-                        illegalOrphanMessages = new ArrayList<String>();
-                    }
-                    illegalOrphanMessages.add("The Opinion " + opinionNew + " already has an item of type Articulo whose opinion column cannot be null. Please make another selection for the opinion field.");
-                }
-            }
             for (Opinion opinionListOldOpinion : opinionListOld) {
                 if (!opinionListNew.contains(opinionListOldOpinion)) {
                     if (illegalOrphanMessages == null) {
@@ -143,10 +109,6 @@ public class ArticuloJpaController implements Serializable {
             if (codUsuarioNew != null) {
                 codUsuarioNew = em.getReference(codUsuarioNew.getClass(), codUsuarioNew.getEmail());
                 articulo.setCodUsuario(codUsuarioNew);
-            }
-            if (opinionNew != null) {
-                opinionNew = em.getReference(opinionNew.getClass(), opinionNew.getCodOpinion());
-                articulo.setOpinion(opinionNew);
             }
             List<Opinion> attachedOpinionListNew = new ArrayList<Opinion>();
             for (Opinion opinionListNewOpinionToAttach : opinionListNew) {
@@ -171,14 +133,6 @@ public class ArticuloJpaController implements Serializable {
             if (codUsuarioNew != null && !codUsuarioNew.equals(codUsuarioOld)) {
                 codUsuarioNew.getArticuloList().add(articulo);
                 codUsuarioNew = em.merge(codUsuarioNew);
-            }
-            if (opinionOld != null && !opinionOld.equals(opinionNew)) {
-                opinionOld.setArticulo(null);
-                opinionOld = em.merge(opinionOld);
-            }
-            if (opinionNew != null && !opinionNew.equals(opinionOld)) {
-                opinionNew.setArticulo(articulo);
-                opinionNew = em.merge(opinionNew);
             }
             for (Opinion opinionListNewOpinion : opinionListNew) {
                 if (!opinionListOld.contains(opinionListNewOpinion)) {
@@ -240,11 +194,6 @@ public class ArticuloJpaController implements Serializable {
             if (codUsuario != null) {
                 codUsuario.getArticuloList().remove(articulo);
                 codUsuario = em.merge(codUsuario);
-            }
-            Opinion opinion = articulo.getOpinion();
-            if (opinion != null) {
-                opinion.setArticulo(null);
-                opinion = em.merge(opinion);
             }
             em.remove(articulo);
             em.getTransaction().commit();

@@ -6,6 +6,7 @@ import com.daw.delta.DAO.OpinionJpaController;
 import com.daw.delta.DAO.RespuestasJpaController;
 import com.daw.delta.DAO.SubcategoriasJpaController;
 import com.daw.delta.DAO.UsuarioJpaController;
+import com.daw.delta.DTO.Articulo;
 import com.daw.delta.DTO.Usuario;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
@@ -14,6 +15,7 @@ import java.security.spec.InvalidKeySpecException;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.security.spec.KeySpec;
+import java.util.Date;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -113,5 +115,35 @@ public class Utilidades  {
     
     public Usuario cuenta() {
         return ctrUsuario.findUsuario(mail);
+    }
+    
+    public int calculaPrioridad(Articulo v) {
+        Articulo v_ = v;
+        Date date = new Date();
+        int prioridad = v.getPrioridadBase();
+        
+        int numVisitas = v.getNVisitas();
+        if (numVisitas<10) {
+            prioridad+=5;
+        } else if (numVisitas>10 && numVisitas<20) {
+            prioridad+=10;
+        } else if (numVisitas>20 && numVisitas<30) {
+            prioridad+=15;
+        } else if (numVisitas>30 && numVisitas<50) {
+            prioridad+=20;
+        } else {
+            prioridad+=25;
+        }
+        
+        if (date.before(v_.getFechaPubli())) {
+            prioridad+=5;
+        } else if (date.equals(v_.getFechaPubli())){
+            prioridad+=10;
+        } else if (date.after(v_.getFechaPubli())) {
+            prioridad+=15;
+        }
+        
+        
+        return prioridad;
     }
 }
