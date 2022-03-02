@@ -24,6 +24,12 @@
         <managed-bean-class>com.daw.delta.beans.login.beanLogin</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    
+    <validator>
+        <validator-id>emailValidador</validator-id>
+        <validator-class>com.daw.delta.validator.emailValidator</validator-class>
+   </validator>
+    
     <navigation-rule>
         <from-view-id>/index.jsp</from-view-id>
         <navigation-case>
