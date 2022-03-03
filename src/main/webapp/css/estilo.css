@@ -1,0 +1,124 @@
+.fondo {
+    height: 10px;
+    background-color: #038C8C !important;
+    width: 100vw;
+    margin: 0;
+}
+
+.borde {
+    border-bottom: 1px solid black;
+}
+
+.fondoBarra {
+    background-color: var(--bs-gray-100);
+}
+
+.active {
+    color: #038C8C !important;
+    font-weight: bold !important;
+}
+
+.btn-fondoPer, .btn-fondoPer:hover {
+    color: #fff;
+    background-color: #038C8C;
+    border-color: #038C8C;
+}
+
+.form-control:focus, .navbar-toggler:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #038C8C;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(0, 66, 83, 0.25);
+}
+.usua{
+    font-size: 1.4vmax;
+    color: #038C8C;
+}
+
+
+
+.subs {
+    padding: 13vh 0 13vh;
+    background: linear-gradient(180deg, rgba(255,238,238,0) 0%, rgba(3,140,140,1) 46%);
+}
+
+    .subs .form-subs input {
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1) !important;
+        padding: 20px 32px;
+        height: auto;
+        font-family: "Segoe UI Symbol";
+        font-size: 80%;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: 0;
+    }
+
+    .btn-subs, .btn-subs.disabled {
+        color: #038C8C;
+        background-color: #F2F2F2;
+        border-color: #64a19d;
+        box-shadow: 0 3px 3px 0 rgb(0 0 0 / 10%) !important;
+        padding: 20px 32px;
+        font-family: "Segoe UI Symbol";
+        font-size: 80%;
+        text-transform: uppercase;
+        letter-spacing: 2.4px;
+        border: 0;
+    }
+
+
+.pie{
+    top: -50px;
+}
+
+    .redes ul{
+        display: flex;
+    }
+
+    .redes ul li{
+        list-style: none;
+        margin: 0 15px;
+    }
+
+    .redes ul li .neg{
+        font-size: 30px;
+        line-height: 60px;
+        transition: .3s;
+        color: #000;
+        position: relative;
+        top: 25%;
+    }
+
+    .redes ul li .neg:hover{
+        color: #fff;
+    }
+
+    .redes ul li a{
+        position: relative;
+        display: block;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #fff;
+        text-align: center;
+        transition: .6s;
+        box-shadow: 0 5px 4px rgba(0,0,0,.5);
+    }
+
+    .redes ul li a:hover{
+        transform: translate(0, -10%);
+    }
+
+    .redes ul li:nth-child(1) a:hover{
+        background-color: rgba(0, 0, 0, 0.829);
+    }
+    .redes ul li:nth-child(2) a:hover{
+        background-color: #E4405F;
+    }
+    .redes ul li:nth-child(3) a:hover{
+        background-color: #0077b5;
+    }
+    .redes ul li:nth-child(4) a:hover{
+        background-color: #000;
+    }
