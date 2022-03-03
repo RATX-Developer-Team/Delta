@@ -46,6 +46,11 @@ public class Utilidades  {
     private final Cipher cipher;
     SecretKey key;
 
+    private final String STMP_host = "smtp-mail.outlook.com";
+    private final String STMP_port = "587";
+    private final String STMP_user = "deltacc234@outlook.es";
+    private final String STMP_pass = "NxjzMahP4agq";
+
     @ManagedProperty("#{beanLogin.email}")
     private String mail;
     
@@ -86,6 +91,22 @@ public class Utilidades  {
 
     public UsuarioJpaController getCtrUsuario() {
         return ctrUsuario;
+    }
+
+    public String getSTMP_host() {
+        return STMP_host;
+    }
+
+    public String getSTMP_port() {
+        return STMP_port;
+    }
+
+    public String getSTMP_user() {
+        return STMP_user;
+    }
+
+    public String getSTMP_pass() {
+        return STMP_pass;
     }
         
     public String encrypt(String unencryptedString) {

@@ -1,6 +1,7 @@
 package com.daw.delta.beans.register;
 
 import com.daw.delta.DTO.Usuario;
+import com.daw.delta.utils.EmailUtils;
 import com.daw.delta.utils.Utilidades;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -83,6 +84,9 @@ public class beanRegister {
                     utils_.encrypt(passwd)
             );
             utils_.getCtrUsuario().create(v);
+            String motivo = "Bienvenido a Delta | Periodico Digital";
+            String contenido = "Le damos la bienvenida a la nueva cuenta de Delta.com. Delta le permite mantenerse informado, en el trabajo, en casa y en cualquier otro lugar.";
+            EmailUtils.enviarMail(utils_.getSTMP_host(), utils_.getSTMP_port(), utils_.getSTMP_user(), utils_.getSTMP_pass(), email, motivo, contenido);
             return "true";
         } catch (ParseException ex) {
             Logger.getLogger(beanRegister.class.getName()).log(Level.SEVERE, null, ex);
