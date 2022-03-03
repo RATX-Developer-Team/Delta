@@ -15,10 +15,15 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+            <script src="./js/lib/owl.carousel.min.js"></script>
+            <script src="./js/utilidades.js"></script>
+            <script src="./js/index.js"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"/>
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css"/>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-            <link rel="stylesheet" href="css/estilo.css"/>
+            <link rel="stylesheet" href="./css/lib/owl.carousel.min.css"/>
+            <link rel="stylesheet" href="./css/lib/owl.theme.default.min.css"/>
+            <link rel="stylesheet" href="./css/estilo.css"/>
         </head>
         <body>
             <div class="sticky-top contaier-fuild">
@@ -28,7 +33,7 @@
                     <div class="container-fluid">
                         <nav class="navbar bg-transparent navbar-light">
                             <div class="container-fluid d-flex flex-row">
-                                <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapsibleNavbar">
                                     <span class="navbar-toggler-icon m-auto "></span>
                                 </button>
@@ -38,7 +43,7 @@
                                         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="fa-solid fa-user usua"></i>
                                         </a>
-                                        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+                                        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                             <li><a class="dropdown-item" href="#">New project...</a></li>
                                             <li><a class="dropdown-item" href="#">Settings</a></li>
                                             <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -52,28 +57,118 @@
                                 </div>
                                 <div class="collapse navbar-collapse justify-content-between" id="collapsibleNavbar">
                                     <ul class="navbar-nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" href="#">Inicio</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Productos</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Contactar</a>
-                                        </li>
+                                        <div class="container-fluid d-flex flex-row categorias justify-content-center">
+                                        </div>
                                     </ul>
                                 </div>
                             </div>
                         </nav>
                     </div>
                 </header>
+                <div class="row fondo2">
+                </div>
             </div>
             <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="owl-carousel owl-theme owl-loaded owl-drag" id="main-banner-carousel">
+                                <div class="owl-stage-outer">
+                                    <div class="owl-stage cargaPrinci" style="transform: translate3d(-3650px, 0px, 0px); transition: all 2s ease 0s; width: 5840px;">
+
+                                    </div>
+                                </div>
+                                <div class="owl-nav disabled">
+                                    <button type="button" role="presentation" class="owl-prev">
+                                        <span aria-label="Previous">‹</span>
+                                    </button>
+                                    <button type="button" role="presentation" class="owl-next">
+                                        <span aria-label="Next">›</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-sm-6">
+                            <div class="py-3 border-bottom">
+                                <div class="d-flex align-items-center pb-2">
+                                <img src="assets/images/dashboard/Profile_1.jpg" class="img-xs img-rounded mr-2" alt="thumb">
+                                <span class="fs-12 text-muted">Henry Itondo</span>
+                                </div>
+                                <p class="fs-14 m-0 font-weight-medium line-height-sm">
+                                The Most And Least Visited Countries In The World
+                                </p>
+                            </div>
+                            </div>
+                            <div class="col-sm-6">
+                            <div class="py-3 border-bottom">
+                                <div class="d-flex align-items-center pb-2">
+                                <img src="assets/images/dashboard/Profile_2.jpg" class="img-xs img-rounded mr-2" alt="thumb">
+                                <span class="fs-12 text-muted">Oka Tomoaki</span>
+                                </div>
+                                <p class="fs-14 m-0 font-weight-medium line-height-sm">
+                                The Best Places to Travel in month August
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                            <div class="pt-4 pb-4 border-bottom">
+                                <div class="d-flex align-items-center pb-2">
+                                <img src="assets/images/dashboard/Profile_2.jpg" class="img-xs img-rounded mr-2" alt="thumb">
+                                <span class="fs-12 text-muted">Joana Leite</span>
+                                </div>
+                                <p class="fs-14 m-0 font-weight-medium line-height-sm">
+                                Focus On Fun And Challenging Lifetime Activities
+                                </p>
+                            </div>
+                            </div>
+                            <div class="col-sm-6">
+                            <div class="pt-3 pb-4 border-bottom">
+                                <div class="d-flex align-items-center pb-2">
+                                <img src="assets/images/dashboard/Profile_4.jpg" class="img-xs img-rounded mr-2" alt="thumb">
+                                <span class="fs-12 text-muted">Rita Leite</span>
+                                </div>
+                                <p class="fs-14 m-0 font-weight-medium line-height-sm">
+                                Bread Is The Most Widely Consumed Food In The World
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                            <div class="pt-4 pb-4">
+                                <div class="d-flex align-items-center pb-2">
+                                <img src="assets/images/dashboard/Profile_5.jpg" class="img-xs img-rounded mr-2" alt="thumb">
+                                <span class="fs-12 text-muted">Jurrien Oldhof</span>
+                                </div>
+                                <p class="fs-14 m-0 font-weight-medium line-height-sm">
+                                What Is Music, And What Does It Mean To Us
+                                </p>
+                            </div>
+                            </div>
+                            <div class="col-sm-6">
+                            <div class="pt-3 pb-4">
+                                <div class="d-flex align-items-center pb-2">
+                                <img src="assets/images/dashboard/Profile_6.jpg" class="img-xs img-rounded mr-2" alt="thumb">
+                                <span class="fs-12 text-muted">Yamaha Toshinobu</span>
+                                </div>
+                                <p class="fs-14 m-0 font-weight-medium line-height-sm">
+                                Is Breakfast The Most Important Meal Of The Day
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
                 <h:form>
                     <h:commandButton value="Iniciar sesión" action="alta"/>
                 </h:form>
             </div>
-            <footer class="position-absolute bottom-0 vw-100">
+            <footer class="bd-footer vw-100">
                 <section class="subs" id="signup">
                     <div class="container px-4 px-lg-5">
                         <div class="row gx-4 gx-lg-5">

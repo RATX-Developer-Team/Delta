@@ -5,6 +5,22 @@
     margin: 0;
 }
 
+.carousel-content-wrapper .carousel-content {
+    width: 75%;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    color: #ffffff;
+}
+
+.fondo2 {
+    height: 2px;
+    display: none;
+    background-color: #038C8C !important;
+    width: 0vw;
+    margin: 0;
+}
+
 .borde {
     border-bottom: 1px solid black;
 }

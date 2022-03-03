@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class response extends HttpServlet {
-    private final JSONObject obj = new JSONObject();
+    private JSONObject obj = new JSONObject();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             Utilidades utils_ = new Utilidades();
@@ -29,12 +29,14 @@ public class response extends HttpServlet {
             String articulo = request.getParameter("articulo");
             if (categorias!=null) {
                 if (categorias.equals("todas")) {
+                    obj = new JSONObject();
                     List<Categorias> v = utils_.getCtrCategorias().findCategoriasEntities();
                     for (Categorias k:v) {
                         Categorias x = k;
                         obj.put(x.getCodCategoria()+"", x.getCategoria());
                     }
                 } else if(categorias.equals("sub")) {
+                    obj = new JSONObject();
                     List<Subcategorias> v = utils_.getCtrSubcategorias().findSubcategoriasEntities();
                     for (Subcategorias k:v) {
                         Subcategorias x = k;
@@ -45,12 +47,14 @@ public class response extends HttpServlet {
                 }
             } else if (articulo!=null) {
                 if (articulo.equals("todos")) {
+                    obj = new JSONObject();
                     List<Articulo> v = utils_.getCtrArticulo().findArticuloEntities();
                     for (Articulo k:v) {
                         Articulo x = k;                        
                         obj.put(x.getCodArt()+"", x.toString());
                     }
                 } else {
+                    obj = new JSONObject();
                     Articulo x = utils_.getCtrArticulo().findArticulo(Integer.parseInt(articulo));
                     obj.put(x.getCodArt()+"", x.toString());
                 }
@@ -61,6 +65,7 @@ public class response extends HttpServlet {
             response.setCharacterEncoding("UTF-8");
             out.print(obj.toString());
             out.flush();
+            obj = new JSONObject();
         } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException | UnsupportedEncodingException ex) {
             Logger.getLogger(response.class.getName()).log(Level.SEVERE, null, ex);
         }

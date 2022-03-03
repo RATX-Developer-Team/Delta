@@ -1,8 +1,16 @@
 package com.daw.delta.DTO;
 
+import com.daw.delta.utils.Utilidades;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.crypto.NoSuchPaddingException;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,14 +31,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import com.daw.delta.utils.Utilidades;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.crypto.NoSuchPaddingException;
 
 
 @Entity
@@ -41,6 +41,7 @@ import javax.crypto.NoSuchPaddingException;
     @NamedQuery(name = "Articulo.findByCodArt", query = "SELECT a FROM Articulo a WHERE a.codArt = :codArt"),
     @NamedQuery(name = "Articulo.findByTitular", query = "SELECT a FROM Articulo a WHERE a.titular = :titular"),
     @NamedQuery(name = "Articulo.findByCuerpoNoticia", query = "SELECT a FROM Articulo a WHERE a.cuerpoNoticia = :cuerpoNoticia"),
+    @NamedQuery(name = "Articulo.findByImagen", query = "SELECT a FROM Articulo a WHERE a.imagen = :imagen"),
     @NamedQuery(name = "Articulo.findByFechaPubli", query = "SELECT a FROM Articulo a WHERE a.fechaPubli = :fechaPubli"),
     @NamedQuery(name = "Articulo.findByNVisitas", query = "SELECT a FROM Articulo a WHERE a.nVisitas = :nVisitas"),
     @NamedQuery(name = "Articulo.findByPrioridadBase", query = "SELECT a FROM Articulo a WHERE a.prioridadBase = :prioridadBase")})
@@ -62,6 +63,11 @@ public class Articulo implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "cuerpoNoticia")
     private String cuerpoNoticia;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "imagen")
+    private String imagen;
     @Basic(optional = false)
     @NotNull
     @Column(name = "fecha_publi")
@@ -89,10 +95,11 @@ public class Articulo implements Serializable {
         this.codArt = codArt;
     }
 
-    public Articulo(Integer codArt, String titular, String cuerpoNoticia, Date fechaPubli, int prioridadBase) {
+    public Articulo(Integer codArt, String titular, String cuerpoNoticia, String imagen, Date fechaPubli, int prioridadBase) {
         this.codArt = codArt;
         this.titular = titular;
         this.cuerpoNoticia = cuerpoNoticia;
+        this.imagen = imagen;
         this.fechaPubli = fechaPubli;
         this.prioridadBase = prioridadBase;
     }
@@ -119,6 +126,14 @@ public class Articulo implements Serializable {
 
     public void setCuerpoNoticia(String cuerpoNoticia) {
         this.cuerpoNoticia = cuerpoNoticia;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public Date getFechaPubli() {
@@ -192,14 +207,15 @@ public class Articulo implements Serializable {
         try {
             Utilidades utils_ = new Utilidades();
             return "{" +
-                    "codArt='" + codArt + '\'' +
-                    ", codUsuario='" + codUsuario.getCodUsuario() + '\'' +
-                    ", codCategoria='" + codCategoria.getCodCategoria() + '\'' +
-                    ", titular='" + titular + '\'' +
-                    ", cuerpoNoticia='" + cuerpoNoticia + '\'' +
-                    ", fechaPubli='" + fechaPubli.toLocaleString() + '\'' +
-                    ", nVisitas='" + nVisitas + '\'' +
-                    ", prioridad='" + utils_.calculaPrioridad(this) + '\'' +
+                    "\"codArt\":\"" + codArt + '\"' +
+                    ",\"codUsuario\":\"" + codUsuario.getCodUsuario() + '\"' +
+                    ",\"codCategoria\":\"" + codCategoria.getCodCategoria() + '\"' +
+                    ",\"titular\":\"" + titular + '\"' +
+                    ",\"cuerpoNoticia\":\"" + cuerpoNoticia + '\"' +
+                    ",\"imagen\":\"" + imagen + '\"' +
+                    ",\"fechaPubli\":\"" + fechaPubli.toLocaleString() + '\"' +
+                    ",\"nVisitas\":\"" + nVisitas + '\"' +
+                    ",\"prioridad\":\"" + utils_.calculaPrioridad(this) + '\"' +
                     '}';
         } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException | UnsupportedEncodingException ex) {
             Logger.getLogger(Articulo.class.getName()).log(Level.SEVERE, null, ex);
