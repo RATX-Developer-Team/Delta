@@ -21,12 +21,6 @@
             <link rel="stylesheet" href="css/estilo.css"/>
         </head>
         <body>
-            <h1>Delta</h1>
-            <h:form>
-                <h:commandButton value="Iniciar sesión" action="alta"/>
-            </h:form>
-            
-
             <div class="sticky-top contaier-fuild">
                 <div class="row fondo">
                 </div>
@@ -68,111 +62,65 @@
                                             <a class="nav-link" href="#">Contactar</a>
                                         </li>
                                     </ul>
-                                    <div class="d-flex flex-column flex-sm-row">
-                                        <ul class="navbar-nav">
-                                            <li class="nav-item dropdown me-2">
-                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Area Personal
-                                                </a>
-                                                <div class="dropdown-menu mb-2" style="min-width: 200px;padding: 15px; padding-bottom: 10px;">
-                                                    <form class="form-vertical" method="post" accept-charset="UTF-8">
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                                                            <input class="form-control login" type="text" name="username" placeholder="Usuario">
-                                                        </div>
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                                            <input class="form-control login" type="password" name="password" placeholder="Contraseña">
-                                                        </div>
-                                                        <div class="d-grid gap-2">
-                                                            <input class="btn btn-fondoPer" type="submit" name="submit" value="Acceder">
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <form class="d-flex flex-row">
-                                            <input class="form-control me-2 mr-0" type="Busqueda" placeholder="Busqueda"
-                                                   aria-label="Busqueda">
-                                            <button class="btn btn-fondoPer m-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                        </form>
-                                    </div>
                                 </div>
                             </div>
                         </nav>
                     </div>
                 </header>
             </div>
+            <div class="container-fluid">
+                <h:form>
+                    <h:commandButton value="Iniciar sesión" action="alta"/>
+                </h:form>
+            </div>
+            <footer class="position-absolute bottom-0 vw-100">
+                <section class="subs" id="signup">
+                    <div class="container px-4 px-lg-5">
+                        <div class="row gx-4 gx-lg-5">
+                            <div class="col-md-10 col-lg-8 mx-auto text-center">
+                                <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                                <h2 class="text-white mb-5">¡Suscribete para recibir nuevas noticias!</h2>
+                                <form class="form-subs" id="contactForm" data-sb-form-api-token="API_TOKEN">
 
-
-		
-		
-		
-		
-		
-		
-        <footer class="position-absolute bottom-0 vw-100">
-            <section class="subs" id="signup">
-                <div class="container px-4 px-lg-5">
-                    <div class="row gx-4 gx-lg-5">
-                        <div class="col-md-10 col-lg-8 mx-auto text-center">
-                            <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                            <h2 class="text-white mb-5">¡Suscribete para recibir nuevas noticias!</h2>
-
-                            <form class="form-subs" id="contactForm" data-sb-form-api-token="API_TOKEN">
-
-                                <div class="row input-group-newsletter">
-                                    <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Introduzca un email..." aria-label="Introduzca un email" data-sb-validations="required,email" /></div>
-                                    <div class="col-auto"><button class="btn btn-subs disabled" id="submitButton" type="submit">Suscribirme</button></div>
-                                </div>
-                                <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">Es requerido un email.</div>
-                                <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email no válido.</div>
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3 mt-2 text-white">
-                                        <div class="fw-bolder">¡Enviado Correctamente!</div>
-                                        To activate this form, sign up at
-                                        <br />
-                                        <a href=""></a>
+                                    <div class="row input-group-newsletter">
+                                        <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Introduzca un email..." aria-label="Introduzca un email" data-sb-validations="required,email" /></div>
+                                        <div class="col-auto"><button class="btn btn-subs disabled" id="submitButton" type="submit">Suscribirme</button></div>
                                     </div>
-                                </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error enviando el mensaje</div></div>
-                            </form>
+                                    <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">Es requerido un email.</div>
+                                    <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email no válido.</div>
+                                    <!-- Submit success message-->
+                                    <!---->
+                                    <!-- This is what your users will see when the form-->
+                                    <!-- has successfully submitted-->
+                                    <div class="d-none" id="submitSuccessMessage">
+                                        <div class="text-center mb-3 mt-2 text-white">
+                                            <div class="fw-bolder">¡Enviado Correctamente!</div>
+                                            To activate this form, sign up at
+                                            <br />
+                                            <a href=""></a>
+                                        </div>
+                                    </div>
+                                    <!-- Submit error message-->
+                                    <!---->
+                                    <!-- This is what your users will see when there is-->
+                                    <!-- an error submitting the form-->
+                                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error enviando el mensaje</div></div>
+                                </form>
+                            </div>
                         </div>
                     </div>
+                </section>
+                <div class="position-relative w-100 pie">
+                    <div class="redes position-absolute start-50 translate-middle">
+                        <ul>
+                            <li><a href="#" target="blank"><i class="neg fab fa-github"></i></a></li>
+                            <li><a href="#" target="blank"><i class="neg fab fa-instagram"></i></a></li>
+                            <li><a href="#" target="blank"><i class="neg fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#" target="blank"><i class="neg fab fa-codepen"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
-
-
-            </section>
-            <div class="position-relative w-100 pie">
-                <div class="redes position-absolute start-50 translate-middle">
-                    <ul>
-                        <li><a href="#" target="blank"><i class="neg fab fa-github"></i></a></li>
-                        <li><a href="#" target="blank"><i class="neg fab fa-instagram"></i></a></li>
-                        <li><a href="#" target="blank"><i class="neg fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#" target="blank"><i class="neg fab fa-codepen"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-
-        </footer>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            </footer>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
         </body>
     </html>
