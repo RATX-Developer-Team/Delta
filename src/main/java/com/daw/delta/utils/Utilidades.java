@@ -120,9 +120,9 @@ public class Utilidades  {
     public int calculaPrioridad(Articulo v) {
         Articulo v_ = v;
         Date date = new Date();
-        int prioridad = v.getPrioridadBase();
+        int prioridad = v_.getPrioridadBase();
         
-        int numVisitas = v.getNVisitas();
+        int numVisitas = v_.getNVisitas();
         if (numVisitas<10) {
             prioridad+=5;
         } else if (numVisitas>10 && numVisitas<20) {
