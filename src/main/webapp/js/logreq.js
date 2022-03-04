@@ -1,6 +1,6 @@
 $(function() {
     console.clear()
-    $('.fecha').attr('readonly', true).datepicker({
+    $('.fecha').attr('readonly', false).datepicker({
         dateFormat: 'dd/mm/yy',
         changeMonth: true,
         changeYear: true,
@@ -8,12 +8,12 @@ $(function() {
     });
 
     $('#log').on('click', function() {
-        $('#formReg').hide();
-        $('#formLog').show();
+        $('.formuReg').hide();
+        $('.formuLog').show();
     })
 
     $('#reg').on('click', function() {
-        $('#formReg').show();
-        $('#formLog').hide();
+        $('.formuReg').show();
+        $('.formuLog').hide();
     })
 });

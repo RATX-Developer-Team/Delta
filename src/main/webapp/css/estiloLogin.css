@@ -93,11 +93,11 @@
     }
     
     
-#formReg{
+.formuReg{
     display: none;
     transition: display 2s ease-in-out;
 }
-#formLog{
+.formuLog{
     transition: display 2s ease-in-out;
 }
 
