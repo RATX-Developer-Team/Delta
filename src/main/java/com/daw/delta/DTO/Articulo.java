@@ -20,6 +20,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -40,7 +41,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Articulo.findAll", query = "SELECT a FROM Articulo a"),
     @NamedQuery(name = "Articulo.findByCodArt", query = "SELECT a FROM Articulo a WHERE a.codArt = :codArt"),
     @NamedQuery(name = "Articulo.findByTitular", query = "SELECT a FROM Articulo a WHERE a.titular = :titular"),
-    @NamedQuery(name = "Articulo.findByCuerpoNoticia", query = "SELECT a FROM Articulo a WHERE a.cuerpoNoticia = :cuerpoNoticia"),
+    @NamedQuery(name = "Articulo.findByDescripcion", query = "SELECT a FROM Articulo a WHERE a.descripcion = :descripcion"),
     @NamedQuery(name = "Articulo.findByImagen", query = "SELECT a FROM Articulo a WHERE a.imagen = :imagen"),
     @NamedQuery(name = "Articulo.findByFechaPubli", query = "SELECT a FROM Articulo a WHERE a.fechaPubli = :fechaPubli"),
     @NamedQuery(name = "Articulo.findByNVisitas", query = "SELECT a FROM Articulo a WHERE a.nVisitas = :nVisitas"),
@@ -61,6 +62,12 @@ public class Articulo implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
+    @Column(name = "descripcion")
+    private String descripcion;
+    @Basic(optional = false)
+    @NotNull
+    @Lob
+    @Size(min = 1, max = 2147483647)
     @Column(name = "cuerpoNoticia")
     private String cuerpoNoticia;
     @Basic(optional = false)
@@ -95,9 +102,10 @@ public class Articulo implements Serializable {
         this.codArt = codArt;
     }
 
-    public Articulo(Integer codArt, String titular, String cuerpoNoticia, String imagen, Date fechaPubli, int prioridadBase) {
+    public Articulo(Integer codArt, String titular, String descripcion, String cuerpoNoticia, String imagen, Date fechaPubli, int prioridadBase) {
         this.codArt = codArt;
         this.titular = titular;
+        this.descripcion = descripcion;
         this.cuerpoNoticia = cuerpoNoticia;
         this.imagen = imagen;
         this.fechaPubli = fechaPubli;
@@ -118,6 +126,14 @@ public class Articulo implements Serializable {
 
     public void setTitular(String titular) {
         this.titular = titular;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getCuerpoNoticia() {
@@ -211,6 +227,7 @@ public class Articulo implements Serializable {
                     ",\"codUsuario\":\"" + codUsuario.getCodUsuario() + '\"' +
                     ",\"codCategoria\":\"" + codCategoria.getCodCategoria() + '\"' +
                     ",\"titular\":\"" + titular + '\"' +
+                    ",\"descripcion\":\"" + descripcion + '\"' +
                     ",\"cuerpoNoticia\":\"" + cuerpoNoticia + '\"' +
                     ",\"imagen\":\"" + imagen + '\"' +
                     ",\"fechaPubli\":\"" + fechaPubli.toLocaleString() + '\"' +

@@ -2,6 +2,7 @@ package com.daw.delta.utils;
 
 import com.daw.delta.DAO.ArticuloJpaController;
 import com.daw.delta.DAO.CategoriasJpaController;
+import com.daw.delta.DAO.NewletterJpaController;
 import com.daw.delta.DAO.OpinionJpaController;
 import com.daw.delta.DAO.RespuestasJpaController;
 import com.daw.delta.DAO.SubcategoriasJpaController;
@@ -16,6 +17,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.security.spec.KeySpec;
 import java.util.Date;
+import java.util.List;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -35,6 +37,7 @@ public class Utilidades  {
     private final RespuestasJpaController ctrRespuestas = new RespuestasJpaController(emf);
     private final SubcategoriasJpaController ctrSubcategorias = new SubcategoriasJpaController(emf);
     private final UsuarioJpaController ctrUsuario = new UsuarioJpaController(emf);
+    private final NewletterJpaController ctrNewletter = new NewletterJpaController(emf);
     
     private static final String UNICODE_FORMAT = "UTF8";
     public static final String DESEDE_ENCRYPTION_SCHEME = "DESede";
@@ -71,6 +74,10 @@ public class Utilidades  {
 
     public OpinionJpaController getCtrOpinion() {
         return ctrOpinion;
+    }
+
+    public NewletterJpaController getCtrNewletter() {
+        return ctrNewletter;
     }
 
     public String getMail() {
@@ -132,6 +139,18 @@ public class Utilidades  {
         } catch (InvalidKeyException | BadPaddingException | IllegalBlockSizeException e) {
         }
         return decryptedText;
+    }
+    
+    public int lastId() {
+        List<Usuario> v = ctrUsuario.findUsuarioEntities();
+        int i=0;
+        for(Usuario o:v) {
+            Usuario x = o;
+            if (x.getCodUsuario()>i) {
+                i = x.getCodUsuario();
+            }
+        }
+        return i;
     }
     
     public Usuario cuenta() {

@@ -36,7 +36,7 @@ public class EmailUtils {
             msg.setRecipients(Message.RecipientType.TO, toAddresses);
             msg.setSubject(subject);
             msg.setSentDate(new Date());
-            msg.setText(message);
+            msg.setContent(message,"text/html;charset=UTF-8");
             Transport.send(msg);
         } catch (AddressException ex) {
             Logger.getLogger(EmailUtils.class.getName()).log(Level.SEVERE, null, ex);

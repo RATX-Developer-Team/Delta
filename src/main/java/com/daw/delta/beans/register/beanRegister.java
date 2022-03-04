@@ -3,11 +3,15 @@ package com.daw.delta.beans.register;
 import com.daw.delta.DTO.Usuario;
 import com.daw.delta.utils.EmailUtils;
 import com.daw.delta.utils.Utilidades;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.faces.context.FacesContext;
 
 public class beanRegister {
     
@@ -76,7 +80,7 @@ public class beanRegister {
             Date newDate = formatDate.parse(fecha_naci);
             Usuario v = new Usuario(
                     email,
-                    utils_.getCtrUsuario().getUsuarioCount()+1,
+                    utils_.lastId()+1,
                     newDate,
                     pais,
                     nombre,
@@ -85,7 +89,18 @@ public class beanRegister {
             );
             utils_.getCtrUsuario().create(v);
             String motivo = "Bienvenido a Delta | Periodico Digital";
-            String contenido = "Le damos la bienvenida a la nueva cuenta de Delta.com. Delta le permite mantenerse informado, en el trabajo, en casa y en cualquier otro lugar.";
+            String contenido;
+            String root = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");
+            try(BufferedReader br = new BufferedReader(new FileReader(root+"email.html"))) {
+                StringBuilder sb = new StringBuilder();
+                String line = br.readLine();
+                while (line != null) {
+                    sb.append(line);
+                    sb.append(System.lineSeparator());
+                    line = br.readLine();
+                }
+                contenido = sb.toString();
+            }
             EmailUtils.enviarMail(utils_.getSTMP_host(), utils_.getSTMP_port(), utils_.getSTMP_user(), utils_.getSTMP_pass(), email, motivo, contenido);
             return "true";
         } catch (ParseException ex) {

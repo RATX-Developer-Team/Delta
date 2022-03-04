@@ -168,7 +168,7 @@
                     <h:commandButton value="Iniciar sesión" action="alta"/>
                 </h:form>
             </div>
-            <footer class="bd-footer vw-100">
+            <footer class="bd-footer">
                 <section class="subs" id="signup">
                     <div class="container px-4 px-lg-5">
                         <div class="row gx-4 gx-lg-5">

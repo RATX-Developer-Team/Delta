@@ -10,7 +10,7 @@ let artiPrinciIPL = '<div class="owl-item" style="width: 730px;">'+
                                     '<h1 class="font-weight-bold">'+
                                         '{0}'+
                                     '</h1>'+
-                                    '<h5 class="font-weight-normal  m-0">'+
+                                    '<h5 class="font-weight-normal m-0">'+
                                         '{1}'+
                                     '</h5>'+
                                     '<p class="text-color m-0 pt-2 d-flex align-items-center">'+
@@ -76,7 +76,7 @@ var UTILS__ = (function() {
     function cargaArtPrinci() {
         let articulos_ = principales()
         Object.keys(articulos_).forEach(function(k) {
-            let arti_ = artiPrinciIPL.replace('{0}',articulos_[k].titular).replace('{1}',articulos_[k].cuerpoNoticia).replace('{2}',articulos_[k].fechaPubli.split(',')[0]).replace('{3}',articulos_[k].imagen)
+            let arti_ = artiPrinciIPL.replace('{0}',articulos_[k].titular).replace('{1}',articulos_[k].descripcion).replace('{2}',articulos_[k].fechaPubli.split(',')[0]).replace('{3}',articulos_[k].imagen)
             $('.cargaPrinci').append(arti_)
         })
 
