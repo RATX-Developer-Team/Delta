@@ -1,0 +1,129 @@
+.bordeColor{
+    border-color: #038C8C !important;
+}
+.fondo {
+    height: 10px;
+    background-color: #038C8C !important;
+    width: 100vw;
+    margin: 0;
+}
+.fondoCaja{
+    background-color: var(--bs-gray-100);
+}
+
+.btnGoogle,.btnFace {
+    transition: background-color .3s, box-shadow .3s;
+
+    padding: 12px 16px 12px 42px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+
+    color: #757575;
+    font-size: 14px;
+    font-weight: 500;
+}
+.btnGoogle{
+    background-image: url("logoGoogle.jpg");
+    background-size: 12%;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 12px 11px;
+}
+
+    .btnGoogle:hover , .btnFace:hover {
+        box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
+    }
+
+    .btnGoogle:active  ,.btnFace:active {
+        background-color: #eeeeee;
+    }
+
+    .btnGoogle:focus ,.btnFace:focus {
+        outline: none;
+        box-shadow: 
+            0 -1px 0 rgba(0, 0, 0, .04),
+            0 2px 4px rgba(0, 0, 0, .25),
+            0 0 0 3px #c8dafc;
+    }
+    .btnGoogle a, .btnFace a{
+        text-decoration: none;
+        color: #757575;
+    }
+    .iconFace{
+        position: relative;
+        left: -20px;
+        color: #3F62A9;
+        font-size: 110%;
+    }
+    .btnFace{
+        background-color: white;
+    }
+
+.colorsillo{
+    background-color: #035454;
+    color: #f2f2f2
+}
+
+
+
+.botonsillo{
+    width: 60%;
+    text-decoration: none;
+    text-transform:uppercase;
+    color: black;
+    background-color:rgba(174,254,255,1.00);
+    outline: none;
+    border: 2px solid #000;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+    transition: box-shadow .2s ease-in-out, background .2s ease-in-out, color .2s ease-in;
+    filter: drop-shadow(3px 10px 4px #D6F9F9);
+
+
+}
+
+    .botonsillo:active{
+        background-color: rgba(35,153,155,1.00);
+        box-shadow: 0px -1px 0px -1px ;
+        transition :all .3s ease 
+    }
+    
+    
+#formReg{
+    display: none;
+    transition: display 2s ease-in-out;
+}
+#formLog{
+    transition: display 2s ease-in-out;
+}
+
+.botones{
+    height: 50px;
+    background-color: #038C8C ;
+    padding: 10px;
+
+}
+input[type="radio"]{
+    display:  none;
+
+}
+.botones label{
+
+    float: left;
+    width: 50%;
+    line-height:47px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    height: auto;
+}
+.botones input:checked + label{
+    background-color: white;
+    color: black;
+    border-radius: 6px;
+
+}
