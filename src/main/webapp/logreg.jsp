@@ -47,10 +47,10 @@
 
                     <div class="row ">
                         <div class="botones">
-                            <input type="radio" name="tipo" value="login" id="log"  checked onClick="cambiaField(this)"><label for="log">Inicia Sesión</label>
-                            <input type="radio" name="tipo" value="reg" id="reg" onClick="cambiaField(this)"><label for="reg">Registrarse</label>
+                            <input type="radio" name="tipo" value="login" id="log" checked><label for="log">Inicia Sesión</label>
+                            <input type="radio" name="tipo" value="reg" id="reg"><label for="reg">Registrarse</label>
                         </div>
-                        <form class="p-5 " id="formLog">
+                        <form class="p-5" id="formLog">
                             <fieldset>
                                 <div class="row d-flex align-middle justify-content-end">
 
@@ -96,11 +96,8 @@
                         <form class="p-5" id="formReg">
                             <fieldset>
                                 <div class="row d-flex justify-content-end align-middle">
-
                                     <img class="col-3 img-fluid mb-4" src="" alt="Logotipo Página">
-
                                 </div>
-
                                 <div class="row row-cols-2">
 
                                     <div class="col form-floating mb-3">
@@ -142,32 +139,16 @@
                                         <button class="botonsillo colorsillo" type="submit">Registrarse</button>
                                     </div>
                                 </div>
-
                                 <div class="row mt-5">
                                     <div class="col-12 text-center d-flex justify-content-around">
-
                                         <button type="button" class="btnGoogle"><a href="#">Registrarse con Google</a></button>
-
-
                                         <button type="button" class="btnFace"><a href="#"><i class="fa-brands fa-facebook-f iconFace"></i>Registrarse con Facebook</a></button>
-
-
                                     </div>
                                 </div>
                             </fieldset>
-
                         </form>
                     </div>
-
-
-
-
-
                 </div>
-                
-                   
-                
-                
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
         </body>
     </html>
