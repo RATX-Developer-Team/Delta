@@ -22,24 +22,12 @@
             <script src="./js/logreq.js"></script>
         </head>
         <body>
-            <h:form>
-                <label>EMAIL: </label> <h:inputText required="" value="#{beanLogin.email}"/><br>
-                <label>CONTRASEÑA: </label> <h:inputSecret required="" value="#{beanLogin.passwd}"/><br>
-                <h:commandButton action="#{beanLogin.esUsuario()}" value="Login"/>
-            </h:form>
+            
                 
                 
-                <h4><h:outputText value="#{beanLogin.error}" /></h4> 
+                 
                 
-            <h:form>
-                <label>EMAIL: </label> <h:inputText required="" value="#{beanRegister.email}"/><br>
-                <label>Fecha Nacimiento: </label> <h:inputText styleClass="fecha" required="" value="#{beanRegister.fecha_naci}"/><br>
-                <label>Pais: </label> <h:inputText required="" value="#{beanRegister.pais}"/><br>
-                <label>Nombre: </label> <h:inputText required="" value="#{beanRegister.nombre}"/><br>
-                <label>Apellidos: </label> <h:inputText required="" value="#{beanRegister.apellidos}"/><br>
-                <label>CONTRASEÑA: </label> <h:inputSecret required="" value="#{beanRegister.passwd}"/><br>
-                <h:commandButton action="#{beanRegister.guardarUsuario()}" value="Registrar"/>
-            </h:form>
+            
             
                 <div class="row fondo"></div>
 
@@ -50,7 +38,8 @@
                             <input type="radio" name="tipo" value="login" id="log" checked><label for="log">Inicia Sesión</label>
                             <input type="radio" name="tipo" value="reg" id="reg"><label for="reg">Registrarse</label>
                         </div>
-                        <form class="p-5" id="formLog">
+                        
+                        <h:form styleClass="p-5">
                             <fieldset>
                                 <div class="row d-flex align-middle justify-content-end">
 
@@ -59,11 +48,11 @@
                                 </div>
 
                                 <div class="col form-floating mb-3">
-                                    <input type="email" class="form-control" id="correoLog" placeholder="name@example.com">
+                                    <h:inputText required="" value="#{beanLogin.email}" styleClass="form-control"/>
                                     <label for="correo"><i class="fa-solid fa-envelope me-2"></i>Correo Electrónico</label>
                                 </div>
                                 <div class="col form-floating mb-3">
-                                    <input type="password" class="form-control" id="contraLog" placeholder="Contraseña">
+                                    <h:inputSecret required="" value="#{beanLogin.passwd}" styleClass="form-control"/>
                                     <label for="contra"><i class="fa-solid fa-lock me-2"></i>Contraseña</label>
                                 </div>
 
@@ -73,27 +62,27 @@
 
                                 <div class="row mt-5">
                                     <div class="col-12 text-center">
-                                        <button class="botonsillo colorsillo" type="submit">Entrar</button>
+                                        <h:commandButton action="#{beanLogin.esUsuario()}" value="Entrar" styleClass="botonsillo colorsillo"/>
+                                        
                                     </div>
                                 </div>
 
                                 <div class="row mt-5">
                                     <div class="col-12 text-center d-flex justify-content-around">
-
                                         <button type="button" class="btnGoogle"><a href="#">Inicia sesión con Google</a></button>
 
-
                                         <button type="button" class="btnFace"><a href="#"><i class="fa-brands fa-facebook-f iconFace"></i>Inicia sesión con Facebook</a></button>
-
-
                                     </div>
                                 </div>
+                                <div class="row mt-5">        
+                                    <h4><h:outputText value="#{beanLogin.error}" /></h4>
+                                </div>
                             </fieldset>
-
-                        </form>
+                        </h:form>
                     </div>
+                
                     <div class="row ">
-                        <form class="p-5" id="formReg">
+                        <h:form styleClass="p-5">
                             <fieldset>
                                 <div class="row d-flex justify-content-end align-middle">
                                     <img class="col-3 img-fluid mb-4" src="" alt="Logotipo Página">
@@ -101,22 +90,22 @@
                                 <div class="row row-cols-2">
 
                                     <div class="col form-floating mb-3">
-                                        <input type="text" class="form-control" id="nomReg" placeholder="Juan">
+                                        <h:inputText required="" value="#{beanRegister.nombre}" styleClass="form-control"/>
                                         <label for="nomReg" class="ms-2"><i class="fa-solid fa-user me-2"></i>Nombre</label>
                                     </div>
 
                                     <div class="col form-floating mb-3">
-                                        <input type="text" class="form-control" id="apeReg" placeholder="Rojas Rosado">
+                                        <h:inputText required="" value="#{beanRegister.apellidos}" styleClass="form-control"/>
                                         <label for="apeReg" class="ms-2"><i class="fa-regular fa-user me-2"></i>Apellidos</label>
                                     </div>
 
                                     <div class="col form-floating mb-3">
-                                        <input type="email" class="form-control" id="correoReg" placeholder="name@example.com">
+                                        <h:inputText required="" value="#{beanRegister.email}" styleClass="form-control"/>
                                         <label for="correo" class="ms-2"><i class="fa-solid fa-envelope me-2"></i>Correo Electrónico</label>
                                     </div>
 
                                     <div class="col form-floating mb-3">
-                                        <input type="password" class="form-control" id="contraReg" placeholder="Contraseña">
+                                        <h:inputSecret required="" value="#{beanRegister.passwd}" styleClass="form-control"/>
                                         <label for="contra" class="ms-2"><i class="fa-solid fa-lock me-2"></i>Contraseña</label>
                                         <div id="passwordHelpBlock" class="form-text">
                                             Tu contraseña debe tener entre 8-20 caractéres, contener números y letras sin espacios o carácter especial.
@@ -124,19 +113,19 @@
                                     </div>
 
                                     <div class="col form-floating mb-3">
-                                        <input type="text" class="form-control" id="fechReg" placeholder="05/02/1999">
+                                        <h:inputText required="" value="#{beanRegister.fecha_naci}" styleClass="fecha form-control"/>
                                         <label for="fechReg" class="ms-2"><i class="fa-solid fa-calendar-days me-2"></i>Fecha Nacimiento</label>
                                     </div>
 
                                     <div class="col form-floating mb-3">
-                                        <input type="text" class="form-control" id="paisReg" placeholder="05/02/1999">
+                                        <h:inputSecret required="" value="#{beanRegister.pais}" styleClass="form-control"/>
                                         <label for="paisReg" class="ms-2"><i class="fa-solid fa-earth-americas me-2"></i>País</label>
                                     </div>
                                 </div>
 
                                 <div class="row mt-5">
                                     <div class="col-12 text-center">
-                                        <button class="botonsillo colorsillo" type="submit">Registrarse</button>
+                                        <h:commandButton action="#{beanRegister.guardarUsuario()}" value="Registrar" styleClass="botonsillo colorsillo"/>
                                     </div>
                                 </div>
                                 <div class="row mt-5">
@@ -146,7 +135,7 @@
                                     </div>
                                 </div>
                             </fieldset>
-                        </form>
+                        </h:form>
                     </div>
                 </div>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>

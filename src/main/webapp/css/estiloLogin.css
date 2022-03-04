@@ -24,7 +24,7 @@
     font-weight: 500;
 }
 .btnGoogle{
-    background-image: url("logoGoogle.jpg");
+    background-image: url("../img/logoGoogle.jpg");
     background-size: 12%;
     background-color: white;
     background-repeat: no-repeat;
