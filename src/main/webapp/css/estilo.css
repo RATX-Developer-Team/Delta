@@ -1,7 +1,23 @@
 .fondo {
     height: 10px;
     background-color: #038C8C !important;
-    width: 100vw;
+    width: 100%;
+    margin: 0;
+}
+
+.carousel-content-wrapper .carousel-content {
+    width: 75%;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    color: #ffffff;
+}
+
+.fondo2 {
+    height: 2px;
+    display: none;
+    background-color: #038C8C !important;
+    width: 0vw;
     margin: 0;
 }
 
