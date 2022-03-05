@@ -1,7 +1,7 @@
 /*VARIABLES GLOBALES*/
 let categoriaIPL =  '<li class="nav-item mx-3">'+ //0 nombre de la categoria, 1 enlace a ver la categoria
                         '<a class="nav-link" href="#">{0}</a>'+ 
-                    '</li>'
+                    '</li>';
 
 let artiPrinciIPL = '<div class="owl-item" style="width: 730px;">'+ //0 Titular, 1 descripcion corta, 2 fecha formateada , 3 enlace a ver el articulo
                         '<div class="item">'+
@@ -22,7 +22,7 @@ let artiPrinciIPL = '<div class="owl-item" style="width: 730px;">'+ //0 Titular,
                                 '</div>'+
                             '</div>'+
                         '</div>'+
-                    '</div>'
+                    '</div>';
 
 let columnaIPL = '<div class="row columna{0}"></div>' // 0 numero de la columna
 let artColumIPL = '<div class="col-sm-6">'+ // 0 Nombre apellido , 1 Descripcion corta articulo, 2 enlace a ver el articulo
@@ -34,10 +34,10 @@ let artColumIPL = '<div class="col-sm-6">'+ // 0 Nombre apellido , 1 Descripcion
                             '{1}'+
                         '</p>'+
                     '</div>'+
-                   '</div>'
+                   '</div>';
 
-let CATEGORIAS = {}
-let ARTICULOS = {}
+let CATEGORIAS = {};
+let ARTICULOS = {};
 let Config = {
     cantidadArtPrin : 4, //Cantidad de articulos principales
     timeout: 5000, //Tiempo en pasar de articulo despues de hacer hover en uno en MS
@@ -58,10 +58,10 @@ var UTILS__ = (function() {
     function cargaCate() {
         $('.categorias').ready(function () {
             Object.keys(CATEGORIAS).forEach(function(k) {
-                let cate_ = categoriaIPL.replace('{0}',CATEGORIAS[k])
-                $('.categorias').append(cate_)
-            })
-        })
+                let cate_ = categoriaIPL.replace('{0}',CATEGORIAS[k]);
+                $('.categorias').append(cate_);
+            });
+        });
     }
 
     function cargaCategorias() {
@@ -69,46 +69,46 @@ var UTILS__ = (function() {
             categorias: "todas"
         }, function (data) {
             $.each(data, function(index,v) {
-                CATEGORIAS[index] = v
-            })
-            cargaCate()
-        })
+                CATEGORIAS[index] = v;
+            });
+            cargaCate();
+        });
     }
 
     function ordenarArt(v) {
-        let o = {}
-        let o_ = {}
+        let o = {};
+        let o_ = {};
         Object.keys(ARTICULOS).forEach(function(k) {
-            o[k] = ARTICULOS[k].prioridad
-        })
+            o[k] = ARTICULOS[k].prioridad;
+        });
 
-        let o__ = Object.keys(o).sort(function(a,b){return o[b]-o[a]})
+        let o__ = Object.keys(o).sort(function(a,b){return o[b]-o[a];});
         for (let i=0;i!=v;i++) {
-            o_[o__[i]] = ARTICULOS[o__[i]]
+            o_[o__[i]] = ARTICULOS[o__[i]];
         }
-        return o_
+        return o_;
     }
 
     function cargaArtSecun() {
-        let articulos_ = ordenarArt(Config.cantidadColumnasNoticiasRecientes*Config.cantidaddeArticulosPorColumna)
+        let articulos_ = ordenarArt(Config.cantidadColumnasNoticiasRecientes*Config.cantidaddeArticulosPorColumna);
         let x_ = 0
         for (let xy=0;xy!=Config.cantidadColumnasNoticiasRecientes;xy++) {
             let colum_ = columnaIPL.replace('{0}',xy)
             $('.cargaRecientes').append(colum_)
             for (let xx=x_;xx!=Config.cantidaddeArticulosPorColumna+x_;xx++) {
-                let arti_ = artColumIPL.replace('{0}', Object.values(articulos_)[xx].codUsuario).replace('{1}', Object.values(articulos_)[xx].titular)
+                let arti_ = artColumIPL.replace('{0}', Object.values(articulos_)[xx].codUsuario).replace('{1}', Object.values(articulos_)[xx].titular);
                 $('.columna'+xy).append(arti_)
             }
-            x_+=Config.cantidaddeArticulosPorColumna
+            x_+=Config.cantidaddeArticulosPorColumna;
         }
     }
 
     function cargaArtPrinci() {
-        let articulos_ = ordenarArt(Config.cantidadArtPrin)
+        let articulos_ = ordenarArt(Config.cantidadArtPrin);
         Object.keys(articulos_).forEach(function(k) {
             let arti_ = artiPrinciIPL.replace('{0}',articulos_[k].titular).replace('{1}',articulos_[k].descripcion).replace('{2}',articulos_[k].fechaPubli.split(',')[0]).replace('{3}',articulos_[k].imagen)
-            $('.cargaPrinci').append(arti_)
-        })
+            $('.cargaPrinci').append(arti_);
+        });
 
         if ($("#main-banner-carousel").length) {
             $("#main-banner-carousel").owlCarousel({
@@ -138,11 +138,11 @@ var UTILS__ = (function() {
             articulo: "todos"
         }, function (data) {
             $.each(data, function(index,v) {
-                ARTICULOS[index] = JSON.parse(v)
-            })
-            cargaArtPrinci()
-            cargaArtSecun()
-        })
+                ARTICULOS[index] = JSON.parse(v);
+            });
+            cargaArtPrinci();
+            cargaArtSecun();
+        });
     }
     /**
     *  Metodos publicos
@@ -151,5 +151,5 @@ var UTILS__ = (function() {
         cargaCategorias: cargaCategorias,
         getScrollPercent: getScrollPercent,
         cargarArticulos: cargarArticulos
-    }
+    };
 })();

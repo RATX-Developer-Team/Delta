@@ -1,16 +1,9 @@
+/* HEADER */
 .fondo {
     height: 10px;
     background-color: #038C8C !important;
     width: 100%;
     margin: 0;
-}
-
-.carousel-content-wrapper .carousel-content {
-    width: 75%;
-    position: absolute;
-    left: 40px;
-    bottom: 40px;
-    color: #ffffff;
 }
 
 .fondo2 {
@@ -52,7 +45,55 @@
     color: #038C8C;
 }
 
+/*NOTICIAS PRINCIPALES*/
 
+.carousel-content-wrapper .carousel-content {
+    width: 75%;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    color: #ffffff;
+}
+
+
+
+/*NOTICIAS POPULARES Y MUNDIALES*/
+h3 .tituloSeccion{
+    color: #038C8C !important;
+}
+#tit{
+    color: #038C8C !important;
+}
+
+#notPopu p{
+    font-family: "Montserrat", sans-serif !important;
+    
+}
+
+
+  .imagen-hover {
+    overflow: hidden;
+  }
+  
+  .imagen-hover img,
+  .imagen-hover .tituloNoticiaP{
+    transition: transform 0.4s;
+    cursor: pointer;
+    /* Animation */
+  }
+  
+  .imagen-hover:hover img {
+    transform: scale(1.25);
+    cursor: pointer;
+  }
+  
+  .imagen-hover:hover .tituloNoticiaP {
+    background: #0a62fb !important;
+    cursor: pointer;
+  }
+
+
+/*FOOTER*/
 
 .subs {
     padding: 13vh 0 13vh;

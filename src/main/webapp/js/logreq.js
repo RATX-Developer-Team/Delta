@@ -1,5 +1,6 @@
 $(function() {
-    console.clear()
+    console.clear();
+    
     $('.fecha').attr('readonly', false).datepicker({
         dateFormat: 'dd/mm/yy',
         changeMonth: true,
@@ -10,10 +11,10 @@ $(function() {
     $('#log').on('click', function() {
         $('.formuReg').hide();
         $('.formuLog').show();
-    })
+    });
 
     $('#reg').on('click', function() {
         $('.formuReg').show();
         $('.formuLog').hide();
-    })
+    });
 });
