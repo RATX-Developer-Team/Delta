@@ -1,9 +1,9 @@
 /*VARIABLES GLOBALES*/
-let categoriaIPL =  '<li class="nav-item mx-3">'+
-                        '<a class="nav-link" href="#">{0}</a>'+
+let categoriaIPL =  '<li class="nav-item mx-3">'+ //0 nombre de la categoria, 1 enlace a ver la categoria
+                        '<a class="nav-link" href="#">{0}</a>'+ 
                     '</li>'
 
-let artiPrinciIPL = '<div class="owl-item" style="width: 730px;">'+
+let artiPrinciIPL = '<div class="owl-item" style="width: 730px;">'+ //0 Titular, 1 descripcion corta, 2 fecha formateada , 3 enlace a ver el articulo
                         '<div class="item">'+
                             '<div class="carousel-content-wrapper mb-2">'+
                                 '<div class="carousel-content">'+
@@ -24,10 +24,26 @@ let artiPrinciIPL = '<div class="owl-item" style="width: 730px;">'+
                         '</div>'+
                     '</div>'
 
+let columnaIPL = '<div class="row columna{0}"></div>' // 0 numero de la columna
+let artColumIPL = '<div class="col-sm-6">'+ // 0 Nombre apellido , 1 Descripcion corta articulo, 2 enlace a ver el articulo
+                    '<div class="py-3 border-bottom">'+
+                        '<div class="d-flex align-items-center pb-2">'+
+                            '<span class="fs-12 text-muted">{0}</span>'+
+                        '</div>'+
+                        '<p class="fs-14 m-0 font-weight-medium line-height-sm">'+
+                            '{1}'+
+                        '</p>'+
+                    '</div>'+
+                   '</div>'
+
 let CATEGORIAS = {}
 let ARTICULOS = {}
 let Config = {
-    cantidadArtPrin : 4
+    cantidadArtPrin : 4, //Cantidad de articulos principales
+    timeout: 5000, //Tiempo en pasar de articulo despues de hacer hover en uno en MS
+    speed: 4000, // Tiempo en pasar de articulo de forma normal
+    cantidadColumnasNoticiasRecientes: 5, //Cantidad de columnas de articulos secundarios
+    cantidaddeArticulosPorColumna: 2 // Cantidad de articulos por columna de articulos secundarios
 }
 
 var UTILS__ = (function() {
@@ -59,7 +75,7 @@ var UTILS__ = (function() {
         })
     }
 
-    function principales() {
+    function ordenarArt(v) {
         let o = {}
         let o_ = {}
         Object.keys(ARTICULOS).forEach(function(k) {
@@ -67,14 +83,28 @@ var UTILS__ = (function() {
         })
 
         let o__ = Object.keys(o).sort(function(a,b){return o[b]-o[a]})
-        for (let i=0;i!=Config.cantidadArtPrin;i++) {
+        for (let i=0;i!=v;i++) {
             o_[o__[i]] = ARTICULOS[o__[i]]
         }
         return o_
     }
 
+    function cargaArtSecun() {
+        let articulos_ = ordenarArt(Config.cantidadColumnasNoticiasRecientes*Config.cantidaddeArticulosPorColumna)
+        let x_ = 0
+        for (let xy=0;xy!=Config.cantidadColumnasNoticiasRecientes;xy++) {
+            let colum_ = columnaIPL.replace('{0}',xy)
+            $('.cargaRecientes').append(colum_)
+            for (let xx=x_;xx!=Config.cantidaddeArticulosPorColumna+x_;xx++) {
+                let arti_ = artColumIPL.replace('{0}', Object.values(articulos_)[xx].codUsuario).replace('{1}', Object.values(articulos_)[xx].titular)
+                $('.columna'+xy).append(arti_)
+            }
+            x_+=Config.cantidaddeArticulosPorColumna
+        }
+    }
+
     function cargaArtPrinci() {
-        let articulos_ = principales()
+        let articulos_ = ordenarArt(Config.cantidadArtPrin)
         Object.keys(articulos_).forEach(function(k) {
             let arti_ = artiPrinciIPL.replace('{0}',articulos_[k].titular).replace('{1}',articulos_[k].descripcion).replace('{2}',articulos_[k].fechaPubli.split(',')[0]).replace('{3}',articulos_[k].imagen)
             $('.cargaPrinci').append(arti_)
@@ -84,8 +114,8 @@ var UTILS__ = (function() {
             $("#main-banner-carousel").owlCarousel({
               loop: true,
               autoplay: true,
-              autoplayTimeout: 3000,
-              autoplaySpeed: 2000,
+              autoplayTimeout: Config.timeout,
+              autoplaySpeed: Config.speed,
               autoplayHoverPause: true,
               autoWidth: false,
               dots: true,
@@ -111,6 +141,7 @@ var UTILS__ = (function() {
                 ARTICULOS[index] = JSON.parse(v)
             })
             cargaArtPrinci()
+            cargaArtSecun()
         })
     }
     /**

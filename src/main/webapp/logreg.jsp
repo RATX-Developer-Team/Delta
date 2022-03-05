@@ -25,6 +25,7 @@
             <link rel="stylesheet" href="./css/lib/owl.theme.default.min.css"/>
             <link rel="stylesheet" href="./css/estilo.css"/>
             <link rel="stylesheet" href="css/estiloLogin.css"/>
+            <link rel="shortcut icon" type="image/x-icon" href="./img/assets/FAVICONDELTA.ico">
             <script src="./js/logreq.js"></script>
         </head>
         <body>

@@ -222,9 +222,10 @@ public class Articulo implements Serializable {
     public String toString() {
         try {
             Utilidades utils_ = new Utilidades();
+            List<Usuario> usu = utils_.getCtrUsuario().findById_(codUsuario.getCodUsuario());
             return "{" +
                     "\"codArt\":\"" + codArt + '\"' +
-                    ",\"codUsuario\":\"" + codUsuario.getCodUsuario() + '\"' +
+                    ",\"codUsuario\":\"" +usu.get(0).getNombre()+" "+usu.get(0).getApellidos()+ '\"' +
                     ",\"codCategoria\":\"" + codCategoria.getCodCategoria() + '\"' +
                     ",\"titular\":\"" + titular + '\"' +
                     ",\"descripcion\":\"" + descripcion + '\"' +
