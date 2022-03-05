@@ -4,7 +4,10 @@ $(function() {
     utils_.cargaCategorias()
     utils_.cargarArticulos()
 
-
+    $('.emailNewletter').attr('title', "El email tiene que ser correcto")
+    $('.emailNewletter').attr('pattern', "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
+    $('.emailNewletter').attr('type', "email")
+    $('.emailNewletter').attr('placeholder', "Introduzca un email...")
 
     $('.navbar-toggler').ready(function() {
         $('.navbar-toggler').click()

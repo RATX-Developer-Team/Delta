@@ -1,16 +1,22 @@
 package com.daw.delta.beans.register;
 
+import com.daw.delta.DTO.Newletter;
 import com.daw.delta.DTO.Usuario;
 import com.daw.delta.utils.EmailUtils;
 import com.daw.delta.utils.Utilidades;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.crypto.NoSuchPaddingException;
 import javax.faces.context.FacesContext;
 
 public class beanRegister {
@@ -21,12 +27,21 @@ public class beanRegister {
     private String nombre;
     private String apellidos;
     private String passwd;
+    private String emailNews;
     
     public beanRegister() {
     }
 
     public String getEmail() {
         return email;
+    }
+
+    public String getEmailNews() {
+        return emailNews;
+    }
+
+    public void setEmailNews(String emailNews) {
+        this.emailNews = emailNews;
     }
 
     public void setEmail(String email) {
@@ -71,6 +86,16 @@ public class beanRegister {
 
     public void setPasswd(String passwd) {
         this.passwd = passwd;
+    }
+    
+    public void guardarMail() {
+        try {
+            Utilidades utils_ = new Utilidades();
+            Newletter newletter = new Newletter(null, emailNews);
+            utils_.getCtrNewletter().create(newletter);
+        } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException | UnsupportedEncodingException ex) {
+            Logger.getLogger(beanRegister.class.getName()).log(Level.SEVERE, null, ex);
+        }     
     }
     
     public String guardarUsuario() {

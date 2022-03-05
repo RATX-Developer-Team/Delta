@@ -192,11 +192,14 @@
                             <div class="col-md-10 col-lg-8 mx-auto text-center">
                                 <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
                                 <h2 class="text-white mb-5">¡Suscribete para recibir nuevas noticias!</h2>
-                                <form class="form-subs" id="contactForm" data-sb-form-api-token="API_TOKEN">
-
+                                <h:form styleClass="form-subs">
                                     <div class="row input-group-newsletter">
-                                        <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Introduzca un email..." aria-label="Introduzca un email" data-sb-validations="required,email" /></div>
-                                        <div class="col-auto"><button class="btn btn-subs disabled" id="submitButton" type="submit">Suscribirme</button></div>
+                                        <div class="col">
+                                            <h:inputText styleClass="form-control emailNewletter" value="#{beanRegister.emailNews}"/>
+                                        </div>
+                                        <div class="col-auto">
+                                            <h:commandButton styleClass="btn btn-subs" actionListener="#{beanRegister.guardarMail()}" value="Suscribirme"/>
+                                        </div>
                                     </div>
                                     <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">Es requerido un email.</div>
                                     <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email no válido.</div>
@@ -217,7 +220,7 @@
                                     <!-- This is what your users will see when there is-->
                                     <!-- an error submitting the form-->
                                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error enviando el mensaje</div></div>
-                                </form>
+                                </h:form>
                             </div>
                         </div>
                     </div>
