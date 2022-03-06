@@ -27,12 +27,6 @@
     font-weight: bold !important;
 }
 
-.btn-fondoPer, .btn-fondoPer:hover {
-    color: #fff;
-    background-color: #038C8C;
-    border-color: #038C8C;
-}
-
 .form-control:focus, .navbar-toggler:focus {
     color: #212529;
     background-color: #fff;
@@ -88,12 +82,16 @@ h3 .tituloSeccion{
   }
   
   .imagen-hover:hover .tituloNoticiaP {
-    background: #0a62fb !important;
+    background: #005f5f !important;
     cursor: pointer;
   }
 
 
 /*FOOTER*/
+
+.bd-footer{
+    margin-top: 5% !important;
+}
 
 .subs {
     padding: 13vh 0 13vh;
@@ -111,6 +109,12 @@ h3 .tituloSeccion{
         border: 0;
     }
 
+    .btn-fondoPer, .btn-fondoPer:hover {
+        color: #fff;
+        background-color: #038C8C;
+        border-color: #038C8C;
+    }
+
     .btn-subs, .btn-subs.disabled {
         color: #038C8C;
         background-color: #F2F2F2;
@@ -124,6 +128,20 @@ h3 .tituloSeccion{
         border: 0;
     }
 
+    .enviado{
+        background: #ff2b75 !important;
+        color: white !important;
+        transition: 1s ease all;
+        transition-delay: 0.3s;
+    }
+
+    .listoo{
+        position: absolute;
+        top: 23%;
+        left: 73%;
+        color: white;
+        font-size: 1.7vmax;
+    }
 
 .pie{
     top: -50px;

@@ -40,7 +40,7 @@
                     <header class="sticky-top container-fluid fondoBarra">
                         <div class="container-fluid">
                             <nav class="navbar bg-transparent navbar-light">
-                                <div class="container-fluid">
+                                <div class="container-fluid caja">
                                     <div class="col d-flex justify-content-start">
                                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapsibleNavbar">
@@ -48,7 +48,7 @@
                                         </button>
                                     </div>
                                     <div class="col d-flex justify-content-center">
-                                        <a class="navbar-brand fs-3 m-0" href="index.jsp"><img class="img-responsive" height="100" src="./img/assets/MODOCLARO.png" alt="Logotipo del periodico Delta."/></a>
+                                        <a class="navbar-brand fs-3 m-0" href="index.jsp"><img class="img-responsive logo" height="100" src="./img/assets/MODOCLARO.png" alt="Logotipo del periodico Delta."/></a>
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <div class="d-flex flex-row align-items-center">
@@ -270,7 +270,7 @@
                                         <div class="col">
                                             <h:inputText styleClass="form-control emailNewletter" value="#{beanRegister.emailNews}"/>
                                         </div>
-                                        <div class="col-auto">
+                                        <div class="col-auto btnNews position-relative">
                                             <h:commandButton styleClass="btn btn-subs" actionListener="#{beanRegister.guardarMail()}" value="Suscribirme"/>
                                         </div>
                                     </div>
