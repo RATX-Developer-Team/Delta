@@ -37,7 +37,7 @@
                     <div class="row fondo">
                     </div>
 
-                    <header class="sticky-top container-fluid fondoBarra">
+                    <header class="sticky-top container-fluid fondoBarra p-0">
                         <div class="container-fluid">
                             <nav class="navbar bg-transparent navbar-light">
                                 <div class="container-fluid caja">
