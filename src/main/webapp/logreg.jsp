@@ -186,57 +186,40 @@
                         </h:form>
                     </div>
                 </div>
-                <footer class="bd-footer">
-                <section class="subs" id="signup">
-                    <div class="container px-4 px-lg-5">
-                        <div class="row gx-4 gx-lg-5">
-                            <div class="col-md-10 col-lg-8 mx-auto text-center">
-                                <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                                <h2 class="text-white mb-5">¡Suscribete para recibir nuevas noticias!</h2>
-                                <h:form styleClass="form-subs">
-                                    <div class="row input-group-newsletter">
-                                        <div class="col">
-                                            <h:inputText styleClass="form-control emailNewletter" value="#{beanRegister.emailNews}"/>
-                                        </div>
-                                        <div class="col-auto">
-                                            <h:commandButton styleClass="btn btn-subs" actionListener="#{beanRegister.guardarMail()}" value="Suscribirme"/>
-                                        </div>
+                <div class="row">  
+                    <footer class="bd-footer p-0">
+                        <section class="subs" id="signup">
+                            <div class="container px-4 px-md-5">
+                                <div class="row gx-4 gx-md-5">
+                                    <div class="col-md-10 col-md-8 mx-auto text-center">
+                                        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+                                        <h2 class="text-white mb-5">¡Suscribete para recibir nuevas noticias!</h2>
+                                        <h:form styleClass="form-subs">
+                                            <div class="row input-group-newsletter">
+                                                <div class="col">
+                                                    <h:inputText styleClass="form-control emailNewletter" value="#{beanRegister.emailNews}"/>
+                                                </div>
+                                                <div class="col-auto btnNews position-relative">
+                                                    <h:commandButton styleClass="btn btn-subs" actionListener="#{beanRegister.guardarMail()}" value="Suscribirme"/>
+                                                </div>
+                                            </div>
+                                        </h:form>
                                     </div>
-                                    <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">Es requerido un email.</div>
-                                    <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email no válido.</div>
-                                    <!-- Submit success message-->
-                                    <!---->
-                                    <!-- This is what your users will see when the form-->
-                                    <!-- has successfully submitted-->
-                                    <div class="d-none" id="submitSuccessMessage">
-                                        <div class="text-center mb-3 mt-2 text-white">
-                                            <div class="fw-bolder">¡Enviado Correctamente!</div>
-                                            To activate this form, sign up at
-                                            <br />
-                                            <a href=""></a>
-                                        </div>
-                                    </div>
-                                    <!-- Submit error message-->
-                                    <!---->
-                                    <!-- This is what your users will see when there is-->
-                                    <!-- an error submitting the form-->
-                                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error enviando el mensaje</div></div>
-                                </h:form>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="position-relative w-100 pie">
+                            <div class="redes position-absolute start-50 translate-middle">
+                                <ul>
+                                    <li><a href="#" target="blank"><i class="neg fab fa-github"></i></a></li>
+                                    <li><a href="#" target="blank"><i class="neg fab fa-instagram"></i></a></li>
+                                    <li><a href="#" target="blank"><i class="neg fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#" target="blank"><i class="neg fab fa-codepen"></i></a></li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <div class="position-relative w-100 pie">
-                    <div class="redes position-absolute start-50 translate-middle">
-                        <ul>
-                            <li><a href="#" target="blank"><i class="neg fab fa-github"></i></a></li>
-                            <li><a href="#" target="blank"><i class="neg fab fa-instagram"></i></a></li>
-                            <li><a href="#" target="blank"><i class="neg fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#" target="blank"><i class="neg fab fa-codepen"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </footer>
+                    </footer>
+                  </div> 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
         </body>
     </html>
