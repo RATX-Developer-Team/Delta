@@ -6,7 +6,6 @@ import com.daw.delta.utils.EmailUtils;
 import com.daw.delta.utils.Utilidades;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
