@@ -211,49 +211,57 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
-                <div class="position-relative imagen-hover">
-                  <img src="./img/viajes.jpg" class="img-fluid" alt="Noticia Mundial" /> <!-- MEJOR FOTOS CUADRADAS -->
-                  <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
+              <div class="card col-lg-3 col-sm-6 mb-5 mb-sm-2">
+                <div class="card-body">
+                  <div class="position-relative imagen-hover">
+                    <img src="./img/viajes.jpg" class="img-fluid" alt="Noticia Mundial" /> <!-- MEJOR FOTOS CUADRADAS -->
+                    <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
+                  </div>
+                  <h5 class="card-title mt-3">Refugees flood Turkey's border with Greece</h5>
+                  <p class="card-text fs-15 ">
+                    Lorem Ipsum has been the industry's standard dummy text
+                  </p>
+                  <a href="#" class="font-weight-bold text-dark pt-2">Leer Artículo</a>
                 </div>
-                <h5 class="font-weight-bold mt-3">Refugees flood Turkey's border with Greece</h5>
-                <p class="fs-15 font-weight-normal">
-                  Lorem Ipsum has been the industry's standard dummy text
-                </p>
-                <a href="#" class="font-weight-bold text-dark pt-2">Leer Artículo</a>
               </div>
-              <div class="col-lg-3 col-sm-6 mb-5 mb-sm-2">
-                <div class="position-relative imagen-hover">
-                  <img src="./img/noticias.jpg" class="img-fluid" alt="Noticia Mundial" /> 
-                  <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
+              <div class="card col-lg-3 col-sm-6 mb-5 mb-sm-2">
+                <div class="card-body">
+                  <div class="position-relative imagen-hover">
+                    <img src="./img/noticias.jpg" class="img-fluid" alt="Noticia Mundial" /> <!-- MEJOR FOTOS CUADRADAS -->
+                    <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
+                  </div>
+                  <h5 class="card-title mt-3">Refugees flood Turkey's border with Greece</h5>
+                  <p class="card-text fs-15 ">
+                    Lorem Ipsum has been the industry's standard dummy text
+                  </p>
+                  <a href="#" class="font-weight-bold text-dark pt-2">Leer Artículo</a>
                 </div>
-                <h5 class="font-weight-bold mt-3">South Korea’s Moon Jae-in sworn in vowing address</h5>
-                <p class="fs-15 font-weight-normal">
-                  Lorem Ipsum has been the industry's standard dummy text
-                </p>
-                <a href="#" class="font-weight-bold text-dark pt-2">Leer Artículo</a>
               </div>
-              <div class="col-lg-3 col-sm-6 mb-5 mb-sm-2">
-                <div class="position-relative imagen-hover">
-                  <img src="./img/viajes.jpg" class="img-fluid" alt="Noticia Mundial" /> 
-                  <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
+              <div class="card col-lg-3 col-sm-6 mb-5 mb-sm-2">
+                <div class="card-body">
+                  <div class="position-relative imagen-hover">
+                    <img src="./img/viajes.jpg" class="img-fluid" alt="Noticia Mundial" /> <!-- MEJOR FOTOS CUADRADAS -->
+                    <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
+                  </div>
+                  <h5 class="card-title mt-3">Refugees flood Turkey's border with Greece</h5>
+                  <p class="card-text fs-15 ">
+                    Lorem Ipsum has been the industry's standard dummy text
+                  </p>
+                  <a href="#" class="font-weight-bold text-dark pt-2">Leer Artículo</a>
                 </div>
-                <h5 class="font-weight-bold mt-3">These puppies are training to assist in avalanche rescue</h5>
-                <p class="fs-15 font-weight-normal">
-                  Lorem Ipsum has been the industry's standard dummy text
-                </p>
-                <a href="#" class="font-weight-bold text-dark pt-2">Leer Artículo</a>
               </div>
-              <div class="col-lg-3 col-sm-6 mb-5 mb-sm-2">
-                <div class="position-relative imagen-hover">
-                  <img src="./img/noticias.jpg" class="img-fluid" alt="Noticia Mundial" /> 
-                  <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
+              <div class="card col-lg-3 col-sm-6 mb-5 mb-sm-2">
+                <div class="card-body">
+                  <div class="position-relative imagen-hover">
+                    <img src="./img/noticias.jpg" class="img-fluid" alt="Noticia Mundial" /> <!-- MEJOR FOTOS CUADRADAS -->
+                    <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
+                  </div>
+                  <h5 class="card-title mt-3">Refugees flood Turkey's border with Greece</h5>
+                  <p class="card-text fs-15 ">
+                    Lorem Ipsum has been the industry's standard dummy text
+                  </p>
+                  <a href="#" class="font-weight-bold text-dark pt-2">Leer Artículo</a>
                 </div>
-                <h5 class="font-weight-bold mt-3">'Love Is Blind' couple opens up about their first year</h5>
-                <p class="fs-15 font-weight-normal">
-                  Lorem Ipsum has been the industry's standard dummy text
-                </p>
-                <a href="#" class="font-weight-bold text-dark pt-2">Leer Artículo</a>
               </div>
             </div>
           </div>
