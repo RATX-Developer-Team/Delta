@@ -18,7 +18,7 @@ $(function() {
     $('.btn').on('click',function(){
         $(this).val('¡Gracias!')
         $(this).addClass('enviado pe-5')
-        $(this).after('<i  class="fa-solid fa-check listoo"></i>')
+        $(this).after('<i class="fa-solid fa-check listoo"></i>')
         
     })
 
