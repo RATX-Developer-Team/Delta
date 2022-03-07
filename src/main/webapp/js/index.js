@@ -24,20 +24,17 @@ $(function() {
 
     $(this).on('scroll', function() {
         let porcen = Math.round(utils_.getScrollPercent())
-        if (porcen > 15) {
+        if (porcen > 20) {
             $('#collapsibleNavbar').collapse('hide')
-            $('.fondo2').show().css('width',porcen+'vw')
+            $('.fondo2').show().css('width',porcen+'%')
             $('.fondo').hide()
-            $('.caja').css('height','8vh')
-            $('.logo').css('height','7vh')
-        }else if(porcen < 14){
-            $('.caja').css('height','11vh')
-            $('.logo').css('height','10vh')
-        }
-        else {
+            $('.logo').css('height','60px')
+        } else if (porcen < 17 && porcen > 15) {
+        } else if (porcen < 15) {
             $('#collapsibleNavbar').collapse('show')
             $('.fondo2').hide()
             $('.fondo').show()
+            $('.logo').css('height','100px')
         }
     })
 })
