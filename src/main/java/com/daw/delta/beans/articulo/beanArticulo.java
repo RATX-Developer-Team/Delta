@@ -2,22 +2,16 @@ package com.daw.delta.beans.articulo;
 
 import com.daw.delta.DTO.Articulo;
 import com.daw.delta.utils.Utilidades;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.crypto.NoSuchPaddingException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean(name="beanArticulo")
 @SessionScoped 
 public class beanArticulo {
     private Articulo articulo;
+    private int codigo;
     
     public beanArticulo() {
     }
@@ -30,16 +24,21 @@ public class beanArticulo {
         this.articulo = articulo;
     }
 
-    public void buscarArticulo() {
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public void cargar() {
         try {
-            final Utilidades utils_ = new Utilidades();//.getRequestParameterMap().get("codigo")
-            HttpServletRequest req = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-            int codigo = Integer.parseInt(req.getParameter("codigo"));
+            final Utilidades utils_ = new Utilidades();
             articulo = utils_.getCtrArticulo().findArticulo(codigo);
-        } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException | UnsupportedEncodingException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(beanArticulo.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
-
 }

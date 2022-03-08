@@ -18,6 +18,7 @@
             <script src="./js/lib/owl.carousel.min.js"></script>
             <script src="./js/utilidades.js"></script>
             <script src="./js/index.js"></script>
+            <script src="./js/articulo.js"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"/>
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css"/>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
@@ -84,8 +85,13 @@
                 </div>
             </div>    
         <!--  FIN DEL HEADER  -->
-        <h:outputText value="#{beanArticulo.articulo.titular}"/>
-        <h:outputText value="#{beanArticulo.articulo.cuerpoNoticia}"/>
+        <h:form>
+            <h:inputText styleClass="secreto" value="#{beanArticulo.codigo}"/> 
+            <h:commandButton styleClass="secreto1" value="Enviar" actionListener="#{beanArticulo.cargar()}"/>
+        </h:form>
+        
+        <h:outputText value="#{beanArticulo.articulo.titular}" rendered="#{not empty beanArticulo.articulo}"/>
+        <h:outputText value="#{beanArticulo.articulo.descripcion}" rendered="#{not empty beanArticulo.articulo}"/>
         
         <!--  FOOTER DE LA PÁGINA CON EL NEWSLETTER -->
          <div class="">  

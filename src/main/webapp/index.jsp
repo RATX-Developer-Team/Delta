@@ -111,6 +111,7 @@
                           </div>
 
                       </div>
+                  <a href="articulo.jsp?codigo=8">Enlace de prueba</a>
                   <h:form>
                       <h:commandButton value="Iniciar sesión" action="alta"/>
                   </h:form>
