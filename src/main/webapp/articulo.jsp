@@ -49,7 +49,7 @@
                                         </button>
                                     </div>
                                     <div class="col d-flex justify-content-center">
-                                        <a class="navbar-brand fs-3 m-0" href="index.jsp"><img class="img-responsive logo" height="100" src="./img/assets/MODOCLARO.png" alt="Logotipo del periodico Delta."/></a>
+                                        <a class="navbar-brand fs-3 m-0" href="/Delta/faces/index.jsp"><img class="img-responsive logo" height="100" src="./img/assets/MODOCLARO.png" alt="Logotipo del periodico Delta."/></a>
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <div class="d-flex flex-row align-items-center">
@@ -84,14 +84,10 @@
                     </div>
                 </div>
             </div>    
-        <!--  FIN DEL HEADER  -->
-        <h:form>
-            <h:inputText styleClass="secreto" value="#{beanArticulo.codigo}"/> 
-            <h:commandButton styleClass="secreto1" value="Enviar" actionListener="#{beanArticulo.cargar()}"/>
-        </h:form>
+        <!--  FIN DEL HEADER  -->    
         
         <h:outputText value="#{beanArticulo.articulo.titular}" rendered="#{not empty beanArticulo.articulo}"/>
-        <h:outputText value="#{beanArticulo.articulo.descripcion}" rendered="#{not empty beanArticulo.articulo}"/>
+        <h:outputText value="#{beanArticulo.articulo.cuerpoNoticia}" rendered="#{not empty beanArticulo.articulo}"/>
         
         <!--  FOOTER DE LA PÁGINA CON EL NEWSLETTER -->
          <div class="">  

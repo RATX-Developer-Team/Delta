@@ -48,7 +48,7 @@
                                         </button>
                                     </div>
                                     <div class="col d-flex justify-content-center">
-                                        <a class="navbar-brand fs-3 m-0" href="index.jsp"><img class="img-responsive logo" height="100" src="./img/assets/MODOCLARO.png" alt="Logotipo del periodico Delta."/></a>
+                                        <a class="navbar-brand fs-3 m-0" href="/Delta/faces/index.jsp"><img class="img-responsive logo" height="100" src="./img/assets/MODOCLARO.png" alt="Logotipo del periodico Delta."/></a>
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <div class="d-flex flex-row align-items-center">
@@ -111,6 +111,7 @@
                           </div>
 
                       </div>
+                  <a href="puente?is=a&destino=/Delta/faces/articulo.jsp&codigoArt=8">Enlace de prueba</a>
                   <a href="articulo.jsp?codigo=8">Enlace de prueba</a>
                   <h:form>
                       <h:commandButton value="Iniciar sesión" action="alta"/>
