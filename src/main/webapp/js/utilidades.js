@@ -3,12 +3,12 @@ let categoriaIPL =  '<li class="nav-item mx-3">'+ //0 nombre de la categoria, 1 
                         '<a class="nav-link" href="#">{0}</a>'+ 
                     '</li>'
 
-let artiPrinciIPL = '<div class="owl-item" style="width: 730px;">'+ //0 Titular, 1 descripcion corta, 2 fecha formateada , 3 enlace a ver el articulo
+let artiPrinciIPL = '<div class="owl-item" style="width: 730px;">'+ //0 Titular, 1 descripcion corta, 2 fecha formateada , 3 imagen, 4 enlance
                         '<div class="item">'+
                             '<div class="carousel-content-wrapper mb-2">'+
                                 '<div class="carousel-content">'+
                                     '<h1 class="font-weight-bold">'+
-                                        '{0}'+
+                                        '<a href="{4}">{0}</a>'+
                                     '</h1>'+
                                     '<h5 class="font-weight-normal m-0">'+
                                         '{1}'+
@@ -31,7 +31,7 @@ let artColumIPL = '<div class="col-sm-6">'+ // 0 Nombre apellido , 1 Descripcion
                             '<span class="fs-12 text-muted">{0}</span>'+
                         '</div>'+
                         '<p class="fs-14 m-0 font-weight-medium line-height-sm">'+
-                            '{1}'+
+                            '<a href="{2}">{1}</a>'+
                         '</p>'+
                     '</div>'+
                    '</div>'
@@ -96,7 +96,7 @@ var UTILS__ = (function() {
             let colum_ = columnaIPL.replace('{0}',xy)
             $('.cargaRecientes').append(colum_)
             for (let xx=x_;xx!=Config.cantidaddeArticulosPorColumna+x_;xx++) {
-                let arti_ = artColumIPL.replace('{0}', Object.values(articulos_)[xx].codUsuario).replace('{1}', Object.values(articulos_)[xx].titular)
+                let arti_ = artColumIPL.replace('{0}', Object.values(articulos_)[xx].codUsuario).replace('{1}', Object.values(articulos_)[xx].titular).replace('{2}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+Object.values(articulos_)[xx].codArt)
                 $('.columna'+xy).append(arti_)
             }
             x_+=Config.cantidaddeArticulosPorColumna
@@ -106,7 +106,7 @@ var UTILS__ = (function() {
     function cargaArtPrinci() {
         let articulos_ = ordenarArt(Config.cantidadArtPrin)
         Object.keys(articulos_).forEach(function(k) {
-            let arti_ = artiPrinciIPL.replace('{0}',articulos_[k].titular).replace('{1}',articulos_[k].descripcion).replace('{2}',articulos_[k].fechaPubli.split(',')[0]).replace('{3}',articulos_[k].imagen)
+            let arti_ = artiPrinciIPL.replace('{0}',articulos_[k].titular).replace('{1}',articulos_[k].descripcion).replace('{2}',articulos_[k].fechaPubli.split(',')[0]).replace('{3}',articulos_[k].imagen).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
             $('.cargaPrinci').append(arti_)
         })
 
