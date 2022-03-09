@@ -111,8 +111,7 @@
                           </div>
 
                       </div>
-                  <a href="puente?is=a&destino=/Delta/faces/articulo.jsp&codigoArt=8">Enlace de prueba</a>
-                  <a href="articulo.jsp?codigo=8">Enlace de prueba</a>
+                  <a href="puente?is=a&destino=/articulo.jsp&codigoArt=8">Enlace de prueba</a>
                   <h:form>
                       <h:commandButton value="Iniciar sesión" action="alta"/>
                   </h:form>
