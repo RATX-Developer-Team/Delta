@@ -15,7 +15,7 @@ $(function() {
         $('.navbar-toggler').click()
     })
 
-    $('.btn').on('click',function(){
+    $('.btn-subs').on('click',function(){
         $(this).val('¡Gracias!')
         $(this).addClass('enviado pe-5')
         $(this).after('<i class="fa-solid fa-check listoo"></i>')

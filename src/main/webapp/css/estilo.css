@@ -85,6 +85,14 @@ h3 .tituloSeccion{
     cursor: pointer;
   }
 
+.card{
+    border-right: none !important;
+}
+.card:last-child{
+    border: 1px solid rgba(0,0,0,.125) !important;
+    border-radius: 0.25rem !important;
+}
+
 
 /*FOOTER*/
 

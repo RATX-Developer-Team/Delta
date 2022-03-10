@@ -52,12 +52,21 @@
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <div class="d-flex flex-row align-items-center">
+                                          <h:form>
+                                            <i class="fa-solid fa-user usua"></i><h:commandButton value="Iniciar sesión" action="alta" styleClass="btn"/>
+                                          </h:form>
                                             <div class="me-2 dropdown text-end">
+                                              
                                                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="fa-solid fa-user usua"></i>
+                                                    <p>Drowpdown</p>
                                                 </a>
+                                                
                                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                                                    <li><a class="dropdown-item" href="#">New project...</a></li>
+                                                    <li>
+                                                      <h:form>
+                                                        <h:commandButton value="Iniciar sesión" action="alta" styleClass="btn"/>
+                                                      </h:form>
+                                                      </li>
                                                     <li><a class="dropdown-item" href="#">Settings</a></li>
                                                     <li><a class="dropdown-item" href="#">Profile</a></li>
                                                     <li><hr class="dropdown-divider"></li>
@@ -86,8 +95,8 @@
             <!--  FIN DEL HEADER  -->
 
             <!--  NOTICIAS PRINCIPALES  -->
-            <div class="col d-flex justify-content-center">
-              <div class="col-md-8 mt-3">
+            <div class="col-md-8 offset-md-2 mt-4">
+              
                       <div class="row">
                           <div class="col-md-8">
                               <div class="owl-carousel owl-theme owl-loaded owl-drag" id="main-banner-carousel">
@@ -115,18 +124,17 @@
                   <h:form>
                       <h:commandButton value="Iniciar sesión" action="alta"/>
                   </h:form>
-              </div>
+              
             </div>
         <!-- FIN DE  NOTICIAS PRINCIPALES  -->    
             
         
         <!--  NOTICIAS POPULARES -->
         <div class="" id="notPopu">
-          <div class="col d-flex justify-content-center">
-            <div class="col-md-8 mt-5">
+          <div class="col-md-8 offset-md-2">
 
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-12">
                   <div class="d-flex position-relative float-left">
                     <h3 id="tit" class="tituloSeccion">Noticias Populares</h3>
                   </div>
@@ -192,15 +200,14 @@
                   </div>
                 </div>
               </div>
-            </div>
+            
           </div>
         </div>
         <!--  FIN NOTICIAS POPULARES -->
         
         <!-- NOTICIAS MUNDIALES -->
         <div class="">
-          <div class="col d-flex justify-content-center">
-            <div class="col-md-8 mt-5">
+          <div class="col-md-8 offset-md-2">
 
             <div class="row">
               <div class="col-sm-12">
@@ -263,7 +270,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          
         </div>
       </div>
 

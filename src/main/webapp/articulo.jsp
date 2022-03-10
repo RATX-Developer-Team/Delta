@@ -90,8 +90,8 @@
         
         
         <!--  ARTICULO  -->
-        <div class="col d-flex justify-content-center">
-            <div class="col-md-8 mt-5">
+        
+            <div class="col-md-8 mt-5 offset-2">
                 <article>
                     <header class="mb-4">
                         <p>
@@ -121,7 +121,7 @@
 
                 </section>
             </div>
-        </div>
+        
 
         <!--  FIN DEL ARTICULO  -->
 
