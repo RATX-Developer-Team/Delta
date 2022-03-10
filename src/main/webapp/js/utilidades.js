@@ -103,6 +103,12 @@ var UTILS__ = (function() {
         }
     }
 
+    function textHTML(str) {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(str, 'text/html');
+        return doc.body;
+    }
+
     function cargaArtPrinci() {
         let articulos_ = ordenarArt(Config.cantidadArtPrin)
         Object.keys(articulos_).forEach(function(k) {
@@ -150,6 +156,7 @@ var UTILS__ = (function() {
     return {
         cargaCategorias: cargaCategorias,
         getScrollPercent: getScrollPercent,
-        cargarArticulos: cargarArticulos
+        cargarArticulos: cargarArticulos,
+        textHTML: textHTML
     }
 })()
