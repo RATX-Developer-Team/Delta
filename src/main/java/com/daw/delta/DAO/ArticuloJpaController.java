@@ -10,6 +10,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import com.daw.delta.DTO.Categorias;
 import com.daw.delta.DTO.Usuario;
+import com.daw.delta.DTO.Subcategorias;
 import com.daw.delta.DTO.Opinion;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,11 @@ public class ArticuloJpaController implements Serializable {
                 codUsuario = em.getReference(codUsuario.getClass(), codUsuario.getEmail());
                 articulo.setCodUsuario(codUsuario);
             }
+            Subcategorias codSubcategoria = articulo.getCodSubcategoria();
+            if (codSubcategoria != null) {
+                codSubcategoria = em.getReference(codSubcategoria.getClass(), codSubcategoria.getCodSubcategoria());
+                articulo.setCodSubcategoria(codSubcategoria);
+            }
             List<Opinion> attachedOpinionList = new ArrayList<Opinion>();
             for (Opinion opinionListOpinionToAttach : articulo.getOpinionList()) {
                 opinionListOpinionToAttach = em.getReference(opinionListOpinionToAttach.getClass(), opinionListOpinionToAttach.getCodOpinion());
@@ -60,6 +66,10 @@ public class ArticuloJpaController implements Serializable {
             if (codUsuario != null) {
                 codUsuario.getArticuloList().add(articulo);
                 codUsuario = em.merge(codUsuario);
+            }
+            if (codSubcategoria != null) {
+                codSubcategoria.getArticuloList().add(articulo);
+                codSubcategoria = em.merge(codSubcategoria);
             }
             for (Opinion opinionListOpinion : articulo.getOpinionList()) {
                 Articulo oldCodArtOfOpinionListOpinion = opinionListOpinion.getCodArt();
@@ -88,6 +98,8 @@ public class ArticuloJpaController implements Serializable {
             Categorias codCategoriaNew = articulo.getCodCategoria();
             Usuario codUsuarioOld = persistentArticulo.getCodUsuario();
             Usuario codUsuarioNew = articulo.getCodUsuario();
+            Subcategorias codSubcategoriaOld = persistentArticulo.getCodSubcategoria();
+            Subcategorias codSubcategoriaNew = articulo.getCodSubcategoria();
             List<Opinion> opinionListOld = persistentArticulo.getOpinionList();
             List<Opinion> opinionListNew = articulo.getOpinionList();
             List<String> illegalOrphanMessages = null;
@@ -109,6 +121,10 @@ public class ArticuloJpaController implements Serializable {
             if (codUsuarioNew != null) {
                 codUsuarioNew = em.getReference(codUsuarioNew.getClass(), codUsuarioNew.getEmail());
                 articulo.setCodUsuario(codUsuarioNew);
+            }
+            if (codSubcategoriaNew != null) {
+                codSubcategoriaNew = em.getReference(codSubcategoriaNew.getClass(), codSubcategoriaNew.getCodSubcategoria());
+                articulo.setCodSubcategoria(codSubcategoriaNew);
             }
             List<Opinion> attachedOpinionListNew = new ArrayList<Opinion>();
             for (Opinion opinionListNewOpinionToAttach : opinionListNew) {
@@ -133,6 +149,14 @@ public class ArticuloJpaController implements Serializable {
             if (codUsuarioNew != null && !codUsuarioNew.equals(codUsuarioOld)) {
                 codUsuarioNew.getArticuloList().add(articulo);
                 codUsuarioNew = em.merge(codUsuarioNew);
+            }
+            if (codSubcategoriaOld != null && !codSubcategoriaOld.equals(codSubcategoriaNew)) {
+                codSubcategoriaOld.getArticuloList().remove(articulo);
+                codSubcategoriaOld = em.merge(codSubcategoriaOld);
+            }
+            if (codSubcategoriaNew != null && !codSubcategoriaNew.equals(codSubcategoriaOld)) {
+                codSubcategoriaNew.getArticuloList().add(articulo);
+                codSubcategoriaNew = em.merge(codSubcategoriaNew);
             }
             for (Opinion opinionListNewOpinion : opinionListNew) {
                 if (!opinionListOld.contains(opinionListNewOpinion)) {
@@ -194,6 +218,11 @@ public class ArticuloJpaController implements Serializable {
             if (codUsuario != null) {
                 codUsuario.getArticuloList().remove(articulo);
                 codUsuario = em.merge(codUsuario);
+            }
+            Subcategorias codSubcategoria = articulo.getCodSubcategoria();
+            if (codSubcategoria != null) {
+                codSubcategoria.getArticuloList().remove(articulo);
+                codSubcategoria = em.merge(codSubcategoria);
             }
             em.remove(articulo);
             em.getTransaction().commit();

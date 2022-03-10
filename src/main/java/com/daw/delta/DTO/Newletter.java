@@ -79,10 +79,7 @@ public class Newletter implements Serializable {
             return false;
         }
         Newletter other = (Newletter) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
     }
 
     @Override

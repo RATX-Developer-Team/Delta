@@ -92,6 +92,9 @@ public class Articulo implements Serializable {
     @JoinColumn(name = "cod_usuario", referencedColumnName = "cod_usuario")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Usuario codUsuario;
+    @JoinColumn(name = "cod_subcategoria", referencedColumnName = "cod_subcategoria")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Subcategorias codSubcategoria;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codArt", fetch = FetchType.LAZY)
     private List<Opinion> opinionList;
 
@@ -192,6 +195,14 @@ public class Articulo implements Serializable {
         this.codUsuario = codUsuario;
     }
 
+    public Subcategorias getCodSubcategoria() {
+        return codSubcategoria;
+    }
+
+    public void setCodSubcategoria(Subcategorias codSubcategoria) {
+        this.codSubcategoria = codSubcategoria;
+    }
+
     @XmlTransient
     public List<Opinion> getOpinionList() {
         return opinionList;
@@ -227,6 +238,9 @@ public class Articulo implements Serializable {
                     "\"codArt\":\"" + codArt + '\"' +
                     ",\"codUsuario\":\"" +usu.get(0).getNombre()+" "+usu.get(0).getApellidos()+ '\"' +
                     ",\"codCategoria\":\"" + codCategoria.getCodCategoria() + '\"' +
+                    ",\"categoria\":\"" + codCategoria.getCategoria() + '\"' +
+                    ",\"codSubCategoria\":\"" + codSubcategoria.getCodSubcategoria() + '\"' +
+                    ",\"subcategoria\":\"" + codSubcategoria.getNombre() + '\"' +
                     ",\"titular\":\"" + titular + '\"' +
                     ",\"descripcion\":\"" + descripcion + '\"' +
                     ",\"cuerpoNoticia\":\"" + cuerpoNoticia + '\"' +

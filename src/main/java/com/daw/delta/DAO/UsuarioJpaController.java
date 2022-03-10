@@ -13,14 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import com.daw.delta.DTO.Opinion;
 import com.daw.delta.DTO.Usuario;
-import com.daw.delta.utils.Utilidades;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.crypto.NoSuchPaddingException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
@@ -267,4 +259,5 @@ public class UsuarioJpaController implements Serializable {
         query.setParameter("codUsuario", c);
         return query.getResultList();
     }
+
 }

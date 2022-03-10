@@ -199,4 +199,5 @@ public class Usuario implements Serializable {
     public String toString() {
         return "com.daw.delta.DTO.Usuario[ email=" + email + " ]";
     }
+
 }
