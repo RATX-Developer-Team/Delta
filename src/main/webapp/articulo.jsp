@@ -25,6 +25,7 @@
             <link rel="stylesheet" href="./css/lib/owl.carousel.min.css"/>
             <link rel="stylesheet" href="./css/lib/owl.theme.default.min.css"/>
             <link rel="stylesheet" href="./css/estilo.css"/>
+            <link rel="stylesheet" href="./css/estiloArticulo.css"/>
             <link rel="shortcut icon" type="image/x-icon" href="./img/assets/FAVICONDELTA.ico">
         </head>
         <body>
@@ -86,9 +87,44 @@
             </div>    
         <!--  FIN DEL HEADER  -->    
         
-        <h:outputText value="#{beanArticulo.articulo.titular}" rendered="#{not empty beanArticulo.articulo}"/>
-        <h:outputText value="#{beanArticulo.articulo.cuerpoNoticia}" rendered="#{not empty beanArticulo.articulo}"/>
         
+        
+        <!--  ARTICULO  -->
+        <div class="col d-flex justify-content-center">
+            <div class="col-md-8 mt-5">
+                <article>
+                    <header class="mb-4">
+                        <p>
+                            <h:outputText value="#{beanArticulo.articulo.titular}" styleClass="h1 fw-bold mb-1"/>  
+                        </p>
+                        <p>
+                            <h:outputText value="#{beanArticulo.articulo.descripcion}" styleClass="h2 mb-1"/>  
+                        </p>
+                        <p>
+                            <h:outputText value="#{beanArticulo.articulo.fechaPubli}" styleClass="text-muted fst-italic mb-2"/>
+                        </p>  
+                    </header>
+
+                    <figure class="mb-5 text-center">
+                        <h:graphicImage value="./img/#{beanArticulo.articulo.imagen}" styleClass="img-fluid rounded"/>
+
+                    </figure>
+                    <section class="mb-5">
+                        <p>
+                            <h:outputText value="#{beanArticulo.articulo.cuerpoNoticia}" styleClass="fs-5 mb-4"/>
+                        </p>
+
+                    </section>
+                </article>
+
+                <section class="mb-5">
+
+                </section>
+            </div>
+        </div>
+
+        <!--  FIN DEL ARTICULO  -->
+
         <!--  FOOTER DE LA PÁGINA CON EL NEWSLETTER -->
          <div class="">  
             <footer class="bd-footer">
