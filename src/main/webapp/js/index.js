@@ -4,7 +4,6 @@ $(function() {
     let utils_ = UTILS__
     utils_.cargaCategorias()
     utils_.cargarArticulos()
-    utils_.cargarArticulosPopulares()
 
     $('.emailNewletter').attr('title', "El email tiene que ser correcto")
     $('.emailNewletter').attr('pattern', "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")

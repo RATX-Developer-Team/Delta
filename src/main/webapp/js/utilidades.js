@@ -36,12 +36,12 @@ let artColumIPL = '<div class="col-sm-6">'+ // 0 Nombre apellido , 1 Descripcion
                     '</div>'+
                    '</div>'
 
-let noticiaPopuPrinciIPL = '<div class="col-md-6  mb-5 mb-sm-2">'+// 0 imagen, 1 titular, 2 descipcion corta, 3 categoria
+let noticiaPopuPrinciIPL = '<div class="col-md-6  mb-5 mb-sm-2">'+// 0 imagen, 1 titular, 2 descipcion corta, 3 categoria, 4 codArt
                                 '<div class="position-relative imagen-hover">'+
                                     '<img src="./img/{0}" class="img-fluid" alt="Imagen de {1}" />'+
                                     '<span class="py-3 px-4 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">{3}</span>'+
                                 '</div>'+
-                                '<h1 class="font-weight-600 mt-3">{1}</h1>'+
+                                '<h1 class="font-weight-600 mt-3"><a href="{4}">{1}</a></h1>'+
                                 '<p class="fs-15 font-weight-normal">'+
                                     '{2}'+
                                 '</p>'+
@@ -105,9 +105,7 @@ var UTILS__ = (function() {
         let articulos_ = ordenarArt(Config.cantidadArticulosPopularesGrandes,"nVisitas")
         Object.keys(articulos_).forEach(function(k,index) {
             if (index==0) {
-                let IPL = noticiaPopuPrinciIPL// 0 imagen, 1 titular, 2 descipcion corta, 3 categoria
-                let o_ = articulos_[k]
-                let arti_ = IPL.replace('{0}', o_.imagen).replace('{1}',o_.titular).replace('{2}',o_.descripcion).replace('{3}',o_.categoria)
+                let arti_ = noticiaPopuPrinciIPL.replace('{0}', articulos_[k].imagen).replace('{1}', articulos_[k].titular).replace('{1}', articulos_[k].titular).replace('{2}', articulos_[k].descripcion).replace('{3}', articulos_[k].categoria).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
                 $('.cargaPopurales').append(arti_)
             } else {
 
@@ -138,7 +136,7 @@ var UTILS__ = (function() {
     function cargaArtPrinci() {
         let articulos_ = ordenarArt(Config.cantidadArtPrin,"prioridad")
         Object.keys(articulos_).forEach(function(k) {
-            let arti_ = artiPrinciIPL.replace('{0}',articulos_[k].titular).replace('{1}',articulos_[k].descripcion).replace('{2}',articulos_[k].fechaPubli.split(',')[0]).replace('{3}',articulos_[k].imagen).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
+            let arti_ = artiPrinciIPL.replace('{0}',articulos_[k].titular).replace('{0}',articulos_[k].titular).replace('{1}',articulos_[k].descripcion).replace('{2}',articulos_[k].fechaPubli.split(',')[0]).replace('{3}',articulos_[k].imagen).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
             $('.cargaPrinci').append(arti_)
         })
 
@@ -174,6 +172,7 @@ var UTILS__ = (function() {
             })
             cargaArtPrinci()
             cargaArtSecun()
+            cargarArticulosPopulares()
         })
     }
     /**
@@ -183,7 +182,6 @@ var UTILS__ = (function() {
         cargaCategorias: cargaCategorias,
         getScrollPercent: getScrollPercent,
         cargarArticulos: cargarArticulos,
-        cargarArticulosPopulares: cargarArticulosPopulares,
         textHTML: textHTML
     }
 })()
