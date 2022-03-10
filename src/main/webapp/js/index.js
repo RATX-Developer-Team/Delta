@@ -4,6 +4,7 @@ $(function() {
     let utils_ = UTILS__
     utils_.cargaCategorias()
     utils_.cargarArticulos()
+    utils_.cargarArticulosPopulares()
 
     $('.emailNewletter').attr('title', "El email tiene que ser correcto")
     $('.emailNewletter').attr('pattern', "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
@@ -19,7 +20,6 @@ $(function() {
         $(this).val('¡Gracias!')
         $(this).addClass('enviado pe-5')
         $(this).after('<i class="fa-solid fa-check listoo"></i>')
-        
     })
 
     $(this).on('scroll', function() {

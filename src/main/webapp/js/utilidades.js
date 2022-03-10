@@ -36,6 +36,17 @@ let artColumIPL = '<div class="col-sm-6">'+ // 0 Nombre apellido , 1 Descripcion
                     '</div>'+
                    '</div>'
 
+let noticiaPopuPrinciIPL = '<div class="col-md-6  mb-5 mb-sm-2">'+// 0 imagen, 1 titular, 2 descipcion corta, 3 categoria
+                                '<div class="position-relative imagen-hover">'+
+                                    '<img src="./img/{0}" class="img-fluid" alt="Imagen de {1}" />'+
+                                    '<span class="py-3 px-4 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">{3}</span>'+
+                                '</div>'+
+                                '<h1 class="font-weight-600 mt-3">{1}</h1>'+
+                                '<p class="fs-15 font-weight-normal">'+
+                                    '{2}'+
+                                '</p>'+
+                            '</div>'
+
 let CATEGORIAS = {}
 let ARTICULOS = {}
 let Config = {
@@ -43,6 +54,7 @@ let Config = {
     timeout: 5000, //Tiempo en pasar de articulo despues de hacer hover en uno en MS
     speed: 4000, // Tiempo en pasar de articulo de forma normal
     cantidadColumnasNoticiasRecientes: 5, //Cantidad de columnas de articulos secundarios
+    cantidadArticulosPopularesGrandes: 1, //Cantidad de articulos populares grandes
     cantidaddeArticulosPorColumna: 2 // Cantidad de articulos por columna de articulos secundarios
 }
 
@@ -75,11 +87,11 @@ var UTILS__ = (function() {
         })
     }
 
-    function ordenarArt(v) {
+    function ordenarArt(v,kk) {
         let o = {}
         let o_ = {}
         Object.keys(ARTICULOS).forEach(function(k) {
-            o[k] = ARTICULOS[k].prioridad
+            o[k] = ARTICULOS[k][kk]
         })
 
         let o__ = Object.keys(o).sort(function(a,b){return o[b]-o[a];})
@@ -89,8 +101,22 @@ var UTILS__ = (function() {
         return o_
     }
 
+    function cargarArticulosPopulares() {
+        let articulos_ = ordenarArt(Config.cantidadArticulosPopularesGrandes,"nVisitas")
+        Object.keys(articulos_).forEach(function(k,index) {
+            if (index==0) {
+                let IPL = noticiaPopuPrinciIPL// 0 imagen, 1 titular, 2 descipcion corta, 3 categoria
+                let o_ = articulos_[k]
+                let arti_ = IPL.replace('{0}', o_.imagen).replace('{1}',o_.titular).replace('{2}',o_.descripcion).replace('{3}',o_.categoria)
+                $('.cargaPopurales').append(arti_)
+            } else {
+
+            }
+        })
+    }
+
     function cargaArtSecun() {
-        let articulos_ = ordenarArt(Config.cantidadColumnasNoticiasRecientes*Config.cantidaddeArticulosPorColumna)
+        let articulos_ = ordenarArt(Config.cantidadColumnasNoticiasRecientes*Config.cantidaddeArticulosPorColumna,"prioridad")
         let x_ = 0
         for (let xy=0;xy!=Config.cantidadColumnasNoticiasRecientes;xy++) {
             let colum_ = columnaIPL.replace('{0}',xy)
@@ -110,7 +136,7 @@ var UTILS__ = (function() {
     }
 
     function cargaArtPrinci() {
-        let articulos_ = ordenarArt(Config.cantidadArtPrin)
+        let articulos_ = ordenarArt(Config.cantidadArtPrin,"prioridad")
         Object.keys(articulos_).forEach(function(k) {
             let arti_ = artiPrinciIPL.replace('{0}',articulos_[k].titular).replace('{1}',articulos_[k].descripcion).replace('{2}',articulos_[k].fechaPubli.split(',')[0]).replace('{3}',articulos_[k].imagen).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
             $('.cargaPrinci').append(arti_)
@@ -157,6 +183,7 @@ var UTILS__ = (function() {
         cargaCategorias: cargaCategorias,
         getScrollPercent: getScrollPercent,
         cargarArticulos: cargarArticulos,
+        cargarArticulosPopulares: cargarArticulosPopulares,
         textHTML: textHTML
     }
 })()

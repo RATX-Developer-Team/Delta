@@ -141,17 +141,8 @@
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col-md-6  mb-5 mb-sm-2">
-                  <div class="position-relative imagen-hover">
-                    <img src="./img/globo.jpg" class="img-fluid" alt="Noticia popular" />
-                    <span class="py-3 px-4 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
-                  </div>
-                  <h1 class="font-weight-600 mt-3">Título</h1>
-                  <p class="fs-15 font-weight-normal">
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
-                  </p>
-                </div>
+              <div class="row cargaPopurales">
+                
 
                 <div class="col-md-6  mb-5 mb-sm-2">
                   <div class="row">
