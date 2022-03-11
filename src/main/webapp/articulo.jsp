@@ -91,7 +91,7 @@
         
         <!--  ARTICULO  -->
         
-            <div class="col-md-8 mt-5 offset-2">
+            <div class="col-md-8 mt-5 offset-md-2">
                 <article>
                     <header class="mb-4">
                         <p>
@@ -124,6 +124,58 @@
         
 
         <!--  FIN DEL ARTICULO  -->
+    
+        <!-- COMENTARIOS -->
+        <section class="col-md-8 mt-5 offset-md-2 mb-5">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <!-- Escribe Comentario-->
+                    <form class="mb-4">
+                        <textarea class="form-control" rows="3" placeholder="¡Escribe tu opinión para que lo vea todo el mundo!"></textarea>
+                        <button type="button" class="btn btn-primary mt-1">Enviar</button>
+                    </form>
+                    <!-- RESPUESTAS -->
+                    <div class="d-flex mb-4">
+                        <i class="fa-solid fa-user usua"></i>
+
+                        <div class="ms-3 w-100">
+                            <div class="fw-bold">NOMBRE USUARIO</div>
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, quibusdam!A</span>
+                            <form class="mt-3 mb-3 row">
+                                <textarea class="form-control col-12"  placeholder="¡Escribe tu opinión para que lo vea todo el mundo!"></textarea><!--INVISIBLE HASTA QUE LE DE A RESPONDER-->
+                                <button type="button" class="btn btn-success mt-1 col-md-2 offset-md-9">Responder</button>
+                            </form>
+                            <!-- RESPUESTA COMENTARIO -->
+                            <div class="d-flex mt-4">
+                                <i class="fa-solid fa-user usua"></i>
+                                <div class="ms-3">
+                                    <div class="fw-bold">NOMBRE USUARIO 2</div>
+                                    <span>Lorem ipsum dolor sit amet.</span>
+                                </div>
+                            </div>
+                            <!-- RESPUESTA COMENTARIO -->
+                            <div class="d-flex mt-4">
+                                <i class="fa-solid fa-user usua"></i>
+                                <div class="ms-3">
+                                    <div class="fw-bold">NOMBRE USUARIO 3</div>
+                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, aspernatur magni in molestias expedita ipsa aut.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- OTRO COMENTARIO -->
+                    <div class="d-flex">
+                        <i class="fa-solid fa-user usua"></i>
+                        <div class="ms-3">
+                            <div class="fw-bold">NOMBRE USUARIO 4</div>
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel incidunt officia ipsam hic quas repudiandae numquam non exercitationem minima labore.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FIN COMENTARIOS -->
 
         <!--  FOOTER DE LA PÁGINA CON EL NEWSLETTER -->
          <div class="">  
