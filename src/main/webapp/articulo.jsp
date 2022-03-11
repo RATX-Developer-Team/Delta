@@ -124,7 +124,6 @@
         
 
         <!--  FIN DEL ARTICULO  -->
-<<<<<<< Updated upstream
     
         <!-- COMENTARIOS -->
         <section class="col-md-8 mt-5 offset-md-2 mb-5">
@@ -177,7 +176,6 @@
         </section>
 
         <!-- FIN COMENTARIOS -->
-=======
         <h:dataTable value="#{beanArticulo.listaComentarios}" var="comen">
             <h:column>
                 <h:outputText value="#{comen.email.nombre}"/>
@@ -189,8 +187,7 @@
                     </h:column>
                 </h:dataTable>
             </h:column>
-        </h:dataTable>
->>>>>>> Stashed changes
+		</h:dataTable>
 
         <!--  FOOTER DE LA PÁGINA CON EL NEWSLETTER -->
          <div class="">  
