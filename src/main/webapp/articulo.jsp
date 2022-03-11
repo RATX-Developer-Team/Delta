@@ -124,6 +124,7 @@
         
 
         <!--  FIN DEL ARTICULO  -->
+<<<<<<< Updated upstream
     
         <!-- COMENTARIOS -->
         <section class="col-md-8 mt-5 offset-md-2 mb-5">
@@ -176,6 +177,20 @@
         </section>
 
         <!-- FIN COMENTARIOS -->
+=======
+        <h:dataTable value="#{beanArticulo.listaComentarios}" var="comen">
+            <h:column>
+                <h:outputText value="#{comen.email.nombre}"/>
+                <h:outputText value="#{comen.contenido}"/>
+                <h:dataTable value="#{beanArticulo.cargaEngancha(comen.codOpinion)}" var="respuesta">
+                    <h:column>
+                        <h:outputText value="#{respuesta.codOpinion.email}"/>
+                        <h:outputText value="#{respuesta.codOpinion.contenido}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:column>
+        </h:dataTable>
+>>>>>>> Stashed changes
 
         <!--  FOOTER DE LA PÁGINA CON EL NEWSLETTER -->
          <div class="">  
