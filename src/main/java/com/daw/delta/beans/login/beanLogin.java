@@ -2,6 +2,7 @@ package com.daw.delta.beans.login;
 
 import com.daw.delta.DTO.Usuario;
 import com.daw.delta.utils.Utilidades;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -10,6 +11,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.crypto.NoSuchPaddingException;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 
 public class beanLogin {
@@ -19,9 +23,21 @@ public class beanLogin {
     
     private String error;
     
+    private String nomUsu;
+    
     public beanLogin() {
     }
 
+    public String getNomUsu() {
+        return nomUsu;
+    }
+
+    public void setNomUsu(String nomUsu) {
+        this.nomUsu = nomUsu;
+    }
+
+    
+    
     public String getError() {
         return error;
     }
@@ -58,6 +74,7 @@ public class beanLogin {
                     Usuario v = o;
                     if (v.getEmail().equals(mail_)) {
                         if (utils_.decrypt(v.getPassword()).equals(passwd_)) {
+                            buscaUsu();
                             return "true";
                         } else {
                             return error = "Contraseña Errónea";
@@ -71,6 +88,25 @@ public class beanLogin {
             Logger.getLogger(beanLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
         return error="Email y Contraseña Incorrectos";
+    }
+    
+    public void buscaUsu(){
+        
+        try {
+        Utilidades utils_ = new Utilidades();
+        Usuario miUsu = utils_.getCtrUsuario().findUsuario(email);
+        nomUsu = miUsu.getNombre();
+        
+        } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException | UnsupportedEncodingException ex) {
+            Logger.getLogger(beanLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
+    public void logout() {
+        ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
+        ((HttpSession) ctx.getSession(false)).invalidate();
     }
     
 }

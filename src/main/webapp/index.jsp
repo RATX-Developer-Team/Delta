@@ -52,25 +52,33 @@
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <div class="d-flex flex-row align-items-center">
-                                          <h:form>
-                                            <i class="fa-solid fa-user usua"></i><h:commandButton value="Iniciar sesión" action="alta" styleClass="btn"/>
-                                          </h:form>
+                                          
                                             <div class="me-2 dropdown text-end">
                                               
                                                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <p>Drowpdown</p>
+                                                  <i class="fa-solid fa-user usua me-2 fs-1"></i>
+                                                  <h:outputText value="#{beanLogin.nomUsu}"/>
                                                 </a>
                                                 
                                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                                     <li>
-                                                      <h:form>
-                                                        <h:commandButton value="Iniciar sesión" action="alta" styleClass="btn"/>
+                                                      <h:form styleClass="dropdown-item botonsillo">
+                                                        <h:commandButton value="Iniciar sesión" action="alta" styleClass="btn" rendered="#{empty beanLogin.nomUsu}"/>
                                                       </h:form>
-                                                      </li>
-                                                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                                    </li>
+
+                                                    <li>
+                                                      <h:form styleClass="dropdown-item botonsillo">
+                                                        <h:commandButton value="Accesibilidad" action="a" styleClass="btn"/>
+                                                      </h:form>
+                                                    </li>
+                                                    
                                                     <li><hr class="dropdown-divider"></li>
-                                                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                                    <li>
+                                                      <h:form styleClass="dropdown-item botonsillo">
+                                                          <h:commandButton value="Cerrar Sesión" actionListener="#{beanLogin.logout()}" styleClass="btn" rendered="#{not empty beanLogin.nomUsu}"/>
+                                                      </h:form>
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <form class="col-12 col-md-auto mb-3 mb-md-0 me-md-3">

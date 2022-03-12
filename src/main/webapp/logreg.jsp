@@ -36,34 +36,16 @@
                     <div class="container-fluid">
                         <nav class="navbar bg-transparent navbar-light">
                             <div class="container-fluid">
-                                <div class="col d-flex justify-content-start">
+                                <div class="col-2 d-flex justify-content-start">
                                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#collapsibleNavbar">
                                         <span class="navbar-toggler-icon m-auto "></span>
                                     </button>
                                 </div>
-                                <div class="col d-flex justify-content-center">
+                                <div class="col offset-3">
                                     <a class="navbar-brand fs-3 m-0" href="/Delta/faces/index.jsp"><img class="img-responsive" height="100" src="./img/assets/MODOCLARO.png" alt="Logotipo del periodico Delta."/></a>
                                 </div>
-                                <div class="col d-flex justify-content-end">
-                                    <div class="d-flex flex-row align-items-center">
-                                        <div class="me-2 dropdown text-end">
-                                            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="fa-solid fa-user usua"></i>
-                                            </a>
-                                            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                                                <li><a class="dropdown-item" href="#">New project...</a></li>
-                                                <li><a class="dropdown-item" href="#">Settings</a></li>
-                                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                                <li><hr class="dropdown-divider"></li>
-                                                <li><a class="dropdown-item" href="#">Sign out</a></li>
-                                            </ul>
-                                        </div>
-                                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                                            <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
-                                        </form>
-                                    </div>
-                                </div>
+                                
                                 <div class="collapse navbar-collapse justify-content-between" id="collapsibleNavbar">
                                     <ul class="navbar-nav">
                                         <div class="container-fluid d-flex flex-row categorias justify-content-center">
