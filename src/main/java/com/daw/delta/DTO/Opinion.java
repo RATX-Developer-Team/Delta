@@ -81,6 +81,15 @@ public class Opinion implements Serializable {
         this.fechaPubli = fechaPubli;
         this.contenido = contenido;
     }
+    
+    public Opinion(Integer codOpinion, Usuario email, Articulo codArt, Date hora, Date fechaPubli, String contenido) {
+        this.codOpinion = codOpinion;
+        this.email = email;
+        this.codArt = codArt;
+        this.hora = hora;
+        this.fechaPubli = fechaPubli;
+        this.contenido = contenido;
+    }
 
     public Integer getCodOpinion() {
         return codOpinion;

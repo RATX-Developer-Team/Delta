@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -219,6 +220,18 @@ public class Articulo implements Serializable {
         return hash;
     }
 
+    public List<Opinion> getComentarios() {
+        List<Opinion> lista = new ArrayList();
+        int aux = 0;
+        for (Opinion o:this.opinionList) {
+            if (o.getRespuestasList().isEmpty()) {
+                lista.add(aux, o);
+                aux++;
+            }
+        }
+        return lista;
+    }
+    
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set

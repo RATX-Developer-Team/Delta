@@ -37,4 +37,11 @@
             <to-view-id>/logreg.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/articulo.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>irArticulo</from-outcome>
+            <to-view-id>/articulo.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

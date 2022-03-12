@@ -130,65 +130,50 @@
             <div class="card bg-light">
                 <div class="card-body">
                     <!-- Escribe Comentario-->
-                    <form class="mb-4">
-                        <textarea class="form-control" rows="3" placeholder="¡Escribe tu opinión para que lo vea todo el mundo!"></textarea>
-                        <button type="button" class="btn btn-primary mt-1">Enviar</button>
-                    </form>
+                    <h:form styleClass="mb-4" rendered="#{not empty beanArticulo.mail}">
+                        <h:inputTextarea rows="3" styleClass="form-control" value="#{beanArticulo.comentario}"/>
+                        <h:commandButton value="Enviar" styleClass="btn btn-primary mt-1" actionListener="#{beanArticulo.guardarComentario()}">
+                            <f:param name="is" value="a"/>
+                            <f:param name="destino" value="/articulo.jsp"/>
+                            <f:param name="codigoArt" value="#{beanArticulo.articulo.codArt}"/>
+                        </h:commandButton>
+                    </h:form>
+                    <h:outputText value="Debes estar registrado para poder comentar en el articulo." rendered="#{empty beanArticulo.mail}"/>
+                    <h:dataTable styleClass="w-100" value="#{beanArticulo.listaComentarios}" var="comen">
+                    <h:column>
                     <!-- RESPUESTAS -->
                     <div class="d-flex mb-4">
                         <i class="fa-solid fa-user usua"></i>
-
                         <div class="ms-3 w-100">
-                            <div class="fw-bold">NOMBRE USUARIO</div>
-                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, quibusdam!A</span>
-                            <form class="mt-3 mb-3 row">
-                                <textarea class="form-control col-12"  placeholder="¡Escribe tu opinión para que lo vea todo el mundo!"></textarea><!--INVISIBLE HASTA QUE LE DE A RESPONDER-->
-                                <button type="button" class="btn btn-success mt-1 col-md-2 offset-md-9">Responder</button>
-                            </form>
+                            <div class="fw-bold"><h:outputText value="#{comen.email.nombre}"/></div>
+                            <span><h:outputText value="#{comen.contenido}"/></span>
+                            <h:form styleClass="mt-3 mb-3 row" rendered="#{not empty beanArticulo.mail}">
+                                <h:inputTextarea rows="3" styleClass="form-control col-12" value="#{beanArticulo.subcomentario}"/>
+                                <h:commandButton value="Responder" styleClass="btn btn-success mt-1 col-md-2 offset-md-9" actionListener="#{beanArticulo.guardarSubComentario(comen)}">
+                                    <f:param name="is" value="a"/>
+                                    <f:param name="destino" value="/articulo.jsp"/>
+                                    <f:param name="codigoArt" value="#{beanArticulo.articulo.codArt}"/>
+                                </h:commandButton>
+                            </h:form>
                             <!-- RESPUESTA COMENTARIO -->
+                            <h:dataTable styleClass="w-100" value="#{beanArticulo.cargaEngancha(comen.codOpinion)}" var="respuesta">
+                            <h:column>
                             <div class="d-flex mt-4">
                                 <i class="fa-solid fa-user usua"></i>
                                 <div class="ms-3">
-                                    <div class="fw-bold">NOMBRE USUARIO 2</div>
-                                    <span>Lorem ipsum dolor sit amet.</span>
+                                    <div class="fw-bold"><h:outputText value="#{respuesta.codOpinion.email.nombre}"/></div>
+                                    <span><h:outputText value="#{respuesta.codOpinion.contenido}"/></span>
                                 </div>
                             </div>
-                            <!-- RESPUESTA COMENTARIO -->
-                            <div class="d-flex mt-4">
-                                <i class="fa-solid fa-user usua"></i>
-                                <div class="ms-3">
-                                    <div class="fw-bold">NOMBRE USUARIO 3</div>
-                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, aspernatur magni in molestias expedita ipsa aut.</span>
-                                </div>
-                            </div>
+                            </h:column>
+                            </h:dataTable>
                         </div>
                     </div>
-                    <!-- OTRO COMENTARIO -->
-                    <div class="d-flex">
-                        <i class="fa-solid fa-user usua"></i>
-                        <div class="ms-3">
-                            <div class="fw-bold">NOMBRE USUARIO 4</div>
-                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel incidunt officia ipsam hic quas repudiandae numquam non exercitationem minima labore.</span>
-                        </div>
-                    </div>
+                    </h:column>
+                    </h:dataTable>
                 </div>
             </div>
         </section>
-
-        <!-- FIN COMENTARIOS -->
-        <h:dataTable value="#{beanArticulo.listaComentarios}" var="comen">
-            <h:column>
-                <h:outputText value="#{comen.email.nombre}"/>
-                <h:outputText value="#{comen.contenido}"/>
-                <h:dataTable value="#{beanArticulo.cargaEngancha(comen.codOpinion)}" var="respuesta">
-                    <h:column>
-                        <h:outputText value="#{respuesta.codOpinion.email}"/>
-                        <h:outputText value="#{respuesta.codOpinion.contenido}"/>
-                    </h:column>
-                </h:dataTable>
-            </h:column>
-		</h:dataTable>
-
         <!--  FOOTER DE LA PÁGINA CON EL NEWSLETTER -->
          <div class="">  
             <footer class="bd-footer">

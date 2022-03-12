@@ -43,6 +43,12 @@ public class Respuestas implements Serializable {
     public Respuestas(Integer codRespuesta) {
         this.codRespuesta = codRespuesta;
     }
+    
+    public Respuestas(Integer codRespuesta,Opinion codO, Opinion codE) {
+        this.codRespuesta = codRespuesta;
+        this.codOpinion = codO;
+        this.codEngancha = codE;
+    }
 
     public Integer getCodRespuesta() {
         return codRespuesta;
