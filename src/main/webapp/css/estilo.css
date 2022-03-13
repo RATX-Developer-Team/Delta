@@ -102,8 +102,8 @@ h3 .tituloSeccion{
     border-right: none !important;
 }
 .card:last-child{
-    border: 1px solid rgba(0,0,0,.125) !important;
-    border-radius: 0.25rem !important;
+    border-right: 1px solid rgba(0,0,0,.125) !important;
+    
 }
 
 

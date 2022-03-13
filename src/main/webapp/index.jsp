@@ -215,7 +215,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row card-group">
               <div class="card col-lg-3 col-sm-6 mb-5 mb-sm-2">
                 <div class="card-body">
                   <div class="position-relative imagen-hover">
