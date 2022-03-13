@@ -1,5 +1,6 @@
 package com.daw.delta.beans.articulo;
 
+import com.daw.delta.DAO.exceptions.NonexistentEntityException;
 import com.daw.delta.DTO.Articulo;
 import com.daw.delta.DTO.Opinion;
 import com.daw.delta.DTO.Respuestas;
@@ -123,6 +124,21 @@ public class beanArticulo {
             ((HttpSession) ctx.getSession(false)).invalidate();
             ctx.redirect(surl);
         } catch (IOException ex) {}
+    }
+    
+    public void incrementar() {
+        try {
+            final Utilidades utils_ = new Utilidades();
+            this.articulo.incre();
+            utils_.getCtrArticulo().edit(articulo);
+        } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException | UnsupportedEncodingException ex) {
+            Logger.getLogger(beanArticulo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(beanArticulo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(beanArticulo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
     public void guardarComentario() {

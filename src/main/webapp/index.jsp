@@ -59,14 +59,7 @@
                                                   <i class="fa-solid fa-user usua me-2 fs-1"></i>
                                                   <h:outputText value="#{beanLogin.nomUsu}"/>
                                                 </a>
-                                                
                                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                                                    <li>
-                                                      <h:form styleClass="dropdown-item botonsillo">
-                                                        <h:commandButton value="Iniciar sesión" action="alta" styleClass="btn" rendered="#{empty beanLogin.nomUsu}"/>
-                                                      </h:form>
-                                                    </li>
-
                                                     <li>
                                                       <h:form styleClass="dropdown-item botonsillo">
                                                         <h:commandButton value="Accesibilidad" action="a" styleClass="btn"/>
@@ -74,11 +67,16 @@
                                                     </li>
                                                     
                                                     <li><hr class="dropdown-divider"></li>
-                                                    <li>
-                                                      <h:form styleClass="dropdown-item botonsillo">
-                                                          <h:commandButton value="Cerrar Sesión" actionListener="#{beanLogin.logout()}" styleClass="btn" rendered="#{not empty beanLogin.nomUsu}"/>
-                                                      </h:form>
-                                                    </li>
+                                                    <h:form styleClass="dropdown-item botonsillo" rendered="#{empty beanLogin.nomUsu}">
+                                                        <li>
+                                                            <h:commandButton value="Iniciar sesión" action="alta" styleClass="btn"/>
+                                                        </li>
+                                                    </h:form>
+                                                    <h:form styleClass="dropdown-item botonsillo" rendered="#{not empty beanLogin.nomUsu}">
+                                                        <li>
+                                                            <h:commandButton value="Cerrar Sesión" actionListener="#{beanLogin.logout()}" styleClass="btn"/>
+                                                        </li>
+                                                    </h:form>
                                                 </ul>
                                             </div>
                                             <form class="col-12 col-md-auto mb-3 mb-md-0 me-md-3">
@@ -128,11 +126,6 @@
                           </div>
 
                       </div>
-                  <a href="puente?is=a&destino=/articulo.jsp&codigoArt=8">Enlace de prueba</a>
-                  <h:form>
-                      <h:commandButton value="Iniciar sesión" action="alta"/>
-                  </h:form>
-              
             </div>
         <!-- FIN DE  NOTICIAS PRINCIPALES  -->    
             
@@ -149,53 +142,15 @@
                 </div>
               </div>
 
-              <div class="row cargaPopurales">
+              <div class="row cargaPopulares">
                 
 
                 <div class="col-md-6  mb-5 mb-sm-2">
-                  <div class="row">
-                    <div class="col-sm-6  mb-5 mb-sm-2">
-                      <div class="position-relative imagen-hover">
-                        <img src="./img/foto.png" class="img-fluid" alt="Noticia popular" />
-                        <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">Política</span>
-                      </div>
-                      <h5 class="font-weight-600 mt-3">A look at California's eerie plane graveyards</h5>
-                      <p class="fs-15 font-weight-normal">
-                        Lorem Ipsum has been the industry's standard dummy text
-                      </p>
-                    </div>
-                    <div class="col-sm-6  mb-5 mb-sm-2">
-                      <div class="position-relative imagen-hover">
-                        <img src="./img/foto.png" class="img-fluid" alt="Noticia popular" />
-                        <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
-                      </div>
-                      <h5 class="font-weight-600 mt-3">The world's most beautiful racecourses</h5>
-                      <p class="fs-15 font-weight-normal">
-                        Lorem Ipsum has been the industry's standard dummy text
-                      </p>
-                    </div>
+                  <div class="row cargaPopulares1">
+
                   </div>
-                  <div class="row mt-3">
-                    <div class="col-sm-6  mb-5 mb-sm-2">
-                      <div class="position-relative imagen-hover">
-                        <img src="./img/foto.png" class="img-fluid" alt="Noticia popular" />
-                        <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
-                      </div>
-                      <h5 class="font-weight-600 mt-3">Japan cancels cherry blossom festivals over virus fears</h5>
-                      <p class="fs-15 font-weight-normal">
-                        Lorem Ipsum has been the industry's standard dummy text
-                      </p>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="position-relative imagen-hover">
-                        <img src="./img/foto.png" class="img-fluid" alt="Noticia popular" />
-                        <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
-                      </div>
-                      <h5 class="font-weight-600 mt-3">Classic cars reborn as electric vehicles</h5>
-                      <p class="fs-15 font-weight-normal">
-                        Lorem Ipsum has been the industry's standard dummy text
-                      </p>
-                    </div>
+                  <div class="row mt-3 cargaPopulares2">
+
                   </div>
                 </div>
               </div>
@@ -204,76 +159,23 @@
         </div>
         <!--  FIN NOTICIAS POPULARES -->
         
-        <!-- NOTICIAS MUNDIALES -->
+        <!-- NOTICIAS RECIENTES -->
         <div class="">
           <div class="col-md-8 offset-md-2">
 
             <div class="row">
               <div class="col-sm-12">
                 <div class="d-flex position-relative float-left">
-                  <h3 id="tit" class="tituloSeccion">Noticias Mundiales</h3>
+                  <h3 id="tit" class="tituloSeccion">Noticias Recientes</h3>
                 </div>
               </div>
             </div>
-            <div class="row card-group">
-              <div class="card col-lg-3 col-sm-6 mb-5 mb-sm-2">
-                <div class="card-body">
-                  <div class="position-relative imagen-hover">
-                    <img src="./img/viajes.jpg" class="img-fluid" alt="Noticia Mundial" /> <!-- MEJOR FOTOS CUADRADAS -->
-                    <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
-                  </div>
-                  <h5 class="card-title mt-3">Refugees flood Turkey's border with Greece</h5>
-                  <p class="card-text fs-15 ">
-                    Lorem Ipsum has been the industry's standard dummy text
-                  </p>
-                  <a href="#" class="font-weight-bold text-dark pt-2">Leer Artículo</a>
-                </div>
-              </div>
-              <div class="card col-lg-3 col-sm-6 mb-5 mb-sm-2">
-                <div class="card-body">
-                  <div class="position-relative imagen-hover">
-                    <img src="./img/noticias.jpg" class="img-fluid" alt="Noticia Mundial" /> <!-- MEJOR FOTOS CUADRADAS -->
-                    <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
-                  </div>
-                  <h5 class="card-title mt-3">Refugees flood Turkey's border with Greece</h5>
-                  <p class="card-text fs-15 ">
-                    Lorem Ipsum has been the industry's standard dummy text
-                  </p>
-                  <a href="#" class="font-weight-bold text-dark pt-2">Leer Artículo</a>
-                </div>
-              </div>
-              <div class="card col-lg-3 col-sm-6 mb-5 mb-sm-2">
-                <div class="card-body">
-                  <div class="position-relative imagen-hover">
-                    <img src="./img/viajes.jpg" class="img-fluid" alt="Noticia Mundial" /> <!-- MEJOR FOTOS CUADRADAS -->
-                    <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
-                  </div>
-                  <h5 class="card-title mt-3">Refugees flood Turkey's border with Greece</h5>
-                  <p class="card-text fs-15 ">
-                    Lorem Ipsum has been the industry's standard dummy text
-                  </p>
-                  <a href="#" class="font-weight-bold text-dark pt-2">Leer Artículo</a>
-                </div>
-              </div>
-              <div class="card col-lg-3 col-sm-6 mb-5 mb-sm-2">
-                <div class="card-body">
-                  <div class="position-relative imagen-hover">
-                    <img src="./img/noticias.jpg" class="img-fluid" alt="Noticia Mundial" /> <!-- MEJOR FOTOS CUADRADAS -->
-                    <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">AÑADIR CATEGORIA</span>
-                  </div>
-                  <h5 class="card-title mt-3">Refugees flood Turkey's border with Greece</h5>
-                  <p class="card-text fs-15 ">
-                    Lorem Ipsum has been the industry's standard dummy text
-                  </p>
-                  <a href="#" class="font-weight-bold text-dark pt-2">Leer Artículo</a>
-                </div>
-              </div>
-            </div>
-          
+            <div class="row card-group cargaRecientes2">
+              
         </div>
       </div>
 
-        <!-- FIN DE NOTICIAS MUNDIALES-->
+        <!-- FIN DE NOTICIAS RECIENTES-->
         
         <!--  FOOTER DE LA PÁGINA CON EL NEWSLETTER -->
          <div class="">  

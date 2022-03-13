@@ -241,6 +241,10 @@ public class Articulo implements Serializable {
         Articulo other = (Articulo) object;
         return !((this.codArt == null && other.codArt != null) || (this.codArt != null && !this.codArt.equals(other.codArt)));
     }
+    
+    public void incre() {
+        this.nVisitas++;
+    }
 
     @Override
     public String toString() {

@@ -47,6 +47,31 @@ let noticiaPopuPrinciIPL = '<div class="col-md-6  mb-5 mb-sm-2">'+// 0 imagen, 1
                                 '</p>'+
                             '</div>'
 
+let noticiaPopularIPL = '<div class="col-sm-6  mb-5 mb-sm-2">'+// 0 imagen, 1 titular, 2 descipcion corta, 3 categoria, 4 codArt
+                            '<div class="position-relative imagen-hover">'+
+                            '  <img src="./img/{0}" class="img-fluid" alt="Noticia popular" />'+
+                            '  <span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">{3}</span>'+
+                            '</div>'+
+                            '<h5 class="font-weight-600 mt-3"><a href="{4}">{1}</a></h5>'+
+                            '<p class="fs-15 font-weight-normal">'+
+                            '  {2}'+
+                            '</p>'+
+                        '</div>'
+
+let noticiaRecienteIPL = '<div class="card col-lg-3 col-sm-6 mb-5 mb-sm-2">'+// 0 imagen, 1 titular, 2 descipcion corta, 3 categoria, 4 codArt
+                            '<div class="card-body">'+
+                            '<div class="position-relative imagen-hover">'+
+                                '<img src="./img/{0}" class="img-fluid" alt="Noticia Mundial" />'+
+                                '<span class="py-2 px-3 bg-dark text-white fs-6 fw-bold lh-sm position-absolute bottom-0 start-0 tituloNoticiaP">{3}</span>'+
+                            '</div>'+
+                            '<h5 class="card-title mt-3"><a href="{4}">{1}</a></h5>'+
+                            '<p class="card-text fs-15 ">'+
+                                '{2}'+
+                            '</p>'+
+                                '<a href="{4}" class="font-weight-bold text-dark pt-2">Leer Artículo</a>'+
+                            '</div>'+
+                        '</div>'
+
 let CATEGORIAS = {}
 let ARTICULOS = {}
 let Config = {
@@ -55,6 +80,8 @@ let Config = {
     speed: 4000, // Tiempo en pasar de articulo de forma normal
     cantidadColumnasNoticiasRecientes: 5, //Cantidad de columnas de articulos secundarios
     cantidadArticulosPopularesGrandes: 1, //Cantidad de articulos populares grandes
+    cantidadArticulosPopularesPeque: 4, //Cantidad de articulos populares pequeños
+    cantidadArticulosRecientes2: 4, //Cantidad de articulos recientes al final de la pagina
     cantidaddeArticulosPorColumna: 2 // Cantidad de articulos por columna de articulos secundarios
 }
 
@@ -101,14 +128,35 @@ var UTILS__ = (function() {
         return o_
     }
 
+    function cargarArticulosRecientes() {
+        let articulos_ = ordenarArt(Config.cantidadArticulosRecientes2,"codArt")
+        Object.keys(articulos_).forEach(function(k) {
+            let arti_ = noticiaRecienteIPL.replace('{0}', articulos_[k].imagen).replace('{1}', articulos_[k].titular).replace('{1}', articulos_[k].titular).replace('{2}', articulos_[k].descripcion).replace('{3}', articulos_[k].categoria).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
+            $('.cargaRecientes2').prepend(arti_)
+        })
+    }
+
     function cargarArticulosPopulares() {
         let articulos_ = ordenarArt(Config.cantidadArticulosPopularesGrandes,"nVisitas")
         Object.keys(articulos_).forEach(function(k,index) {
             if (index==0) {
                 let arti_ = noticiaPopuPrinciIPL.replace('{0}', articulos_[k].imagen).replace('{1}', articulos_[k].titular).replace('{1}', articulos_[k].titular).replace('{2}', articulos_[k].descripcion).replace('{3}', articulos_[k].categoria).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
-                $('.cargaPopurales').append(arti_)
+                $('.cargaPopulares').prepend(arti_)
             } else {
 
+            }
+        })
+    }
+
+    function cargarArticulosPopulares2() {
+        let articulos_ = ordenarArt(Config.cantidadArticulosPopularesPeque,"nVisitas")
+        Object.keys(articulos_).forEach(function(k,index) {
+            if (index%2==0) {
+                let arti_ = noticiaPopularIPL.replace('{0}', articulos_[k].imagen).replace('{1}', articulos_[k].titular).replace('{2}', articulos_[k].descripcion).replace('{3}', articulos_[k].categoria).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
+                $('.cargaPopulares1').append(arti_)
+            } else {
+                let arti_ = noticiaPopularIPL.replace('{0}', articulos_[k].imagen).replace('{1}', articulos_[k].titular).replace('{2}', articulos_[k].descripcion).replace('{3}', articulos_[k].categoria).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
+                $('.cargaPopulares2').append(arti_)
             }
         })
     }
@@ -173,6 +221,8 @@ var UTILS__ = (function() {
             cargaArtPrinci()
             cargaArtSecun()
             cargarArticulosPopulares()
+            cargarArticulosPopulares2()
+            cargarArticulosRecientes()
         })
     }
     /**

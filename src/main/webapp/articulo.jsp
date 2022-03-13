@@ -171,6 +171,7 @@
                     </div>
                     </h:column>
                     </h:dataTable>
+                    <h:outputText value="#{beanArticulo.incrementar()}"/>
                 </div>
             </div>
         </section>
