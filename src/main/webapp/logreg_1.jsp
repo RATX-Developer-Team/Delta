@@ -122,7 +122,7 @@
                                         <h:inputText required="" value="#{beanRegister.email}" styleClass="inputLogin"/>
                                         <label for="correo" class="ms-2"><i class="fa-solid fa-envelope me-2"></i>Correo Electrónico</label>
                                         <div id="emailHelpBlock" class="form-text">
-                                            El email introducido debe contener un patron valido y ser real, para garantizar la comunicacion con usted.
+                                            El email introducido debe contener un patrón válido y ser real, para garantizar la comunicación con usted.
                                         </div>
                                     </div>
 
@@ -159,14 +159,7 @@
                             </fieldset>
                         </h:form>
                     </div>
-                
             </main>
-
-
-
-
-
-
                 <div class="row">  
                     <footer class="bd-footer p-0">
                         <section class="subs" id="signup">

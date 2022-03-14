@@ -27,6 +27,14 @@
             <link rel="shortcut icon" type="image/x-icon" href="./img/assets/FAVICONDELTA.ico">
         </head>
         <body>
+            <div class="contenedor">
+                <div class="loading">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
             <div class="contaier-fuild">
 
             <!--  HEADER  -->
