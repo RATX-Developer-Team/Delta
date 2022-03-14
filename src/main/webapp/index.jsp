@@ -16,6 +16,7 @@
             <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
             <script src="./js/lib/owl.carousel.min.js"></script>
+            <script src="./js/ipl.js"></script>
             <script src="./js/utilidades.js"></script>
             <script src="./js/index.js"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"/>

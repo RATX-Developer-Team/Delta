@@ -2,7 +2,6 @@ package com.daw.delta.beans.login;
 
 import com.daw.delta.DTO.Usuario;
 import com.daw.delta.utils.Utilidades;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;

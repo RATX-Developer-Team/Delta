@@ -16,6 +16,7 @@
             <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
             <script src="./js/lib/owl.carousel.min.js"></script>
+            <script src="./js/ipl.js"></script>
             <script src="./js/utilidades.js"></script>
             <script src="./js/index.js"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"/>
@@ -29,6 +30,16 @@
             <script src="./js/logreq.js"></script>
         </head>
         <body>
+<div class="contenedor">
+                <div class="loading">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="contaier-fuild">
+
             <!--  HEADER  -->
             <div class="sticky-top">
               
@@ -39,7 +50,7 @@
 
                     <header class="sticky-top container-fluid fondoBarra">
                         <div class="container-fluid">
-                            <nav class="navbar bg-transparent navbar-light">
+                            <nav class="navbar bg-transparent ">
                                 <div class="container-fluid caja">
                                     <div class="col d-flex justify-content-start">
                                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -53,10 +64,12 @@
                                     <div class="col d-flex justify-content-end">
                                         <div class="d-flex flex-row align-items-center">
                                           
-                                            <div class="me-2 dropdown text-end">
-                                              
+                                            <div class="me-2 dropdown text-end desplegable">
+                                                <h:form styleClass="fAdmin">
+                                                    <h:commandButton styleClass="btn btn-fondoPer" value="Administración" action="admin.jsp" rendered="#{beanLogin.usu.permiso>0}"/>
+                                                </h:form>
                                                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                  <i class="fa-solid fa-user usua me-2 fs-1"></i>
+                                                  <i class="fa-solid fa-user usua me-2 fs-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Inicio de Sesión"></i>
                                                   <h:outputText value="#{beanLogin.nomUsu}"/>
                                                 </a>
                                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">

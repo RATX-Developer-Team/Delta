@@ -16,9 +16,10 @@
             <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
             <script src="./js/lib/owl.carousel.min.js"></script>
+            <script src="./js/ipl.js"></script>
             <script src="./js/utilidades.js"></script>
             <script src="./js/index.js"></script>
-            <script src="./js/articulo.js"></script>
+            <script src="./js/categoria.js"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"/>
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css"/>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
@@ -26,9 +27,18 @@
             <link rel="stylesheet" href="./css/lib/owl.theme.default.min.css"/>
             <link rel="stylesheet" href="./css/estilo.css"/>
             <link rel="stylesheet" href="./css/estiloArticulo.css"/>
+            <link rel="stylesheet" href="./css/subcate.css"/>
             <link rel="shortcut icon" type="image/x-icon" href="./img/assets/FAVICONDELTA.ico">
         </head>
         <body>
+            <div class="contenedor">
+                <div class="loading">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
             <div class="contaier-fuild">
 
             <!--  HEADER  -->
@@ -41,7 +51,7 @@
 
                     <header class="sticky-top container-fluid fondoBarra">
                         <div class="container-fluid">
-                            <nav class="navbar bg-transparent navbar-light">
+                            <nav class="navbar bg-transparent ">
                                 <div class="container-fluid caja">
                                     <div class="col d-flex justify-content-start">
                                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -54,16 +64,33 @@
                                     </div>
                                     <div class="col d-flex justify-content-end">
                                         <div class="d-flex flex-row align-items-center">
-                                            <div class="me-2 dropdown text-end">
+                                          
+                                            <div class="me-2 dropdown text-end desplegable">
+                                                <h:form styleClass="fAdmin">
+                                                    <h:commandButton styleClass="btn btn-fondoPer" value="Administración" action="admin.jsp" rendered="#{beanLogin.usu.permiso>0}"/>
+                                                </h:form>
                                                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="fa-solid fa-user usua"></i>
+                                                  <i class="fa-solid fa-user usua me-2 fs-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Inicio de Sesión"></i>
+                                                  <h:outputText value="#{beanLogin.nomUsu}"/>
                                                 </a>
                                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                                                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                                                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                                    <li>
+                                                      <h:form styleClass="dropdown-item botonsillo">
+                                                        <h:commandButton value="Accesibilidad" action="a" styleClass="btn"/>
+                                                      </h:form>
+                                                    </li>
+                                                    
                                                     <li><hr class="dropdown-divider"></li>
-                                                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                                    <h:form styleClass="dropdown-item botonsillo" rendered="#{empty beanLogin.nomUsu}">
+                                                        <li>
+                                                            <h:commandButton value="Iniciar sesión" action="alta" styleClass="btn"/>
+                                                        </li>
+                                                    </h:form>
+                                                    <h:form styleClass="dropdown-item botonsillo" rendered="#{not empty beanLogin.nomUsu}">
+                                                        <li>
+                                                            <h:commandButton value="Cerrar Sesión" actionListener="#{beanLogin.logout()}" styleClass="btn"/>
+                                                        </li>
+                                                    </h:form>
                                                 </ul>
                                             </div>
                                             <form class="col-12 col-md-auto mb-3 mb-md-0 me-md-3">
@@ -73,7 +100,7 @@
                                     </div>
                                     <div class="collapse navbar-collapse justify-content-between" id="collapsibleNavbar">
                                         <ul class="navbar-nav">
-                                            <div class="container-fluid d-flex flex-row categorias justify-content-center">
+                                            <div class="container-fluid d-flex flex-row subcategorias justify-content-center">
                                             </div>
                                         </ul>
                                     </div>
@@ -85,9 +112,13 @@
                     </div>
                 </div>
             </div>    
-        <!--  FIN DEL HEADER  -->    
+            <!--  FIN DEL HEADER  -->   
         
-        
+        <div class="col-md-8 mt-5 offset-md-2 card-group">
+            <div class="row cargaArticulosPorCategorias">
+                
+            </div>
+        </div>
         
         
         

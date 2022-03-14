@@ -44,4 +44,25 @@
             <to-view-id>/articulo.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/logregAntiguo.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>alta</from-outcome>
+            <to-view-id>/logreg.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/categoria.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>alta</from-outcome>
+            <to-view-id>/logreg.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/subcategoria.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>alta</from-outcome>
+            <to-view-id>/logreg.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
