@@ -50,6 +50,28 @@
 .dropdown-toggle::after {
     display: none !important;
 }
+
+.desplegable{
+    display: flex;
+    flex-direction: row;
+    flex: nowrap;
+    align-items: center;
+}
+.fAdmin{
+    margin-right: 13px;
+}
+
+.btn-fondoPer {
+    color: #fff !important;
+    border-color: #038C8C !important;
+}
+
+.btn-fondoPer:hover {
+    background-color: #025c5c !important;
+    border-color:  #038C8C  !important;
+}
+
+
 /*BARRA CATEGORIAS*/
 .nav-item{
     padding: 0 1rem !important;

@@ -61,9 +61,9 @@
                                     <div class="col d-flex justify-content-end">
                                         <div class="d-flex flex-row align-items-center">
                                           
-                                            <div class="me-2 dropdown text-end">
-                                                <h:form>
-                                                    <h:commandButton styleClass="btn btn-primary" value="Administración" action="admin.jsp" rendered="#{beanLogin.usu.permiso>0}"/>
+                                            <div class="me-2 dropdown text-end desplegable">
+                                                <h:form styleClass="fAdmin">
+                                                    <h:commandButton styleClass="btn btn-fondoPer" value="Administración" action="admin.jsp" rendered="#{beanLogin.usu.permiso>0}"/>
                                                 </h:form>
                                                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                                                   <i class="fa-solid fa-user usua me-2 fs-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Inicio de Sesión"></i>
