@@ -66,7 +66,7 @@
                                                     <h:commandButton styleClass="btn btn-primary" value="Administración" action="admin.jsp" rendered="#{beanLogin.buscaUsuario.permiso>0}"/>
                                                 </h:form>
                                                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                  <i class="fa-solid fa-user usua me-2 fs-1"></i>
+                                                  <i class="fa-solid fa-user usua me-2 fs-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Inicio de Sesión"></i>
                                                   <h:outputText value="#{beanLogin.nomUsu}"/>
                                                 </a>
                                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
