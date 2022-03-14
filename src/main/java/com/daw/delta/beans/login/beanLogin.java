@@ -20,9 +20,8 @@ public class beanLogin {
 
     private String email;
     private String passwd;
-    
     private String error;
-    
+    private Usuario usu;
     private String nomUsu;
     
     public beanLogin() {
@@ -46,6 +45,14 @@ public class beanLogin {
 
     public String getEmail() {
         return email;
+    }
+
+    public Usuario getUsu() {
+        return usu;
+    }
+
+    public void setUsu(Usuario usu) {
+        this.usu = usu;
     }
 
     public void setEmail(String email) {
@@ -93,22 +100,12 @@ public class beanLogin {
             Utilidades utils_ = new Utilidades();
             Usuario miUsu = utils_.getCtrUsuario().findUsuario(email);
             nomUsu = miUsu.getNombre();
+            usu = miUsu;
         } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException | UnsupportedEncodingException ex) {
             Logger.getLogger(beanLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public Usuario buscaUsuario(){
-        try {
-            Utilidades utils_ = new Utilidades();
-            return utils_.getCtrUsuario().findUsuario(email);
-        } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException | UnsupportedEncodingException ex) {
-            Logger.getLogger(beanLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
-    
-    
+
     public void logout() {
         ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
         ((HttpSession) ctx.getSession(false)).invalidate();

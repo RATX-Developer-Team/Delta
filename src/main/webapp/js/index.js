@@ -33,14 +33,7 @@ $(function() {
     $(this).on('scroll', function() {
         let porcen = Math.round(utils_.getScrollPercent())
         if (porcen > 20) {
-            console.log(porcen)
-            console.log(porcenAnte)
-            if (porcen>porcenAnte+1) {
-                $('#collapsibleNavbar').collapse('hide')
-            } else {
-                $('#collapsibleNavbar').collapse('show')
-            }
-            porcenAnte = porcen
+            $('#collapsibleNavbar').collapse('hide')
             $('.navbar-toggler').show()
             $('.fondo2').show().css('width',porcen+'%')
             $('.fondo').hide()
