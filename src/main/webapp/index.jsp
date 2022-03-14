@@ -47,7 +47,7 @@
 
                     <header class="sticky-top container-fluid fondoBarra">
                         <div class="container-fluid">
-                            <nav class="navbar bg-transparent navbar-light">
+                            <nav class="navbar bg-transparent ">
                                 <div class="container-fluid caja">
                                     <div class="col d-flex justify-content-start">
                                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

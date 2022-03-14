@@ -231,3 +231,26 @@ i{
     flex: 0 0 auto;
     width: 50%;
 }
+.icono{
+    margin-right: 0.5rem;
+}
+@media only screen and (max-width:800px) {
+    .cajaReg{
+        flex-direction: column;
+        align-content: center;
+    }
+    .miniCajaReg{
+        width: 100%;
+    }
+    .botonsillo{
+        width: 100%;
+    }
+    .cajaInicio{
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+    .btnGoogle{
+        margin-bottom: 20px;
+    }
+}

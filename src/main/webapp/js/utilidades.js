@@ -1,5 +1,5 @@
 /*VARIABLES GLOBALES*/
-let categoriaIPL =  '<li class="nav-item mx-3">'+ //0 nombre de la categoria, 1 enlace a ver la categoria
+let categoriaIPL =  '<li class="nav-item">'+ //0 nombre de la categoria, 1 enlace a ver la categoria
                         '<a class="nav-link" href="#">{0}</a>'+ 
                     '</li>'
 
