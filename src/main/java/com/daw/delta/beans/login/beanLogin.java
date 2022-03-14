@@ -36,8 +36,6 @@ public class beanLogin {
         this.nomUsu = nomUsu;
     }
 
-    
-    
     public String getError() {
         return error;
     }
@@ -91,16 +89,23 @@ public class beanLogin {
     }
     
     public void buscaUsu(){
-        
         try {
-        Utilidades utils_ = new Utilidades();
-        Usuario miUsu = utils_.getCtrUsuario().findUsuario(email);
-        nomUsu = miUsu.getNombre();
-        
+            Utilidades utils_ = new Utilidades();
+            Usuario miUsu = utils_.getCtrUsuario().findUsuario(email);
+            nomUsu = miUsu.getNombre();
         } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException | UnsupportedEncodingException ex) {
             Logger.getLogger(beanLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+    }
+    
+    public Usuario buscaUsuario(){
+        try {
+            Utilidades utils_ = new Utilidades();
+            return utils_.getCtrUsuario().findUsuario(email);
+        } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException | UnsupportedEncodingException ex) {
+            Logger.getLogger(beanLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
     
