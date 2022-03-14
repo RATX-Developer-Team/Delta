@@ -145,6 +145,7 @@ input[type="radio"]{
     border-radius: 0.3rem;
     margin-top: 3rem;
     border-width: 3px;
+    max-width: 950px;
     margin-right: auto;
     margin-left: auto;
     width: 80%;
@@ -226,15 +227,15 @@ i{
     flex-wrap: wrap;
 }
 .miniCajaReg{
-    margin-bottom: 1rem;
+    margin: 1rem;
     position: relative;
     flex: 0 0 auto;
-    width: 50%;
+    width: 45%;
 }
 .icono{
     margin-right: 0.5rem;
 }
-@media only screen and (max-width:800px) {
+@media only screen and (max-width:925px) {
     .cajaReg{
         flex-direction: column;
         align-content: center;
@@ -254,3 +255,6 @@ i{
         margin-bottom: 20px;
     }
 }
+
+
+/*CALENDARIO DE FECHA MODIFICADO*/

@@ -2,11 +2,14 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="logreg.jsp" x="50" y="202" zoom="true"/>
-        <Node id="inicio.jsp" x="400" y="150" zoom="true"/>
-        <Node id="email.html" x="150" y="300" zoom="true"/>
-        <Node id="index.jsp" x="72" y="34" zoom="true"/>
-        <Node id="articulo.jsp" x="358" y="355" zoom="true"/>
+        <Node id="logregAntiguo.jsp" x="438" y="271" zoom="true"/>
+        <Node id="inicio.jsp" x="406" y="116" zoom="true"/>
+        <Node id="index.jsp" x="92" y="41" zoom="true"/>
+        <Node id="subcategoria.jsp" x="606" y="166" zoom="true"/>
+        <Node id="logreg.jsp" x="47" y="261" zoom="true"/>
+        <Node id="email.html" x="141" y="388" zoom="true"/>
+        <Node id="categoria.jsp" x="265" y="187" zoom="true"/>
+        <Node id="articulo.jsp" x="338" y="439" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

@@ -4,7 +4,7 @@ $(function() {
     let utils_ = UTILS__
     utils_.cargaCategorias()
     utils_.cargarArticulos()
-    let porcenAnte = 0
+
     $('.emailNewletter').attr('title', "El email tiene que ser correcto")
     $('.emailNewletter').attr('pattern', "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
     $('.emailNewletter').attr('type', "email")
@@ -34,15 +34,15 @@ $(function() {
         let porcen = Math.round(utils_.getScrollPercent())
         if (porcen > 20) {
             $('#collapsibleNavbar').collapse('hide')
-            $('.navbar-toggler').show()
-            $('.fondo2').show().css('width',porcen+'%')
+            $('.navbar-toggler').fadeIn()
+            $('.fondo2').fadeIn().css('width',porcen+'%')
             $('.fondo').hide()
             $('.logo').css('height','60px')
         } else if (porcen < 17 && porcen > 15) {
         } else if (porcen < 15) {
             $('#collapsibleNavbar').collapse('show')
-            $('.navbar-toggler').hide()
-            $('.fondo2').hide()
+            $('.navbar-toggler').fadeOut()
+            $('.fondo2').fadeOut()
             $('.fondo').show()
             $('.logo').css('height','100px')
         }
