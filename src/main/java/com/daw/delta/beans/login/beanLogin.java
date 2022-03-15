@@ -20,6 +20,7 @@ public class beanLogin {
     private String email;
     private String passwd;
     private String error;
+    
     private Usuario usu;
     private String nomUsu;
     
@@ -78,7 +79,8 @@ public class beanLogin {
                     Usuario v = o;
                     if (v.getEmail().equals(mail_)) {
                         if (utils_.decrypt(v.getPassword()).equals(passwd_)) {
-                            buscaUsu();
+                            nomUsu=v.getNombre();
+                            usu=v;
                             return "true";
                         } else {
                             return error = "Contraseña Errónea";
@@ -92,17 +94,6 @@ public class beanLogin {
             Logger.getLogger(beanLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
         return error="Email y Contraseña Incorrectos";
-    }
-    
-    public void buscaUsu(){
-        try {
-            Utilidades utils_ = new Utilidades();
-            Usuario miUsu = utils_.getCtrUsuario().findUsuario(email);
-            nomUsu = miUsu.getNombre();
-            usu = miUsu;
-        } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException | UnsupportedEncodingException ex) {
-            Logger.getLogger(beanLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     public void logout() {
