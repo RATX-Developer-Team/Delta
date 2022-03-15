@@ -240,6 +240,15 @@ var UTILS__ = (function() {
                 cargaAriculosEnCategoria()
             } else if(parametro('is')=='sc') {
                 cargaAriculosEnSubCategoria()
+            } else if(parametro('is')=='a') {
+                $('.bread').ready(function() {
+                    let c = parametro("codigoArt")
+                    let art = ARTICULOS[c]
+                    let htmlCate = $('.nombreCategoriaEnArticulo').html()
+                    let htmlSubCate = $('.nombreSubCategoriaEnArticulo').html()
+                    $('.nombreCategoriaEnArticulo').html(htmlCate.replace('{0}','puente?is=c&destino=/categoria.jsp&codigoCategoria='+art.codCategoria).replace('{1}',art.categoria))
+                    $('.nombreSubCategoriaEnArticulo').html(htmlSubCate.replace('{2}','puente?is=sc&destino=/subcategoria.jsp&codigoSubcategoria='+art.codSubCategoria).replace('{3}',art.subcategoria))
+                })
             }
         })
     }

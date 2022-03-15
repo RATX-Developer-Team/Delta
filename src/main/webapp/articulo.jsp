@@ -111,10 +111,7 @@
                     </div>
                 </div>
             </div>    
-            <!--  FIN DEL HEADER  -->
-        
-        
-        
+            <!--  FIN DEL HEADER  -->        
         <!--  ARTICULO  -->
         
             <div class="col-md-8 mt-5 offset-md-2">
@@ -123,6 +120,16 @@
                         <p>
                             <h:outputText value="#{beanArticulo.articulo.titular}" styleClass="h1 fw-bold mb-1"/>  
                         </p>
+                        <div class="container mt-3 bread">
+                            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item text-black"><a href="/Delta/faces/index.jsp"><i class="fa-solid fa-house"></i></a></li>
+                                  <li class="breadcrumb-item nombreCategoriaEnArticulo"><a href="{0}">{1}</a></li>
+                                  <li class="breadcrumb-item nombreSubCategoriaEnArticulo"><a href="{2}">{3}</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page"><h:outputText value="#{beanArticulo.articulo.titular}"/></li>
+                                </ol>
+                            </nav>
+                        </div>
                         <p>
                             <h:outputText value="#{beanArticulo.articulo.descripcion}" styleClass="h2 mb-1"/>  
                         </p>
