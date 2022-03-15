@@ -31,6 +31,7 @@ public class beanArticulo {
     private Articulo articulo;
     private List<Opinion> listaComentarios;
     private Map listaEnganchados;
+    
     @ManagedProperty("#{beanLogin.email}")
     private String mail;
     private String comentario;

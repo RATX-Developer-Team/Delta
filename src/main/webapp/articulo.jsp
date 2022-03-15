@@ -164,7 +164,7 @@
                             <f:param name="codigoArt" value="#{beanArticulo.articulo.codArt}"/>
                         </h:commandButton>
                     </h:form>
-                    <h:outputText value="Debes estar registrado para poder comentar en el articulo." rendered="#{empty beanArticulo.mail}"/>
+                    <h:outputText styleClass="mb-3" value="Debes estar registrado para poder comentar en el articulo." rendered="#{empty beanArticulo.mail}"/>
                     <h:dataTable styleClass="w-100" value="#{beanArticulo.listaComentarios}" var="comen">
                     <h:column>
                     <!-- RESPUESTAS -->
