@@ -76,6 +76,14 @@ var UTILS__ = (function() {
         })
     }
 
+    function cargaAriculosEnSubCategoria() {
+        let articulos_ = ordenarArt(contarArt(false,parametro("codigoSubcategoria")),"prioridad")
+        Object.keys(articulos_).forEach(function(k) {
+            let arti_ = articuloEnCategoriasIPL.replace('{0}', articulos_[k].imagen).replace('{1}', articulos_[k].nVisitas).replace('{2}', articulos_[k].fechaPubli.split(',')[0]).replace('{3}', articulos_[k].titular).replace('{4}', articulos_[k].descripcion).replace('{5}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
+            $('.cargaDeArticulosPorSubcategorias').prepend(arti_)
+        })
+    }
+
     function cargaSubCategorias() {
         $.getJSON("response", {
             categorias: "sub"
@@ -217,6 +225,7 @@ var UTILS__ = (function() {
             cargarArticulosPopulares2()
             cargarArticulosRecientes()
             cargaAriculosEnCategoria()
+            cargaAriculosEnSubCategoria()
         })
     }
     /**
