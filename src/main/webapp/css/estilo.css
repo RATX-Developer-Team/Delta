@@ -296,16 +296,16 @@ h3 .tituloSeccion{
     }
 
     .redes ul li:nth-child(1) a:hover{
-        background-color: rgba(0, 0, 0, 0.829);
+        background-color: #1DA1F2;
     }
     .redes ul li:nth-child(2) a:hover{
-        background-color: #E4405F;
+        background-color: #AE36B2;
     }
     .redes ul li:nth-child(3) a:hover{
-        background-color: #0077b5;
+        background-color: #4867AA;
     }
     .redes ul li:nth-child(4) a:hover{
-        background-color: #000;
+        background-color: #FA0001;
     }
 
 .contenedor {
