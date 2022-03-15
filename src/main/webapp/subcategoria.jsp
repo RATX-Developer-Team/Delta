@@ -19,6 +19,7 @@
             <script src="./js/ipl.js"></script>
             <script src="./js/utilidades.js"></script>
             <script src="./js/index.js"></script>
+            <script src="./js/categorias.js"></script>
             <script src="./js/articulo.js"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"/>
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css"/>
@@ -113,7 +114,16 @@
                 </div>
             </div>    
             <!--  FIN DEL HEADER  -->   
-        
+        <div class="container mt-3">
+            <h1 class="nombreSubCategoriaCarga"></h1>
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item text-black"><a href="/Delta/faces/index.jsp"><i class="fa-solid fa-house"></i></a></li>
+                  <li class="breadcrumb-item nombreCategoriaEnSub"><a href="{0}">{1}</a></li>
+                  <li class="breadcrumb-item active nombreSubCategoriaCarga" aria-current="page"></li>
+                </ol>
+            </nav>
+        </div>
         <div class="col-md-8 mt-5 offset-md-2 card-group">
             <div class="row cargaDeArticulosPorSubcategorias">
                 

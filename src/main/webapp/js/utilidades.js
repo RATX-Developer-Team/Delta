@@ -92,6 +92,13 @@ var UTILS__ = (function() {
                 SUBCATEGORIAS[index] = v
             })
             cargaSubs()
+            if(parametro('is')=='sc') {
+                let codSub = parametro("codigoSubcategoria")
+                Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]
+                let html = $('.nombreCategoriaEnSub').html()
+                $('.nombreSubCategoriaCarga').html(Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0])
+                $('.nombreCategoriaEnSub').html(html.replace('{0}','puente?is=c&destino=/categoria.jsp&codigoCategoria='+JSON.parse(SUBCATEGORIAS[codSub])[Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]]).replace('{1}',CATEGORIAS[JSON.parse(SUBCATEGORIAS[codSub])[Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]]]))
+            }
         })
     }
 
@@ -111,7 +118,11 @@ var UTILS__ = (function() {
             $.each(data, function(index,v) {
                 CATEGORIAS[index] = v
             })
-            cargaCate()
+            if(parametro('is')!='sc') {
+                cargaCate()
+                let cod = parametro("codigoCategoria")
+                $('.nombreCategoriaCarga').html(CATEGORIAS[cod])
+            }
         })
     }
 
@@ -219,13 +230,17 @@ var UTILS__ = (function() {
             $.each(data, function(index,v) {
                 ARTICULOS[index] = JSON.parse(v)
             })
-            cargaArtPrinci()
-            cargaArtSecun()
-            cargarArticulosPopulares()
-            cargarArticulosPopulares2()
-            cargarArticulosRecientes()
-            cargaAriculosEnCategoria()
-            cargaAriculosEnSubCategoria()
+            if (parametro('is')==null || parametro('is')=="") {
+                cargaArtPrinci()
+                cargaArtSecun()
+                cargarArticulosPopulares()
+                cargarArticulosPopulares2()
+                cargarArticulosRecientes()
+            } else if(parametro('is')=='c') {
+                cargaAriculosEnCategoria()
+            } else if(parametro('is')=='sc') {
+                cargaAriculosEnSubCategoria()
+            }
         })
     }
     /**
@@ -236,6 +251,7 @@ var UTILS__ = (function() {
         getScrollPercent: getScrollPercent,
         cargarArticulos: cargarArticulos,
         cargaSubCategorias: cargaSubCategorias,
+        parametro: parametro,
         textHTML: textHTML
     }
 })()
