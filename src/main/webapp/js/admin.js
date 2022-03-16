@@ -10,16 +10,14 @@ $(function() {
     // Callback that creates and populates a data table,
     // instantiates the pie chart, passes in the data and
     // draws it.
-    function drawChart() {
+    async function drawChart() {
 
         // Create the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Titular');
         data.addColumn('number', 'Visitas');
         let array = await utils_.ultimosArticulosVisitas()
-        for (let i = 0; i < array.length; i++) {
-            data.addRows(array[i])
-        }
+        data.addRows(array)
         // Set chart options
         var options = {'title': 'How Much Pizza I Ate Last Night',
             'width': 400,
