@@ -232,14 +232,36 @@ var UTILS__ = (function() {
             $.each(data, function(index,v) {
                 ARTICULOS[index] = JSON.parse(v)
             })
-            let articulos_ = ordenarArt(10,"nVisitas")
+            let articulos_ = ordenarArt(10,"codArt")
             let ar_ = []
             let i = 0
             Object.keys(articulos_).forEach(function(k) {
-                ar_[i] = [articulos_[k].titular,articulos_[k].nVisitas]
+                ar_[i] = [articulos_[k].titular,parseInt(articulos_[k].nVisitas, 10),parseInt(articulos_[k].prioridad, 10)]
                 i++
             })
-            return ar_
+            google.charts.load('current', {'packages': ['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Titular');
+                data.addColumn('number', 'Visitas');
+                data.addColumn('number', 'Prioridad');
+                data.addRows(ar_)
+                var options = {'title': 'Articulos',
+                    'width': 800,
+                    'curveType': 'function',
+                    'hAxis': {
+                        title: 'Titulares'
+                    },
+                    'vAxis': {
+                        title: 'Prioridad y Visitas'
+                    },
+                    'height': 500};
+                var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                var chart2 = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+                chart.draw(data, options);
+                chart2.draw(data, options);
+            }
         })
     }
 
