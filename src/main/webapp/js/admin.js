@@ -17,8 +17,8 @@ $(function() {
         data.addColumn('string', 'Titular');
         data.addColumn('number', 'Visitas');
         let array = utils_.ua()
-        array.forEach(function(k,v) {
-            data.addRows(array[k]);
+        array.forEach(element => {
+            data.addRows(element);
         })
 
         // Set chart options
