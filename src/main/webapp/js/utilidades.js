@@ -225,6 +225,17 @@ var UTILS__ = (function() {
         }
     }
 
+    function ultimosArticulosVisitas() {
+        let articulos_ = ordenarArt(10,"nVisitas")
+        let ar_ = []
+        let i = 0
+        Object.keys(articulos_).forEach(function(k) {
+            ar_[i] = [articulos_[k].titular,articulos_[k].nVisitas]
+            i++
+        })
+        return ar_
+    }
+
     function cargarArticulos() {
         $.getJSON("response", {
             articulo: "todos"
@@ -263,6 +274,7 @@ var UTILS__ = (function() {
         cargarArticulos: cargarArticulos,
         cargaSubCategorias: cargaSubCategorias,
         parametro: parametro,
+        ua: ultimosArticulosVisitas,
         textHTML: textHTML
     }
 })()
