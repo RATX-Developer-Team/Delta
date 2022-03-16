@@ -2,6 +2,7 @@ package com.daw.delta.beans.login;
 
 import com.daw.delta.DTO.Usuario;
 import com.daw.delta.utils.Utilidades;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -99,6 +100,14 @@ public class beanLogin {
     public void logout() {
         ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
         ((HttpSession) ctx.getSession(false)).invalidate();
+        redireccionar("index.jsp");
+    }
+    
+    private static void redireccionar (String url) {
+        ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
+        try {
+            ctx.redirect(url);
+        } catch (IOException ex) {}
     }
     
 }

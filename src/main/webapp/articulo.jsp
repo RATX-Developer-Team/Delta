@@ -164,7 +164,7 @@
                     <!-- Escribe Comentario-->
                     <h:form styleClass="mb-4" rendered="#{not empty beanArticulo.mail}">
                         <h:inputTextarea rows="3" styleClass="form-control" value="#{beanArticulo.comentario}"/>
-                        <h:commandButton value="Enviar" styleClass="btn btn-primary mt-1" actionListener="#{beanArticulo.guardarComentario()}">
+                        <h:commandButton value="Enviar" styleClass="btn btn-fondoPer mt-2" actionListener="#{beanArticulo.guardarComentario()}">
                             <f:param name="is" value="a"/>
                             <f:param name="destino" value="/articulo.jsp"/>
                             <f:param name="codigoArt" value="#{beanArticulo.articulo.codArt}"/>
@@ -174,14 +174,14 @@
                     <h:dataTable styleClass="w-100" value="#{beanArticulo.listaComentarios}" var="comen">
                     <h:column>
                     <!-- RESPUESTAS -->
-                    <div class="d-flex mb-4">
+                    <div class="d-flex mb-2">
                         <i class="fa-solid fa-user usua"></i>
                         <div class="ms-3 w-100">
                             <div class="fw-bold"><h:outputText value="#{comen.email.nombre}"/></div>
                             <span><h:outputText value="#{comen.contenido}"/></span>
-                            <h:form styleClass="mt-3 mb-3 row" rendered="#{not empty beanArticulo.mail}">
-                                <h:inputTextarea rows="3" styleClass="form-control col-12" value="#{beanArticulo.subcomentario}"/>
-                                <h:commandButton value="Responder" styleClass="btn btn-success mt-1 col-md-2 offset-md-9" actionListener="#{beanArticulo.guardarSubComentario(comen)}">
+                            <h:form styleClass="mt-1 mb-1 row" rendered="#{not empty beanArticulo.mail}">
+                                <h:inputTextarea rows="1" styleClass="form-control col-12" value="#{beanArticulo.subcomentario}"/>
+                                <h:commandButton value="Responder" styleClass="btn btn-fondoPer mt-2 col-md-1 offset-md-11" actionListener="#{beanArticulo.guardarSubComentario(comen)}">
                                     <f:param name="is" value="a"/>
                                     <f:param name="destino" value="/articulo.jsp"/>
                                     <f:param name="codigoArt" value="#{beanArticulo.articulo.codArt}"/>
@@ -190,7 +190,7 @@
                             <!-- RESPUESTA COMENTARIO -->
                             <h:dataTable styleClass="w-100" value="#{beanArticulo.cargaEngancha(comen.codOpinion)}" var="respuesta">
                             <h:column>
-                            <div class="d-flex mt-4">
+                            <div class="d-flex mt-1">
                                 <i class="fa-solid fa-user usua"></i>
                                 <div class="ms-3">
                                     <div class="fw-bold"><h:outputText value="#{respuesta.codOpinion.email.nombre}"/></div>

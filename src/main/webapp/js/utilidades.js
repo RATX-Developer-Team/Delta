@@ -95,11 +95,11 @@ var UTILS__ = (function() {
             if(parametro('is')=='sc') {
                 let codSub = parametro("codigoSubcategoria")
                 let codigoCate = JSON.parse(SUBCATEGORIAS[codSub])[Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]]
-                $('a[href*="codigoCategoria='+codigoCate+'"]')
                 Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]
                 let html = $('.nombreCategoriaEnSub').html()
                 $('.nombreSubCategoriaCarga').html(Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0])
                 $('.nombreCategoriaEnSub').html(html.replace('{0}','puente?is=c&destino=/categoria.jsp&codigoCategoria='+JSON.parse(SUBCATEGORIAS[codSub])[Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]]).replace('{1}',CATEGORIAS[JSON.parse(SUBCATEGORIAS[codSub])[Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]]]))
+                $('a[href*="codigoCategoria='+codigoCate+'"]').addClass('activo')
             }
         })
     }

@@ -71,7 +71,7 @@ let noticiaRecienteIPL = '<div class="card col-lg-3 col-sm-6 mb-5 mb-sm-2">'+// 
                             '</div>'+
                         '</div>'
 
-let articuloEnCategoriasIPL = '<article class="card col-md-4">'+//0 imagen, 1 visitas, 2 fecha, 3 titular, 4 descipcion, 5 enlace
+let articuloEnCategoriasIPL = '<article class="card col-md-4 p-2 my-1">'+//0 imagen, 1 visitas, 2 fecha, 3 titular, 4 descipcion, 5 enlace
                                 '<figure class="text-center position-relative card-img-top imagen-hover">'+
                                     '<img src="./img/{0}" class="img-fluid rounded" alt="Noticia Mundial" />'+
                                     '<div class="tags position-absolute bottom-0 end-0 mb-0 text-white w-100">'+
