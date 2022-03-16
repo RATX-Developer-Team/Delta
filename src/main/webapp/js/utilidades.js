@@ -226,14 +226,21 @@ var UTILS__ = (function() {
     }
 
     function ultimosArticulosVisitas() {
-        let articulos_ = ordenarArt(10,"nVisitas")
-        let ar_ = []
-        let i = 0
-        Object.keys(articulos_).forEach(function(k) {
-            ar_[i] = [articulos_[k].titular,articulos_[k].nVisitas]
-            i++
+        $.getJSON("response", {
+            articulo: "todos"
+        }, function (data) {
+            $.each(data, function(index,v) {
+                ARTICULOS[index] = JSON.parse(v)
+            })
+            let articulos_ = ordenarArt(10,"nVisitas")
+            let ar_ = []
+            let i = 0
+            Object.keys(articulos_).forEach(function(k) {
+                ar_[i] = [articulos_[k].titular,articulos_[k].nVisitas]
+                i++
+            })
+            return ar_
         })
-        return ar_
     }
 
     function cargarArticulos() {
