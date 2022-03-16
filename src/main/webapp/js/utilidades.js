@@ -281,7 +281,7 @@ var UTILS__ = (function() {
         cargarArticulos: cargarArticulos,
         cargaSubCategorias: cargaSubCategorias,
         parametro: parametro,
-        ua: ultimosArticulosVisitas,
+        ultimosArticulosVisitas: ultimosArticulosVisitas,
         textHTML: textHTML
     }
 })()
