@@ -1,6 +1,6 @@
 $(function() {
     console.clear()
-
+    let utils_ = UTILS__
     // Load the Visualization API and the corechart package.
     google.charts.load('current', {'packages': ['corechart']});
 
@@ -16,13 +16,7 @@ $(function() {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Topping');
         data.addColumn('number', 'Slices');
-        data.addRows([
-            ['Mushrooms', 3],
-            ['Onions', 1],
-            ['Olives', 1],
-            ['Zucchini', 1],
-            ['Pepperoni', 2]
-        ]);
+        data.addRows(utils_.ua());
 
         // Set chart options
         var options = {'title': 'How Much Pizza I Ate Last Night',
