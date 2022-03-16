@@ -16,7 +16,7 @@ $(function() {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Titular');
         data.addColumn('number', 'Visitas');
-        let array = utils_.ua()
+        let array = await utils_.ultimosArticulosVisitas()
         for (let i = 0; i < array.length; i++) {
             data.addRows(array[i])
         }

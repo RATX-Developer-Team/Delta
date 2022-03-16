@@ -225,7 +225,7 @@ var UTILS__ = (function() {
         }
     }
 
-    function ultimosArticulosVisitas() {
+    async function ultimosArticulosVisitas() {
         $.getJSON("response", {
             articulo: "todos"
         }, function (data) {
