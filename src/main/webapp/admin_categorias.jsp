@@ -17,11 +17,9 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
             <script src="./js/lib/owl.carousel.min.js"></script>
             <script src="./js/ipl.js"></script>
-            <script src="https://www.gstatic.com/charts/loader.js"></script>
             <script src="./js/utilidades.js"></script>
             <script src="./js/index.js"></script>
             <script src="./js/articulo.js"></script>
-            <script src="./js/admin.js"></script>
 
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"/>
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css"/>
@@ -105,9 +103,7 @@
                         </nav>
                     </div>
                     <div>
-                        <header class="align-self-center fs-1 text-center fw-bold">Últimos 10 artículos más visitados</header>
-                        <div id="chart_div"></div>
-                        <div id="chart_div2"></div> 
+                        <header class="align-self-center fs-1 text-center fw-bold">Control Categorias</header>
                     </div>
                 </div>
             </div>
