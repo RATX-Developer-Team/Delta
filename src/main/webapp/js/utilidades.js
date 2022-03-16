@@ -94,6 +94,8 @@ var UTILS__ = (function() {
             cargaSubs()
             if(parametro('is')=='sc') {
                 let codSub = parametro("codigoSubcategoria")
+                let codigoCate = JSON.parse(SUBCATEGORIAS[codSub])[Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]]
+                $('a[href*="codigoCategoria='+codigoCate+'"]')
                 Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]
                 let html = $('.nombreCategoriaEnSub').html()
                 $('.nombreSubCategoriaCarga').html(Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0])
@@ -118,11 +120,11 @@ var UTILS__ = (function() {
             $.each(data, function(index,v) {
                 CATEGORIAS[index] = v
             })
-            if(parametro('is')!='sc') {
+            if(parametro('is')!='c') {
                 cargaCate()
-                let cod = parametro("codigoCategoria")
-                $('.nombreCategoriaCarga').html(CATEGORIAS[cod])
             }
+            let cod = parametro("codigoCategoria")
+            $('.nombreCategoriaCarga').html(CATEGORIAS[cod])
         })
     }
 

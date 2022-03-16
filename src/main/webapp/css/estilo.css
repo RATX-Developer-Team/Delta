@@ -47,6 +47,11 @@ a:hover {
     font-weight: bold !important;
 }
 
+.active {
+    color: #038C8C !important;
+    font-weight: bold !important;
+}
+
 .form-control:focus, .navbar-toggler:focus {
     color: #212529;
     background-color: #fff;

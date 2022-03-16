@@ -112,10 +112,15 @@
                 </div>
             </div>    
             <!--  FIN DEL HEADER  -->
-
-
+            
             <main class="cajaCentral">
-
+                <h1 class="">Acceso Delta</h1>
+                <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item text-black"><a href="/Delta/faces/index.jsp"><i class="fa-solid fa-house"></i></a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Acceso</li>
+                    </ol>
+                </nav>
                 
                     <div class="log">
                         <div class="botones">
@@ -224,7 +229,7 @@
 
 
 
-                <!--  FOOTER DE LA PÁGINA CON EL NEWSLETTER -->
+        <!--  FOOTER DE LA PÁGINA CON EL NEWSLETTER -->
          <div class="">  
             <footer class="bd-footer">
                 <section class="subs" id="signup">
@@ -250,10 +255,11 @@
                 <div class="position-relative w-100 pie">
                     <div class="redes position-absolute start-50 translate-middle">
                         <ul>
-                            <li><a href="#" target="blank"><i class="neg fab fa-github"></i></a></li>
+                            <li><a href="#" target="blank"><i class="neg fab fa-brands fa-twitter"></i></a></li>
                             <li><a href="#" target="blank"><i class="neg fab fa-instagram"></i></a></li>
-                            <li><a href="#" target="blank"><i class="neg fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#" target="blank"><i class="neg fab fa-codepen"></i></a></li>
+                            <li><a href="#" target="blank"><i class="neg fab fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="#" target="blank"><i class="neg fab fa-brands fa-youtube"></i></a></li>
+                            
                         </ul>
                     </div>
                 </div>

@@ -84,7 +84,7 @@
                                                     <li><hr class="dropdown-divider"></li>
                                                     <h:form styleClass="dropdown-item botonsillo" rendered="#{empty beanLogin.nomUsu}">
                                                         <li>
-                                                            <h:commandButton value="Iniciar sesión" action="alta" styleClass="btn"/>
+                                                            <h:commandLink value="Iniciar sesión" action="logreg.jsp" styleClass="btn"/>
                                                         </li>
                                                     </h:form>
                                                     <h:form styleClass="dropdown-item botonsillo" rendered="#{not empty beanLogin.nomUsu}">
@@ -158,10 +158,11 @@
                 <div class="position-relative w-100 pie">
                     <div class="redes position-absolute start-50 translate-middle">
                         <ul>
-                            <li><a href="#" target="blank"><i class="neg fab fa-github"></i></a></li>
+                            <li><a href="#" target="blank"><i class="neg fab fa-brands fa-twitter"></i></a></li>
                             <li><a href="#" target="blank"><i class="neg fab fa-instagram"></i></a></li>
-                            <li><a href="#" target="blank"><i class="neg fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#" target="blank"><i class="neg fab fa-codepen"></i></a></li>
+                            <li><a href="#" target="blank"><i class="neg fab fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="#" target="blank"><i class="neg fab fa-brands fa-youtube"></i></a></li>
+                            
                         </ul>
                     </div>
                 </div>
