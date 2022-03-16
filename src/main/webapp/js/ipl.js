@@ -72,14 +72,14 @@ let noticiaRecienteIPL = '<div class="card col-lg-3 col-sm-6 mb-5 mb-sm-2">'+// 
                         '</div>'
 
 let articuloEnCategoriasIPL = '<article class="card col-md-4">'+//0 imagen, 1 visitas, 2 fecha, 3 titular, 4 descipcion, 5 enlace
-                                '<figure class="mb-5 text-center position-relative card-img-top">'+
+                                '<figure class="text-center position-relative card-img-top imagen-hover">'+
                                     '<img src="./img/{0}" class="img-fluid rounded" alt="Noticia Mundial" />'+
                                     '<div class="tags position-absolute bottom-0 end-0 mb-0 text-white w-100">'+
                                         '<p class="fs-5 mb-0">'+
                                             '<i class="fa-solid fa-eye"></i>'+
-                                            '<span class="me-2">{1}</span>'+
+                                            '<span class="mx-2">{1}</span>'+
                                             '<i class="fa-solid fa-calendar"></i>'+
-                                            '<span class="">{2}</span>'+
+                                            '<span class="mx-2">{2}</span>'+
                                         '</p>'+
                                     '</div>'+
                                 '</figure>'+
