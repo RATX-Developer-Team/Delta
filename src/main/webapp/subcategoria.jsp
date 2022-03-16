@@ -95,7 +95,7 @@
                                                 </ul>
                                             </div>
                                             <form class="col-12 col-md-auto mb-3 mb-md-0 me-md-3">
-                                                <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
+                                                <input type="search" class="form-control" placeholder="Buscar..." aria-label="Buscar">
                                             </form>
                                         </div>
                                     </div>

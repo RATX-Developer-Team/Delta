@@ -124,7 +124,7 @@
             </div>
             
             <div>
-                <header>Últimos 10 artículos más visitados</header>
+                <header class="align-self-center fs-1 text-center fw-bold">Últimos 10 artículos más visitados</header>
                 <div id="chart_div"></div>
                 <div id="chart_div2"></div> 
             </div>

@@ -248,6 +248,7 @@ var UTILS__ = (function() {
                 data.addColumn('number', 'Prioridad');
                 data.addRows(ar_)
                 var options = {'title': 'Articulos',
+                    colors: ['#8100a3', '#038c8c'],
                     'width': 800,
                     'curveType': 'function',
                     'hAxis': {
