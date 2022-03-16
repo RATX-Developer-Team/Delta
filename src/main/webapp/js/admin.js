@@ -17,10 +17,9 @@ $(function() {
         data.addColumn('string', 'Titular');
         data.addColumn('number', 'Visitas');
         let array = utils_.ua()
-        array.forEach(element => {
-            data.addRows(element);
-        })
-
+        for (let i = 0; i < array.length; i++) {
+            data.addRows(array[i])
+        }
         // Set chart options
         var options = {'title': 'How Much Pizza I Ate Last Night',
             'width': 400,
