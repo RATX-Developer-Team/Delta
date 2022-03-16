@@ -14,9 +14,12 @@ $(function() {
 
         // Create the data table.
         var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows(utils_.ua());
+        data.addColumn('string', 'Titular');
+        data.addColumn('number', 'Visitas');
+        let array = utils_.ua()
+        array.forEach(function(k,v) {
+            data.addRows(array[k]);
+        })
 
         // Set chart options
         var options = {'title': 'How Much Pizza I Ate Last Night',
