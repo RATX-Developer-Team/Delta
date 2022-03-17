@@ -16,11 +16,14 @@
             <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
             <script src="./js/lib/owl.carousel.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+            <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
             <script src="./js/ipl.js"></script>
             <script src="./js/utilidades.js"></script>
             <script src="./js/index.js"></script>
             <script src="./js/articulo.js"></script>
-
+            <script src="./js/admin.js"></script>
+            
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"/>
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css"/>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
@@ -103,7 +106,28 @@
                         </nav>
                     </div>
                     <div>
-                        <header class="align-self-center fs-1 text-center fw-bold">Control Categorias</header>
+                        <header class="align-self-center fs-1 text-center fw-bold">Control de Categorías</header>
+                        <div class="w-75 p-3 m-auto">
+                        <h:form>
+                            <h:dataTable styleClass="tablaPlugin" value="#{beanAdministracion.listaCategorias}" var="c" binding="#{beanAdministracion.tablaCategorias}">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="ID"/>
+                                    </f:facet>
+                                    <h:outputText value="#{c.codCategoria}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Nombre"/>
+                                    </f:facet>
+                                    <h:outputText value="#{c.categoria}"/>
+                                </h:column>
+                                <h:column>
+                                    <h:commandButton styleClass="btn btn-danger" value="Eliminar" actionListener="#{beanAdministracion.eliminarCat()}"/>
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+                        </div>
                     </div>
                 </div>
             </div>

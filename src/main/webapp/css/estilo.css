@@ -88,6 +88,8 @@ a:hover {
     border-color: #038C8C !important;
 }
 
+.gs-button{cursor:pointer}
+
 .btn-fondoPer:hover {
     background-color: #025c5c !important;
     border-color:  #038C8C  !important;

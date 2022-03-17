@@ -21,7 +21,7 @@
             <script src="./js/utilidades.js"></script>
             <script src="./js/index.js"></script>
             <script src="./js/articulo.js"></script>
-            <script src="./js/admin.js"></script>
+            <script src="./js/admin2.js"></script>
 
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"/>
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css"/>

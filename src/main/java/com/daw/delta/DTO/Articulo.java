@@ -167,6 +167,10 @@ public class Articulo implements Serializable {
     public Integer getNVisitas() {
         return nVisitas;
     }
+    
+    public Integer nvisit() {
+        return nVisitas;
+    }
 
     public void setNVisitas(Integer nVisitas) {
         this.nVisitas = nVisitas;
