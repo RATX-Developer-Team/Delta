@@ -22,10 +22,7 @@ a:hover {
     color: #038C8C !important;
 }
 
-.nav-item .activo {
-    color: #038C8C !important;
-    font-weight: bold !important;
-}
+
 
 .breadcrumb-item+.breadcrumb-item::before {
     float: none!important;
@@ -98,6 +95,15 @@ a:hover {
 
 
 /*BARRA CATEGORIAS*/
+.nav-item .activo {
+    color: #038C8C !important;
+    font-weight: bold !important;
+}
+.nav-item .activo:before {
+    background: #038C8C;
+    width: 100%;
+}
+
 .nav-item{
     padding: 0 1rem !important;
 }

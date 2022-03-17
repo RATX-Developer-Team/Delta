@@ -124,7 +124,7 @@
                 </ol>
             </nav>
         </div>
-        <div class="col-md-8 mt-5 offset-md-2 card-group">
+        <div class="col-md-8 mt-5 offset-md-2 card-group cajaPrincipal">
             <div class="row cargaDeArticulosPorSubcategorias">
                 
             </div>
