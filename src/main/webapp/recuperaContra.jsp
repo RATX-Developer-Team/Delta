@@ -113,119 +113,47 @@
             </div>    
             <!--  FIN DEL HEADER  -->
             <div class="container">
-                <h1 class="">Acceso Delta</h1>
+                <h1 class="">Recupera tu Contraseña</h1>
                 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item text-black"><a href="/Delta/faces/index.jsp"><i class="fa-solid fa-house"></i></a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Acceso</li>
+                      <li class="breadcrumb-item active" aria-current="page">Recupera Contraseña</li>
                     </ol>
                 </nav>
             </div>
                 
             <main class="cajaCentral">
-                    <div class="log">
-                        <div class="botones">
-                            <input type="radio" name="tipo" value="login" id="log" checked><label for="log">Inicia Sesión</label>
-                            <input type="radio" name="tipo" value="reg" id="reg"><label for="reg">Registrarse</label>
+                <div class="cajaFot">
+                    <img class="fotoRecContr" src="./img/assets/busca.jpg" alt="Hombre Buscando algo como si hubiese perdido la contraseña">
+                </div>
+                <div class="cajaFot">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-2">¿Has olvidado tu contraseña?</h1>
+                            <p class="mb-4">No te preocupes, cosas que pasan. Introduce tu correo electrónico debajo
+                                y te enviaremos un link para recuperar la contraseña</p>
                         </div>
-                        <h:form styleClass="formuLog">
-                            <fieldset>
-                                <div class="filaL">
-                                    <h:inputText required="" value="#{beanLogin.email}" styleClass=" inputLogin"/>
-                                    <label for="correo" class="lCorreo"><i class="fa-solid fa-envelope icono"></i>Correo Electrónico</label>
-                                </div>
-                                <div class="filaL">
-                                    <h:inputSecret required="" value="#{beanLogin.passwd}" styleClass="inputLogin"/>
-                                    <label for="contra" class="lCorreo"><i class="fa-solid fa-lock icono"></i>Contraseña</label>
-                                </div>
-
-                                <div class="col">
-                                    <a href="/Delta/faces/recuperaContra.jsp" class="linkContra">¿Has olvidado la contraseña?</a>
-                                </div>
-
-                                <div class="entrar">
-                                    <div class="cajaBoton">
-                                        <h:commandButton action="#{beanLogin.esUsuario()}" value="Entrar" styleClass="botonsillo colorsillo"/>
-                                        
-                                    </div>
-                                </div>
-
-                                <div class="entrar">
-                                    <div class="cajaInicio">
-                                        <button type="button" class="btnGoogle"><a href="#">Inicia sesión con Google</a></button>
-
-                                        <button type="button" class="btnFace"><a href="#"><i class="fa-brands fa-facebook-f iconFace"></i>Inicia sesión con Facebook</a></button>
-                                    </div>
-                                </div>
-                                <div class="entrar">        
-                                    <h4><h:outputText value="#{beanLogin.error}" /></h4>
-                                </div>
-                            </fieldset>
-                        </h:form>
+                        <form class="user">
+                            <div>
+                                <input type="email" class="inputR"
+                                    id="inputCorreo" aria-describedby="Email"
+                                    placeholder="Introduzca tu email...">
+                            </div>
+                            <a href="login.html" id="bR">
+                                Recuperar Contraseña
+                            </a>
+                        </form>
+                        <hr>
+                        <div class="text-center">
+                            <a class="small" href="/Delta/faces/logreg.jsp">Registrarse o Iniciar sesión</a>
+                        </div>
+                        <div class="text-center">
+                            <a class="small" href="/Delta/faces/index.jsp">Volver al menú Principal</a>
+                        </div>
                     </div>
-                
-                    <div class="log registro">
-                        <h:form styleClass="formuReg">
-                            <fieldset>
-                                <div class="cajaReg">
-
-                                    <div class=" miniCajaReg">
-                                        <h:inputText required="" value="#{beanRegister.nombre}" styleClass="inputLogin"/>
-                                        <label for="nomReg" class="lCorreo"><i class="fa-solid fa-user icono"></i>Nombre</label>
-                                    </div>
-
-                                    <div class="miniCajaReg">
-                                        <h:inputText required="" value="#{beanRegister.apellidos}" styleClass="inputLogin"/>
-                                        <label for="apeReg" class="lCorreo"><i class="fa-regular fa-user icono"></i>Apellidos</label>
-                                    </div>
-
-                                    <div class="miniCajaReg">
-                                        <h:inputText required="" value="#{beanRegister.email}" styleClass="inputLogin"/>
-                                        <label for="correo" class="lCorreo"><i class="fa-solid fa-envelope icono"></i>Correo Electrónico</label>
-                                        <div id="emailHelpBlock" class="form-text">
-                                            El email introducido debe contener un patrón válido y ser real, para garantizar la comunicación con usted.
-                                        </div>
-                                    </div>
-
-                                    <div class="miniCajaReg">
-                                        <h:inputSecret required="" value="#{beanRegister.passwd}" styleClass="inputLogin"/>
-                                        <label for="contra" class="lCorreo"><i class="fa-solid fa-lock icono"></i>Contraseña</label>
-                                        <div id="passwordHelpBlock" class="form-text">
-                                            Tu contraseña debe tener entre 8-20 caractéres, contener números y letras sin espacios o carácter especial.
-                                        </div>
-                                    </div>
-
-                                    <div class="miniCajaReg">
-                                        <h:inputText required="" value="#{beanRegister.fecha_naci}" styleClass="fecha inputLogin"/>
-                                        <label for="fechReg" class="lCorreo"><i class="fa-solid fa-calendar-days icono"></i>Fecha Nacimiento</label>
-                                    </div>
-
-                                    <div class="miniCajaReg">
-                                        <h:selectOneMenu required="" value="#{beanRegister.pais}" styleClass="inputLogin">
-                                            <f:selectItem itemValue="spain" itemLabel="España"/>
-                                            <f:selectItem itemValue="usa" itemLabel="Estados Unidos"/>
-                                            <f:selectItem itemValue="germany" itemLabel="Alemania"/>
-                                            <f:selectItem itemValue="china" itemLabel="China"/>
-                                            <f:selectItem itemValue="france" itemLabel="Francia"/>
-                                        </h:selectOneMenu>
-                                        <label for="paisReg" class="lCorreo"><i class="fa-solid fa-earth-americas icono"></i>País</label>
-                                    </div>
-                                </div>
-
-                                <div class="entrar">
-                                    <div class="cajaBoton">
-                                        <h:commandButton action="#{beanRegister.guardarUsuario()}" value="Registrar" styleClass="botonsillo colorsillo"/>
-                                    </div>
-                                </div>
-                                <div class="entrar">
-                                    <div class="cajaInicio">
-                                        <button type="button" class="btnGoogle"><a href="#">Registrarse con Google</a></button>
-                                        <button type="button" class="btnFace"><a href="#"><i class="fa-brands fa-facebook-f iconFace"></i>Registrarse con Facebook</a></button>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </h:form>
-                    </div>
+                </div>
+                                
+               
             </main>
 
 
