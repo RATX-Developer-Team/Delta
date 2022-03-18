@@ -18,6 +18,12 @@
             <script src="./js/lib/owl.carousel.min.js"></script>
             <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
             <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+            
+            <link rel="stylesheet" type="text/css" href="./css/lib/wysiwyg.min.css">
+            <link rel="stylesheet" type="text/css" href="./css/lib/highlight.min.css">
+            <script type="text/javascript" charset="utf8" src="./js/lib/wysiwyg.min.js"></script>
+            <script type="text/javascript" charset="utf8" src="./js/lib/highlight.min.js"></script>
+            
             <script src="./js/ipl.js"></script>
             <script src="./js/utilidades.js"></script>
             <script src="./js/index.js"></script>
@@ -165,6 +171,24 @@
                                 </h:column>
                             </h:dataTable>
                         </h:form>
+                        </div>
+                        <div class="w-75 p-3 m-auto formuCreaArt mt-3">
+                            <header class="align-self-center fs-1 text-center fw-bold">Crear Articulo</header>
+                            <h:form styleClass="mt-3 w-50">
+                                <div class="distinto"><label>Titular: </label><h:inputText value="#{beanAdministracion.titularArt}"/></div>
+                                <div class="distinto"><label>Categoria: </label><h:selectOneMenu value="#{beanAdministracion.categoriaArt}">
+                                    <f:selectItems value="#{beanAdministracion.listaSelectSub}"/>
+                                </h:selectOneMenu></div>
+                                <div class="distinto"><label>Sub Categoria: </label><h:selectOneMenu value="#{beanAdministracion.subCategoriaArt}">
+                                    <f:selectItems value="#{beanAdministracion.listaSubCate}"/>
+                                </h:selectOneMenu></div>
+                                <div class="distinto"><label>Descripcion: </label><h:inputText value="#{beanAdministracion.descripArt}"/></div>
+                                <div class="distinto mt-3"><label>Cuerpo Noticia: </label></div>
+                                <h:inputTextarea styleClass="w-100 editorArt" value="#{beanAdministracion.cuerpoArt}"/>
+                                <div class="distinto"><label>Imagen: </label><h:inputText value="#{beanAdministracion.imgArt}"/></div>
+                                <div class="distinto"><label>Prioridad Base: </label><h:inputText value="#{beanAdministracion.prioridadBaseArt}"/></div>
+                                <div class="distinto"><h:commandButton styleClass="btn btn-success" value="Guardar" actionListener="#{beanAdministracion.guardarArt()}"/></div>
+                            </h:form>
                         </div>
                     </div>
                 </div>

@@ -115,6 +115,20 @@ public class Articulo implements Serializable {
         this.fechaPubli = fechaPubli;
         this.prioridadBase = prioridadBase;
     }
+    
+    public Articulo(Integer codArt, Usuario codUsuario, Categorias codCategoria, Subcategorias codSubcategoria, String titular, String descripcion, String cuerpoNoticia, String imagen, Date fechaPubli, int visitas, int prioridadBase) {
+        this.codArt = codArt;
+        this.codUsuario = codUsuario;
+        this.codCategoria = codCategoria;
+        this.codSubcategoria = codSubcategoria;
+        this.titular = titular;
+        this.descripcion = descripcion;
+        this.cuerpoNoticia = cuerpoNoticia;
+        this.imagen = imagen;
+        this.fechaPubli = fechaPubli;
+        this.nVisitas = visitas;
+        this.prioridadBase = prioridadBase;
+    }
 
     public Integer getCodArt() {
         return codArt;

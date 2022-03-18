@@ -128,6 +128,13 @@
                             </h:dataTable>
                         </h:form>
                         </div>
+                        <div class="w-75 p-3 m-auto formuCreaArt mt-3">
+                            <header class="align-self-center fs-1 text-center fw-bold">Crear Categoria</header>
+                            <h:form styleClass="mt-3 w-50">
+                                <div class="distinto"><label>Nombre Categoria: </label><h:inputText value="#{beanAdministracion.nombreCategoria}"/></div>
+                                <div class="distinto"><h:commandButton styleClass="btn btn-success" value="Guardar" actionListener="#{beanAdministracion.guardarCat()}"/></div>
+                            </h:form>
+                        </div>
                     </div>
                 </div>
             </div>
