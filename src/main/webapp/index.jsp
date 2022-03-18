@@ -50,9 +50,8 @@
                         <div class="container-fluid">
                             <nav class="navbar bg-transparent ">
                                 <div class="container-fluid caja">
-                                    <div class="col d-flex justify-content-start">
-                                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapsibleNavbar">
+                                    <div id="cbR" class="col d-flex justify-content-start">
+                                        <button name="Boton replegable" aria-labelledby="cbR" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                                             <span class="navbar-toggler-icon m-auto "></span>
                                         </button>
                                     </div>
@@ -105,7 +104,7 @@
                             </nav>
                         </div>
                     </header>
-                    <div class="row fondo2">
+                    <div class="row fondo2" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" title="Bara de lectura">
                     </div>
                 </div>
             </div>    
@@ -123,10 +122,10 @@
                                       </div>
                                   </div>
                                   <div class="owl-nav disabled">
-                                      <button type="button" role="presentation" class="owl-prev">
+                                      <button type="button" class="owl-prev">
                                           <span aria-label="Previous">‹</span>
                                       </button>
-                                      <button type="button" role="presentation" class="owl-next">
+                                      <button type="button" class="owl-next">
                                           <span aria-label="Next">›</span>
                                       </button>
                                   </div>
@@ -148,7 +147,7 @@
               <div class="row">
                 <div class="col-12">
                   <div class="d-flex position-relative float-left">
-                    <h3 id="tit" class="tituloSeccion">Noticias Populares</h3>
+                    <h3 id="tit" class="tituloSeccion" >Noticias Populares</h3>
                   </div>
                 </div>
               </div>
@@ -214,10 +213,10 @@
                 <div class="position-relative w-100 pie">
                     <div class="redes position-absolute start-50 translate-middle">
                         <ul>
-                            <li><a href="#" target="blank"><i class="neg fab fa-brands fa-twitter"></i></a></li>
-                            <li><a href="#" target="blank"><i class="neg fab fa-instagram"></i></a></li>
-                            <li><a href="#" target="blank"><i class="neg fab fa-brands fa-facebook-f"></i></a></li>
-                            <li><a href="#" target="blank"><i class="neg fab fa-brands fa-youtube"></i></a></li>
+                            <li><a href="#" target="blank" aria-label="Enlace para ir a la cuenta de Twitter"><i class="neg fab fa-brands fa-twitter"></i></a></li>
+                            <li><a href="#" target="blank" aria-label="Enlace para ir a la cuenta de Instagram"><i class="neg fab fa-instagram"></i></a></li>
+                            <li><a href="#" target="blank" aria-label="Enlace para ir a la cuenta de Facebook"><i class="neg fab fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="#" target="blank" aria-label="Enlace para ir a la cuenta de Youtube"><i class="neg fab fa-brands fa-youtube"></i></a></li>
                             
                         </ul>
                     </div>
