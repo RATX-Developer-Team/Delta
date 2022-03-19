@@ -8,7 +8,7 @@ let Config = {
     cantidadArtPrin : 4, //Cantidad de articulos principales
     timeout: 5000, //Tiempo en pasar de articulo despues de hacer hover en uno en MS
     speed: 4000, // Tiempo en pasar de articulo de forma normal
-    cantidadColumnasNoticiasRecientes: 5, //Cantidad de columnas de articulos secundarios
+    cantidadColumnasNoticiasRecientes: 4, //Cantidad de columnas de articulos secundarios
     cantidadArticulosPopularesGrandes: 1, //Cantidad de articulos populares grandes
     cantidadArticulosPopularesPeque: 4, //Cantidad de articulos populares pequeños
     cantidadArticulosRecientes2: 4, //Cantidad de articulos recientes al final de la pagina
@@ -60,7 +60,7 @@ var UTILS__ = (function() {
                 let codCate = parametro("codigoCategoria")
                 Object.keys(o_).forEach(function(k1) {
                     if (o_[k1]==codCate) {
-                        let subcate_ = categoriaIPL.replace('{0}',k1).replace('{1}','puente?is=sc&destino=/subcategoria.jsp&codigoSubcategoria='+k)
+                        let subcate_ = categoriaIPL.replaceAll('{0}',k1).replaceAll('{1}','puente?is=sc&destino=/subcategoria.jsp&codigoSubcategoria='+k)
                         $('.subcategorias').append(subcate_)
                     }
                 })
@@ -71,7 +71,7 @@ var UTILS__ = (function() {
     function cargaAriculosEnCategoria() {
         let articulos_ = ordenarArt(contarArt(true,parametro("codigoCategoria")),"prioridad")
         Object.keys(articulos_).forEach(function(k) {
-            let arti_ = articuloEnCategoriasIPL.replace('{0}', articulos_[k].imagen).replace('{1}', articulos_[k].nVisitas).replace('{2}', articulos_[k].fechaPubli.split(',')[0]).replace('{3}', articulos_[k].titular).replace('{4}', articulos_[k].descripcion).replace('{5}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
+            let arti_ = articuloEnCategoriasIPL.replaceAll('{0}', articulos_[k].imagen).replaceAll('{1}', articulos_[k].nVisitas).replaceAll('{2}', articulos_[k].fechaPubli.split(',')[0]).replaceAll('{3}', articulos_[k].titular).replaceAll('{4}', articulos_[k].descripcion).replaceAll('{5}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
             $('.cargaArticulosPorCategorias').prepend(arti_)
         })
     }
@@ -79,7 +79,7 @@ var UTILS__ = (function() {
     function cargaAriculosEnSubCategoria() {
         let articulos_ = ordenarArt(contarArt(false,parametro("codigoSubcategoria")),"prioridad")
         Object.keys(articulos_).forEach(function(k) {
-            let arti_ = articuloEnCategoriasIPL.replace('{0}', articulos_[k].imagen).replace('{1}', articulos_[k].nVisitas).replace('{2}', articulos_[k].fechaPubli.split(',')[0]).replace('{3}', articulos_[k].titular).replace('{4}', articulos_[k].descripcion).replace('{5}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
+            let arti_ = articuloEnCategoriasIPL.replaceAll('{0}', articulos_[k].imagen).replaceAll('{1}', articulos_[k].nVisitas).replaceAll('{2}', articulos_[k].fechaPubli.split(',')[0]).replaceAll('{3}', articulos_[k].titular).replaceAll('{4}', articulos_[k].descripcion).replaceAll('{5}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
             $('.cargaDeArticulosPorSubcategorias').prepend(arti_)
         })
     }
@@ -98,7 +98,7 @@ var UTILS__ = (function() {
                 Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]
                 let html = $('.nombreCategoriaEnSub').html()
                 $('.nombreSubCategoriaCarga').html(Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0])
-                $('.nombreCategoriaEnSub').html(html.replace('{0}','puente?is=c&destino=/categoria.jsp&codigoCategoria='+JSON.parse(SUBCATEGORIAS[codSub])[Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]]).replace('{1}',CATEGORIAS[JSON.parse(SUBCATEGORIAS[codSub])[Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]]]))
+                $('.nombreCategoriaEnSub').html(html.replaceAll('{0}','puente?is=c&destino=/categoria.jsp&codigoCategoria='+JSON.parse(SUBCATEGORIAS[codSub])[Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]]).replaceAll('{1}',CATEGORIAS[JSON.parse(SUBCATEGORIAS[codSub])[Object.keys(JSON.parse(SUBCATEGORIAS[codSub]))[0]]]))
                 $('a[href*="codigoCategoria='+codigoCate+'"]').addClass('activo')
             }
         })
@@ -107,7 +107,7 @@ var UTILS__ = (function() {
     function cargaCate() {
         $('.categorias').ready(function () {
             Object.keys(CATEGORIAS).forEach(function(k) {
-                let cate_ = categoriaIPL.replace('{0}',CATEGORIAS[k]).replace('{1}','puente?is=c&destino=/categoria.jsp&codigoCategoria='+k)
+                let cate_ = categoriaIPL.replaceAll('{0}',CATEGORIAS[k]).replaceAll('{1}','puente?is=c&destino=/categoria.jsp&codigoCategoria='+k)
                 $('.categorias').append(cate_)
             })
         })
@@ -145,7 +145,7 @@ var UTILS__ = (function() {
     function cargarArticulosRecientes() {
         let articulos_ = ordenarArt(Config.cantidadArticulosRecientes2,"codArt")
         Object.keys(articulos_).forEach(function(k) {
-            let arti_ = noticiaRecienteIPL.replace('{0}', articulos_[k].imagen).replace('{1}', articulos_[k].titular).replace('{1}', articulos_[k].titular).replace('{2}', articulos_[k].descripcion).replace('{3}', articulos_[k].categoria).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
+            let arti_ = noticiaRecienteIPL.replaceAll('{0}', articulos_[k].imagen).replaceAll('{1}', articulos_[k].titular).replaceAll('{1}', articulos_[k].titular).replaceAll('{2}', articulos_[k].descripcion).replaceAll('{3}', articulos_[k].categoria).replaceAll('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt).replaceAll('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
             $('.cargaRecientes2').prepend(arti_)
         })
     }
@@ -154,7 +154,7 @@ var UTILS__ = (function() {
         let articulos_ = ordenarArt(Config.cantidadArticulosPopularesGrandes,"nVisitas")
         Object.keys(articulos_).forEach(function(k,index) {
             if (index==0) {
-                let arti_ = noticiaPopuPrinciIPL.replace('{0}', articulos_[k].imagen).replace('{1}', articulos_[k].titular).replace('{1}', articulos_[k].titular).replace('{2}', articulos_[k].descripcion).replace('{3}', articulos_[k].categoria).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
+                let arti_ = noticiaPopuPrinciIPL.replaceAll('{0}', articulos_[k].imagen).replaceAll('{1}', articulos_[k].titular).replaceAll('{1}', articulos_[k].titular).replaceAll('{2}', articulos_[k].descripcion).replaceAll('{3}', articulos_[k].categoria).replaceAll('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
                 $('.cargaPopulares').prepend(arti_)
             } else {
 
@@ -166,10 +166,10 @@ var UTILS__ = (function() {
         let articulos_ = ordenarArt(Config.cantidadArticulosPopularesPeque,"nVisitas")
         Object.keys(articulos_).forEach(function(k,index) {
             if (index%2==0) {
-                let arti_ = noticiaPopularIPL.replace('{0}', articulos_[k].imagen).replace('{1}', articulos_[k].titular).replace('{2}', articulos_[k].descripcion).replace('{3}', articulos_[k].categoria).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
+                let arti_ = noticiaPopularIPL.replaceAll('{0}', articulos_[k].imagen).replaceAll('{1}', articulos_[k].titular).replaceAll('{2}', articulos_[k].descripcion).replaceAll('{3}', articulos_[k].categoria).replaceAll('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
                 $('.cargaPopulares1').append(arti_)
             } else {
-                let arti_ = noticiaPopularIPL.replace('{0}', articulos_[k].imagen).replace('{1}', articulos_[k].titular).replace('{2}', articulos_[k].descripcion).replace('{3}', articulos_[k].categoria).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
+                let arti_ = noticiaPopularIPL.replaceAll('{0}', articulos_[k].imagen).replaceAll('{1}', articulos_[k].titular).replaceAll('{2}', articulos_[k].descripcion).replaceAll('{3}', articulos_[k].categoria).replaceAll('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
                 $('.cargaPopulares2').append(arti_)
             }
         })
@@ -179,10 +179,10 @@ var UTILS__ = (function() {
         let articulos_ = ordenarArt(Config.cantidadColumnasNoticiasRecientes*Config.cantidaddeArticulosPorColumna,"prioridad")
         let x_ = 0
         for (let xy=0;xy!=Config.cantidadColumnasNoticiasRecientes;xy++) {
-            let colum_ = columnaIPL.replace('{0}',xy)
+            let colum_ = columnaIPL.replaceAll('{0}',xy)
             $('.cargaRecientes').append(colum_)
             for (let xx=x_;xx!=Config.cantidaddeArticulosPorColumna+x_;xx++) {
-                let arti_ = artColumIPL.replace('{0}', Object.values(articulos_)[xx].codUsuario).replace('{1}', Object.values(articulos_)[xx].titular).replace('{2}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+Object.values(articulos_)[xx].codArt)
+                let arti_ = artColumIPL.replaceAll('{0}', Object.values(articulos_)[xx].codUsuario).replaceAll('{1}', Object.values(articulos_)[xx].titular).replaceAll('{2}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+Object.values(articulos_)[xx].codArt)
                 $('.columna'+xy).append(arti_)
             }
             x_+=Config.cantidaddeArticulosPorColumna
@@ -198,7 +198,7 @@ var UTILS__ = (function() {
     function cargaArtPrinci() {
         let articulos_ = ordenarArt(Config.cantidadArtPrin,"prioridad")
         Object.keys(articulos_).forEach(function(k) {
-            let arti_ = artiPrinciIPL.replace('{0}',articulos_[k].titular).replace('{0}',articulos_[k].titular).replace('{1}',articulos_[k].descripcion).replace('{2}',articulos_[k].fechaPubli.split(',')[0]).replace('{3}',articulos_[k].imagen).replace('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
+            let arti_ = artiPrinciIPL.replaceAll('{0}',articulos_[k].titular).replaceAll('{0}',articulos_[k].titular).replaceAll('{1}',articulos_[k].descripcion).replaceAll('{2}',articulos_[k].fechaPubli.split(',')[0]).replaceAll('{3}',articulos_[k].imagen).replaceAll('{4}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
             $('.cargaPrinci').append(arti_)
         })
 
@@ -289,8 +289,8 @@ var UTILS__ = (function() {
                     let art = ARTICULOS[c]
                     let htmlCate = $('.nombreCategoriaEnArticulo').html()
                     let htmlSubCate = $('.nombreSubCategoriaEnArticulo').html()
-                    $('.nombreCategoriaEnArticulo').html(htmlCate.replace('{0}','puente?is=c&destino=/categoria.jsp&codigoCategoria='+art.codCategoria).replace('{1}',art.categoria))
-                    $('.nombreSubCategoriaEnArticulo').html(htmlSubCate.replace('{2}','puente?is=sc&destino=/subcategoria.jsp&codigoSubcategoria='+art.codSubCategoria).replace('{3}',art.subcategoria))
+                    $('.nombreCategoriaEnArticulo').html(htmlCate.replaceAll('{0}','puente?is=c&destino=/categoria.jsp&codigoCategoria='+art.codCategoria).replaceAll('{1}',art.categoria))
+                    $('.nombreSubCategoriaEnArticulo').html(htmlSubCate.replaceAll('{2}','puente?is=sc&destino=/subcategoria.jsp&codigoSubcategoria='+art.codSubCategoria).replaceAll('{3}',art.subcategoria))
                 })
             }
         })

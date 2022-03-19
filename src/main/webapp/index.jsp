@@ -114,7 +114,8 @@
             <div class="col-md-8 offset-md-2 mt-4">
               
                       <div class="row">
-                          <div class="col-md-8">
+                        <h3 id="tit" class="tituloSeccion" >Noticias Principales</h3>
+                          <div class="col-md-8" aria-label="Contenedor del carrusel de fotos">
                               <div class="owl-carousel owl-theme owl-loaded owl-drag" id="main-banner-carousel">
                                   <div class="owl-stage-outer">
                                       <div class="owl-stage cargaPrinci" style="transform: translate3d(-3650px, 0px, 0px); transition: all 2s ease 0s; width: 5840px;">
@@ -131,8 +132,8 @@
                                   </div>
                               </div>
                           </div>
-                          <div class="col-md-4 cargaRecientes">
-
+                          <div class="col-md-4 cargaRecientes" aria-label="Contenedor de noticias Principales">
+                            <h4 id="tit" class="tituloSeccion" >Noticias y Autores</h4>
                           </div>
 
                       </div>
@@ -203,6 +204,7 @@
                                         </div>
                                         <div class="col-auto btnNews position-relative">
                                             <h:commandButton styleClass="btn btn-subs" actionListener="#{beanRegister.guardarMail()}" value="Suscribirme"/>
+                                            <span class="ocultar">Botón para suscribirse al periódico y recibir noticias por correo</span>
                                         </div>
                                     </div>
                                 </h:form>
