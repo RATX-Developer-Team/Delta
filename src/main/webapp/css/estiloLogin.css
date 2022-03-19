@@ -67,7 +67,7 @@
 
 
 
-.botonsillo{
+.botonaso{
     width: 60%;
     text-decoration: none;
     text-transform:uppercase;
@@ -87,12 +87,12 @@
 }
 
     
-    .botonsillo:hover, .botonsillo:active{
+    .botonaso:hover, .botonaso:active{
         background-color: rgb(202, 247, 247);
         box-shadow: 0px -1px 0px -1px ;
         transition :all .3s ease;
     }
-    .botonsillo:active{
+    .botonaso:active{
         background-color: rgba(35,153,155,1.00); 
     }
     
@@ -243,7 +243,7 @@ i{
     .miniCajaReg{
         width: 100%;
     }
-    .botonsillo{
+    .botonaso{
         width: 100%;
     }
     .cajaInicio{
@@ -306,3 +306,23 @@ i{
         display: block!important;
     }
 }
+
+@media only screen and (max-width:768px){
+    .cajaCentral{
+        width: 100%;
+    }
+    .btnGoogle{
+        width: 100%;
+        background-size: 37px;
+        background-position: 180px 6px;
+    }
+
+
+}
+
+@media only screen and (max-width:658px){
+    .btnGoogle{
+        background-position: 15% 6px;
+    }
+}
+

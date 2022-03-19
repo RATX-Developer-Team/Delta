@@ -43,7 +43,7 @@
             <div class="contaier-fuild">
 
             <!--  HEADER  -->
-            <div class="sticky-top">
+            <div class="sticky-top cabecera">
               
                 <div class="contaier-fuild">
 

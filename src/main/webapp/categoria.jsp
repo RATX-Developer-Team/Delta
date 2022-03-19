@@ -93,7 +93,7 @@
                                                     </h:form>
                                                 </ul>
                                             </div>
-                                            <form class="col-12 col-md-auto mb-3 mb-md-0 me-md-3">
+                                            <form class="col-12 col-md-auto mb-3 mb-md-0 me-md-3 d-none d-md-block">
                                                 <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
                                             </form>
                                         </div>
@@ -122,7 +122,7 @@
                 </ol>
             </nav>
         </div>
-        <div class="col-md-8 mt-5 offset-md-2 card-group cajaPrincipal">
+        <div class="cajaPrincipal">
             <div class="row cargaArticulosPorCategorias">
                 
             </div>

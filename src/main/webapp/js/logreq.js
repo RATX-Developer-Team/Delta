@@ -17,4 +17,6 @@ $(function() {
         $('.formuReg').show()
         $('.formuLog').hide()
     })
+
+    $("input").prop("required",true);
 });

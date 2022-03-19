@@ -168,6 +168,10 @@ a.nav-link:before, a.nav-link:after {
     width: 100%;
     transition: 0s;
   }
+ 
+  .categorias,.subcategorias{
+    flex-wrap: wrap;
+  }
 
 
 /*NOTICIAS PRINCIPALES*/
@@ -433,4 +437,11 @@ h3 .tituloSeccion{
 .ocultar{
     position: absolute;
     left:-9000px;
+}
+
+
+@media print {
+    .cabecera, .bread, .piesito, .fotoNoticia, .comentarios{
+        display: none !important;
+    }
 }

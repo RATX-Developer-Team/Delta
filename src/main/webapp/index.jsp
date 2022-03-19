@@ -89,7 +89,7 @@
                                                     </h:form>
                                                 </ul>
                                             </div>
-                                            <form class="col-12 col-md-auto mb-3 mb-md-0 me-md-3">
+                                            <form class="col-12 col-md-auto mb-3 mb-md-0 me-md-3 d-none d-md-block">
                                                 <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
                                             </form>
                                         </div>
@@ -111,7 +111,7 @@
             <!--  FIN DEL HEADER  -->
 
             <!--  NOTICIAS PRINCIPALES  -->
-            <div class="col-md-8 offset-md-2 mt-4">
+            <div class="col-xl-8 offset-xl-2 mt-4">
               
                       <div class="row">
                         <h3 id="tit" class="tituloSeccion" >Noticias Principales</h3>
@@ -143,7 +143,7 @@
         
         <!--  NOTICIAS POPULARES -->
         <div class="" id="notPopu">
-          <div class="col-md-8 offset-md-2">
+          <div class="col-xl-8 offset-xl-2">
 
               <div class="row">
                 <div class="col-12">
@@ -172,7 +172,7 @@
         
         <!-- NOTICIAS RECIENTES -->
         <div class="">
-          <div class="col-md-8 offset-md-2">
+          <div class="col-xl-8 offset-xl-2">
 
             <div class="row">
               <div class="col-sm-12">
@@ -199,10 +199,10 @@
                                 <h2 class="text-white mb-5">¡Suscribete para recibir nuevas noticias!</h2>
                                 <h:form styleClass="form-subs">
                                     <div class="row input-group-newsletter">
-                                        <div class="col">
+                                        <div class="col-md-9 mb-3 mb-md-0">
                                             <h:inputText styleClass="form-control emailNewletter" value="#{beanRegister.emailNews}"/>
                                         </div>
-                                        <div class="col-auto btnNews position-relative">
+                                        <div class="col-md-2 btnNews position-relative">
                                             <h:commandButton styleClass="btn btn-subs" actionListener="#{beanRegister.guardarMail()}" value="Suscribirme"/>
                                             <span class="ocultar">Botón para suscribirse al periódico y recibir noticias por correo</span>
                                         </div>

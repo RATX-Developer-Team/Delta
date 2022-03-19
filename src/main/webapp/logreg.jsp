@@ -92,7 +92,7 @@
                                                     </h:form>
                                                 </ul>
                                             </div>
-                                            <form class="col-12 col-md-auto mb-3 mb-md-0 me-md-3">
+                                            <form class="col-12 col-md-auto mb-3 mb-md-0 me-md-3 d-none d-md-block">
                                                 <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
                                             </form>
                                         </div>
@@ -131,7 +131,7 @@
                         <h:form styleClass="formuLog">
                             <fieldset>
                                 <div class="filaL">
-                                    <h:inputText required="" value="#{beanLogin.email}" styleClass=" inputLogin"/>
+                                    <h:inputText required="" value="#{beanLogin.email}" styleClass=" inputLogin" />
                                     <label for="correo" class="lCorreo"><i class="fa-solid fa-envelope icono"></i>Correo Electrónico</label>
                                 </div>
                                 <div class="filaL">
@@ -145,7 +145,7 @@
 
                                 <div class="entrar">
                                     <div class="cajaBoton">
-                                        <h:commandButton action="#{beanLogin.esUsuario()}" value="Entrar" styleClass="botonsillo colorsillo"/>
+                                        <h:commandButton action="#{beanLogin.esUsuario()}" value="Entrar" styleClass="botonaso colorsillo"/>
                                         
                                     </div>
                                 </div>
@@ -231,7 +231,7 @@
 
 
         <!--  FOOTER DE LA PÁGINA CON EL NEWSLETTER -->
-         <div class="">  
+        <div class="">  
             <footer class="bd-footer">
                 <section class="subs" id="signup">
                     <div class="container px-4 px-md-5">
@@ -241,11 +241,12 @@
                                 <h2 class="text-white mb-5">¡Suscribete para recibir nuevas noticias!</h2>
                                 <h:form styleClass="form-subs">
                                     <div class="row input-group-newsletter">
-                                        <div class="col">
+                                        <div class="col-md-9 mb-3 mb-md-0">
                                             <h:inputText styleClass="form-control emailNewletter" value="#{beanRegister.emailNews}"/>
                                         </div>
-                                        <div class="col-auto btnNews position-relative">
+                                        <div class="col-md-2 btnNews position-relative">
                                             <h:commandButton styleClass="btn btn-subs" actionListener="#{beanRegister.guardarMail()}" value="Suscribirme"/>
+                                            <span class="ocultar">Botón para suscribirse al periódico y recibir noticias por correo</span>
                                         </div>
                                     </div>
                                 </h:form>
@@ -256,10 +257,10 @@
                 <div class="position-relative w-100 pie">
                     <div class="redes position-absolute start-50 translate-middle">
                         <ul>
-                            <li><a href="#" target="blank"><i class="neg fab fa-brands fa-twitter"></i></a></li>
-                            <li><a href="#" target="blank"><i class="neg fab fa-instagram"></i></a></li>
-                            <li><a href="#" target="blank"><i class="neg fab fa-brands fa-facebook-f"></i></a></li>
-                            <li><a href="#" target="blank"><i class="neg fab fa-brands fa-youtube"></i></a></li>
+                            <li><a href="#" target="blank" aria-label="Enlace para ir a la cuenta de Twitter"><i class="neg fab fa-brands fa-twitter"></i></a></li>
+                            <li><a href="#" target="blank" aria-label="Enlace para ir a la cuenta de Instagram"><i class="neg fab fa-instagram"></i></a></li>
+                            <li><a href="#" target="blank" aria-label="Enlace para ir a la cuenta de Facebook"><i class="neg fab fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="#" target="blank" aria-label="Enlace para ir a la cuenta de Youtube"><i class="neg fab fa-brands fa-youtube"></i></a></li>
                             
                         </ul>
                     </div>

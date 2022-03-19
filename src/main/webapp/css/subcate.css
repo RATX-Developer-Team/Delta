@@ -26,3 +26,20 @@
 .h5{
     font-weight: 300 !important;
 }
+@media only screen and (max-width:1200px){
+    .cajaPrincipal{
+        flex: 0 0 auto;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width:580px){
+    .cargaArticulosPorCategorias{
+        display: flex;
+        flex-direction: column;
+    }
+    .cajita{
+        width: 100%;
+    }
+}

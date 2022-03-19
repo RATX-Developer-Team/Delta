@@ -24,11 +24,15 @@ $(function() {
         $('.navbar-toggler').hide()
     })
 
-    $('.btn-subs').on('click',function(){
-        $(this).val('¡Gracias!')
-        $(this).addClass('enviado pe-5')
-        $(this).after('<i class="fa-solid fa-check listoo"></i>')
-    })
+    
+        $('.btn-subs').on('click',function(){
+            if(!$('.emailNewletter').val().equals("")){
+                $(this).val('¡Gracias!')
+                $(this).addClass('enviado pe-5')
+                $(this).after('<i class="fa-solid fa-check listoo"></i>')
+            }
+        })
+    
 
     $(this).on('scroll', function() {
         let porcen = Math.round(utils_.getScrollPercent())
@@ -47,4 +51,5 @@ $(function() {
             $('.logo').css('height','100px')
         }
     })
+    
 })
