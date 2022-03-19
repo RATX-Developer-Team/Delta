@@ -94,7 +94,7 @@ public class beanAdministracion implements Serializable{
                     utils_.getCtrSubcategorias().findSubcategorias(Integer.parseInt(subCategoriaArt)),
                     titularArt,
                     descripArt,
-                    cuerpoArt,
+                    cuerpoArt.replaceAll("\"", "'"),
                     imgArt,
                     new Date(),
                     0,
