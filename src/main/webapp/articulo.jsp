@@ -143,7 +143,7 @@
 
                     </figure>
                     <section class="mb-5">
-                        <p>
+                        <p id="textoDelArticulo">
                             <h:outputText value="#{beanArticulo.articulo.cuerpoNoticia}" styleClass="fs-5 mb-4 convertirTexto"/>
                         </p>
 

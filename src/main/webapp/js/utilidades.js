@@ -4,6 +4,7 @@ let CATEGORIAS = {}
 let ARTICULOS = {}
 let SUBCATEGORIAS = {}
 
+/*Configuracion general de la carga dinamica*/
 let Config = {
     cantidadArtPrin : 4, //Cantidad de articulos principales
     timeout: 5000, //Tiempo en pasar de articulo despues de hacer hover en uno en MS
@@ -15,7 +16,17 @@ let Config = {
     cantidaddeArticulosPorColumna: 2 // Cantidad de articulos por columna de articulos secundarios
 }
 
+/*
+** Clase: Utilidades
+** Proyecto: Delta
+** Autores: Alejandro Mendoza Zambrana / Alejandro Rojas Rosado
+*/
 var UTILS__ = (function() {
+    /*
+        ** Descripcion: Metodo que devulve el porcentaje de scroll en la pagina web
+        ** Entrada: /
+        ** Salida: Porcentaje de scroll en la pagina
+    */
     function getScrollPercent() {
         var h = document.documentElement, 
             b = document.body,
@@ -24,6 +35,11 @@ var UTILS__ = (function() {
         return (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
     }
 
+    /*
+        ** Descripcion: Metodo que devulve el valor de un parametro de la URL
+        ** Entrada: Nombre del parametro
+        ** Salida: Valor del parametro
+    */
     function parametro(v) {
         const params = new Proxy(new URLSearchParams(window.location.search), {
             get: (searchParams, prop) => searchParams.get(prop),
@@ -31,6 +47,11 @@ var UTILS__ = (function() {
         return params[v]
     }
 
+    /*
+        ** Descripcion: Metodo que devulve el numero de articulos como maximo que puede tener una categoria o subcategoria
+        ** Entrada: Booleando true = Categoria, Booleano false = Subcategoria y Codigo de categoria o subcategoria
+        ** Salida: Cantidad numerica de articulos
+    */
     function contarArt(b,v) {
         if (b) {//Contar articulos por categoria
             let i = 0;
@@ -53,6 +74,7 @@ var UTILS__ = (function() {
         }
     }
 
+    /*Carga de subcategioras en navbar*/
     function cargaSubs() {
         $('.subcategorias').ready(function () {
             Object.keys(SUBCATEGORIAS).forEach(function(k) {
@@ -68,22 +90,25 @@ var UTILS__ = (function() {
         })
     }
 
+    /*Carga de articulos en pagina de la categoria */
     function cargaAriculosEnCategoria() {
-        let articulos_ = ordenarArt(contarArt(true,parametro("codigoCategoria")),"prioridad")
+        let articulos_ = ordenarArt(contarArt(true,parametro("codigoCategoria")),"prioridad",true,parametro("codigoCategoria"))
         Object.keys(articulos_).forEach(function(k) {
             let arti_ = articuloEnCategoriasIPL.replaceAll('{0}', articulos_[k].imagen).replaceAll('{1}', articulos_[k].nVisitas).replaceAll('{2}', articulos_[k].fechaPubli.split(',')[0]).replaceAll('{3}', articulos_[k].titular).replaceAll('{4}', articulos_[k].descripcion).replaceAll('{5}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
             $('.cargaArticulosPorCategorias').prepend(arti_)
         })
     }
 
+    /*Carga de articulos en pagina de subcategoria */
     function cargaAriculosEnSubCategoria() {
-        let articulos_ = ordenarArt(contarArt(false,parametro("codigoSubcategoria")),"prioridad")
+        let articulos_ = ordenarArt(contarArt(false,parametro("codigoSubcategoria")),"prioridad",false,parametro("codigoSubcategoria"))
         Object.keys(articulos_).forEach(function(k) {
             let arti_ = articuloEnCategoriasIPL.replaceAll('{0}', articulos_[k].imagen).replaceAll('{1}', articulos_[k].nVisitas).replaceAll('{2}', articulos_[k].fechaPubli.split(',')[0]).replaceAll('{3}', articulos_[k].titular).replaceAll('{4}', articulos_[k].descripcion).replaceAll('{5}', 'puente?is=a&destino=/articulo.jsp&codigoArt='+articulos_[k].codArt)
             $('.cargaDeArticulosPorSubcategorias').prepend(arti_)
         })
     }
 
+    /*Response: Carga de subcategorias como objeto local */
     function cargaSubCategorias() {
         $.getJSON("response", {
             categorias: "sub"
@@ -104,6 +129,7 @@ var UTILS__ = (function() {
         })
     }
 
+    /*Carga de categorias en navbar */
     function cargaCate() {
         $('.categorias').ready(function () {
             Object.keys(CATEGORIAS).forEach(function(k) {
@@ -113,6 +139,7 @@ var UTILS__ = (function() {
         })
     }
 
+    /*Response: Carga de categorias como objeto local  */
     function cargaCategorias() {
         $.getJSON("response", {
             categorias: "todas"
@@ -128,20 +155,47 @@ var UTILS__ = (function() {
         })
     }
 
-    function ordenarArt(v,kk) {
+    /*
+        ** Descripcion: Metodo que ordena los objetos articulos, tal y como se le indica con los parametros de entrada
+        ** Entrada: Number: cantidad de articulos maximos a devolver, propiedad del objeto por la que se va a ordenar, 
+                    booleano que indica si es categoria o subcateogira, id de categoria o subcategoria
+        ** Salida: Cantidad numerica de articulos
+    */
+    function ordenarArt(v,kk,x,x_) {
         let o = {}
         let o_ = {}
         Object.keys(ARTICULOS).forEach(function(k) {
-            o[k] = ARTICULOS[k][kk]
+            if (x==true) {
+                if (ARTICULOS[k].codCategoria==x_) {
+                    o[k] = ARTICULOS[k][kk]
+                }
+            } else if (x==false) {
+                if (ARTICULOS[k].codSubCategoria==x_) {
+                    o[k] = ARTICULOS[k][kk]
+                }
+            } else {
+                o[k] = ARTICULOS[k][kk]
+            }
         })
 
         let o__ = Object.keys(o).sort(function(a,b){return o[b]-o[a];})
         for (let i=0;i!=v;i++) {
-            o_[o__[i]] = ARTICULOS[o__[i]]
+            if (x==true) {
+                if (ARTICULOS[o__[i]].codCategoria==x_) {
+                    o_[o__[i]] = ARTICULOS[o__[i]]
+                }
+            } else if (x==false) {
+                if (ARTICULOS[o__[i]].codSubCategoria==x_) {
+                    o_[o__[i]] = ARTICULOS[o__[i]]
+                }
+            } else {
+                o_[o__[i]] = ARTICULOS[o__[i]]
+            }
         }
         return o_
     }
 
+    /*Carga de articulos mas recientes en index */
     function cargarArticulosRecientes() {
         let articulos_ = ordenarArt(Config.cantidadArticulosRecientes2,"codArt")
         Object.keys(articulos_).forEach(function(k) {
@@ -150,6 +204,7 @@ var UTILS__ = (function() {
         })
     }
 
+    /*Carga de articulos mas populares por numero de visitas en index */
     function cargarArticulosPopulares() {
         let articulos_ = ordenarArt(Config.cantidadArticulosPopularesGrandes,"nVisitas")
         Object.keys(articulos_).forEach(function(k,index) {
@@ -175,6 +230,7 @@ var UTILS__ = (function() {
         })
     }
 
+    /*Carga de columna secundaria de articulos recientes y prioritarios en index */
     function cargaArtSecun() {
         let articulos_ = ordenarArt(Config.cantidadColumnasNoticiasRecientes*Config.cantidaddeArticulosPorColumna,"prioridad")
         let x_ = 0
@@ -189,12 +245,14 @@ var UTILS__ = (function() {
         }
     }
 
+    /*Metedo para convertir el texto del articulo en codigo HTML */
     function textHTML(str) {
         var dom = document.createElement('div');
         dom.innerHTML = str;
         return dom;
     }
 
+    /*Carga de articulos principales ordenados por prioridad y creacion de carrusel */
     function cargaArtPrinci() {
         let articulos_ = ordenarArt(Config.cantidadArtPrin,"prioridad")
         Object.keys(articulos_).forEach(function(k) {
@@ -227,6 +285,7 @@ var UTILS__ = (function() {
         }
     }
 
+    /*Creacion de grafico dinamico de administrador que indica los 10 ultimos articulos mas visitados comparando su prioridad con sus visitas */
     function ultimosArticulosVisitas() {
         $.getJSON("response", {
             articulo: "todos"
@@ -268,6 +327,7 @@ var UTILS__ = (function() {
         })
     }
 
+    /*Response: Carga de articulos como objeto local para su tratamiento */
     function cargarArticulos() {
         $.getJSON("response", {
             articulo: "todos"

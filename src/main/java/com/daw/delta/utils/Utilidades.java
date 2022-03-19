@@ -51,7 +51,7 @@ public class Utilidades  {
 
     private final String STMP_host = "smtp-mail.outlook.com";
     private final String STMP_port = "587";
-    private final String STMP_user = "deltacc234@outlook.es";
+    private final String STMP_user = "periodicodelta@outlook.com";
     private final String STMP_pass = "NxjzMahP4agq";
 
     @ManagedProperty("#{beanLogin.email}")

@@ -1,5 +1,8 @@
 $(function() {
     console.clear()
     var utils_ = UTILS__
-    $('.convertirTexto').html(utils_.textHTML($('.convertirTexto').html()))
+
+    let texto = document.getElementById('textoDelArticulo')
+    let texto_ = texto.firstElementChild.innerHTML.replaceAll('"','').replaceAll('&lt;','<').replaceAll('&gt;','>')
+    texto.innerHTML = texto_
 });
