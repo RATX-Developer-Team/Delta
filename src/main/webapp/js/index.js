@@ -25,13 +25,13 @@ $(function() {
     })
 
     
-        $('.btn-subs').on('click',function(){
-            if(!$('.emailNewletter').val().equals("")){
-                $(this).val('¡Gracias!')
-                $(this).addClass('enviado pe-5')
-                $(this).after('<i class="fa-solid fa-check listoo"></i>')
-            }
-        })
+    $('.btn-subs').on('click',function(){
+        if(!$('.emailNewletter').val().equals("")){
+            $(this).val('¡Gracias!')
+            $(this).addClass('enviado pe-5')
+            $(this).after('<i class="fa-solid fa-check listoo"></i>')
+        }
+    })
     
 
     $(this).on('scroll', function() {

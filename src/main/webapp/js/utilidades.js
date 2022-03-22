@@ -252,7 +252,7 @@ var UTILS__ = (function() {
         return dom;
     }
 
-    /*Carga de articulos principales ordenados por prioridad y creacion de carrusel */
+    /*Carga de articulos principales ordenados por prioridad y creacion de carrusel */ /*Plugin*/
     function cargaArtPrinci() {
         let articulos_ = ordenarArt(Config.cantidadArtPrin,"prioridad")
         Object.keys(articulos_).forEach(function(k) {
@@ -285,7 +285,7 @@ var UTILS__ = (function() {
         }
     }
 
-    /*Creacion de grafico dinamico de administrador que indica los 10 ultimos articulos mas visitados comparando su prioridad con sus visitas */
+    /*Creacion de grafico dinamico de administrador que indica los 10 ultimos articulos mas visitados comparando su prioridad con sus visitas */ /*Plugin*/
     function ultimosArticulosVisitas() {
         $.getJSON("response", {
             articulo: "todos"
