@@ -34,6 +34,7 @@ public class beanArticulo {
     
     @ManagedProperty("#{beanLogin.email}")
     private String mail;
+    
     private String comentario;
     private String subcomentario;
     

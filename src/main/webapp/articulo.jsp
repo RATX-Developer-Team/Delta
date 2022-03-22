@@ -123,7 +123,7 @@
                         <div class="container mt-3 bread">
                             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                  <li class="breadcrumb-item text-black"><a href="/Delta/faces/index.jsp"><i class="fa-solid fa-house"></i></a></li>
+                                  <li class="breadcrumb-item text-black"><a href="/Delta/faces/index.jsp"><i class="fa-solid fa-house"></i> Inicio</a></li>
                                   <li class="breadcrumb-item nombreCategoriaEnArticulo"><a href="{0}">{1}</a></li>
                                   <li class="breadcrumb-item nombreSubCategoriaEnArticulo"><a href="{2}">{3}</a></li>
                                   <li class="breadcrumb-item active" aria-current="page"><h:outputText value="#{beanArticulo.articulo.titular}"/></li>
@@ -163,7 +163,7 @@
             <div class="card bg-light">
                 <div class="card-body">
                     <!-- Escribe Comentario-->
-                    <h:form styleClass="mb-4" rendered="#{not empty beanArticulo.mail}">
+                    <h:form styleClass="mb-4" rendered="#{not empty beanLogin.usu}">
                         <h:inputTextarea rows="3" styleClass="form-control" value="#{beanArticulo.comentario}"/>
                         <h:commandButton value="Enviar" styleClass="btn btn-fondoPer mt-2" actionListener="#{beanArticulo.guardarComentario()}">
                             <f:param name="is" value="a"/>
@@ -171,7 +171,7 @@
                             <f:param name="codigoArt" value="#{beanArticulo.articulo.codArt}"/>
                         </h:commandButton>
                     </h:form>
-                    <h:outputText styleClass="mb-3" value="Debes estar registrado para poder comentar en el articulo." rendered="#{empty beanArticulo.mail}"/>
+                    <h:outputText styleClass="mb-3" value="Debes estar registrado para poder comentar en el articulo." rendered="#{empty beanLogin.usu}"/>
                     <h:dataTable styleClass="w-100" value="#{beanArticulo.listaComentarios}" var="comen">
                     <h:column>
                     <!-- RESPUESTAS -->
@@ -180,7 +180,7 @@
                         <div class="ms-3 w-100">
                             <div class="fw-bold"><h:outputText value="#{comen.email.nombre}"/></div>
                             <span><h:outputText value="#{comen.contenido}"/></span>
-                            <h:form styleClass="mt-1 mb-1 row" rendered="#{not empty beanArticulo.mail}">
+                            <h:form styleClass="mt-1 mb-1 row" rendered="#{not empty beanLogin.usu}">
                                 <h:inputTextarea rows="1" styleClass="form-control col-12" value="#{beanArticulo.subcomentario}"/>
                                 <h:commandButton value="Responder" styleClass="btn btn-fondoPer mt-2 col-md-1 offset-md-11" actionListener="#{beanArticulo.guardarSubComentario(comen)}">
                                     <f:param name="is" value="a"/>
